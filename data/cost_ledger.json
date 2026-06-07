@@ -1,0 +1,73 @@
+{
+  "cost_gate_version": "provider_cost_gate_v1_0_0",
+  "emergency_stop": true,
+  "daily_limit_usd": 0,
+  "spent_today_usd": 0,
+  "currency": "USD",
+  "current_day": "2026-06-07",
+  "owner_approval_required": true,
+  "low_risk_auto_limit_usd": 0,
+  "updated_at": "2026-06-07T00:55:57.052Z",
+  "events": [
+    {
+      "at": "2026-06-07T00:55:57.052Z",
+      "event": "emergency_stop_enabled"
+    },
+    {
+      "at": "2026-06-07T00:55:57.047Z",
+      "event": "daily_limit_updated",
+      "daily_limit_usd": 0,
+      "low_risk_auto_limit_usd": 0
+    },
+    {
+      "at": "2026-06-07T00:55:56.976Z",
+      "event": "emergency_stop_enabled"
+    },
+    {
+      "at": "2026-06-07T00:55:56.972Z",
+      "event": "daily_limit_updated",
+      "daily_limit_usd": 1.25,
+      "low_risk_auto_limit_usd": 0
+    },
+    {
+      "at": "2026-06-07T00:44:04.598Z",
+      "event": "emergency_stop_enabled"
+    },
+    {
+      "at": "2026-06-07T00:44:04.596Z",
+      "event": "daily_limit_updated",
+      "daily_limit_usd": 0,
+      "low_risk_auto_limit_usd": 0
+    },
+    {
+      "at": "2026-06-07T00:44:04.404Z",
+      "event": "emergency_stop_enabled"
+    },
+    {
+      "at": "2026-06-07T00:44:04.404Z",
+      "event": "daily_limit_updated",
+      "daily_limit_usd": 1.25,
+      "low_risk_auto_limit_usd": 0
+    },
+    {
+      "at": "2026-06-07T00:43:52.293Z",
+      "event": "emergency_stop_enabled"
+    },
+    {
+      "at": "2026-06-07T00:43:52.291Z",
+      "event": "daily_limit_updated",
+      "daily_limit_usd": 0,
+      "low_risk_auto_limit_usd": 0
+    },
+    {
+      "at": "2026-06-07T00:43:52.107Z",
+      "event": "emergency_stop_enabled"
+    },
+    {
+      "at": "2026-06-07T00:43:52.099Z",
+      "event": "daily_limit_updated",
+      "daily_limit_usd": 1.25,
+      "low_risk_auto_limit_usd": 0
+    }
+  ]
+}

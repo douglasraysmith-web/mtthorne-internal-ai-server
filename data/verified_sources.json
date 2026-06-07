@@ -1,0 +1,125 @@
+{
+  "entries": [
+    {
+      "memory_id": "mem_mq2slacd_xm0bn7",
+      "layer": "verified_sources",
+      "created_at": "2026-06-06T20:15:05.629Z",
+      "updated_at": "2026-06-06T20:15:05.629Z",
+      "ttl_seconds": null,
+      "project_id": "room_arche_site",
+      "source_id": "arche_master_source_v1_3",
+      "summary": "Canonical ArchE source pointer.",
+      "validated": true
+    },
+    {
+      "memory_id": "mem_mq2slh3k_3udv7v",
+      "layer": "verified_sources",
+      "created_at": "2026-06-06T20:15:14.384Z",
+      "updated_at": "2026-06-06T20:15:14.384Z",
+      "ttl_seconds": null,
+      "project_id": "room_arche_site",
+      "source_id": "arche_master_source_v1_3",
+      "summary": "Canonical ArchE source pointer.",
+      "validated": true
+    },
+    {
+      "memory_id": "mem_mq2ss0kg_c8jzew",
+      "layer": "verified_sources",
+      "created_at": "2026-06-06T20:20:19.552Z",
+      "updated_at": "2026-06-06T20:20:19.552Z",
+      "ttl_seconds": null,
+      "project_id": "room_arche_site",
+      "source_id": "arche_master_source_v1_3",
+      "summary": "Canonical ArchE source pointer.",
+      "validated": true
+    },
+    {
+      "memory_id": "mem_mq2ss9tp_nhg7zk",
+      "layer": "verified_sources",
+      "created_at": "2026-06-06T20:20:31.549Z",
+      "updated_at": "2026-06-06T20:20:31.549Z",
+      "ttl_seconds": null,
+      "project_id": "room_arche_site",
+      "source_id": "arche_master_source_v1_3",
+      "summary": "Canonical ArchE source pointer.",
+      "validated": true
+    },
+    {
+      "memory_id": "mem_mq30gsrc_re0fq4",
+      "layer": "verified_sources",
+      "created_at": "2026-06-06T23:55:33.144Z",
+      "updated_at": "2026-06-06T23:55:33.144Z",
+      "ttl_seconds": null,
+      "project_id": "room_arche_site",
+      "source_id": "arche_master_source_v1_3",
+      "summary": "Canonical ArchE source pointer.",
+      "validated": true
+    },
+    {
+      "memory_id": "mem_mq30h1pn_ijf2i8",
+      "layer": "verified_sources",
+      "created_at": "2026-06-06T23:55:44.747Z",
+      "updated_at": "2026-06-06T23:55:44.747Z",
+      "ttl_seconds": null,
+      "project_id": "room_arche_site",
+      "source_id": "arche_master_source_v1_3",
+      "summary": "Canonical ArchE source pointer.",
+      "validated": true
+    },
+    {
+      "memory_id": "mem_mq31hn96_xadenj",
+      "layer": "verified_sources",
+      "created_at": "2026-06-07T00:24:12.282Z",
+      "updated_at": "2026-06-07T00:24:12.282Z",
+      "ttl_seconds": null,
+      "project_id": "room_arche_site",
+      "source_id": "arche_master_source_v1_3",
+      "summary": "Canonical ArchE source pointer.",
+      "validated": true
+    },
+    {
+      "memory_id": "mem_mq31hv4q_it4vbp",
+      "layer": "verified_sources",
+      "created_at": "2026-06-07T00:24:22.490Z",
+      "updated_at": "2026-06-07T00:24:22.490Z",
+      "ttl_seconds": null,
+      "project_id": "room_arche_site",
+      "source_id": "arche_master_source_v1_3",
+      "summary": "Canonical ArchE source pointer.",
+      "validated": true
+    },
+    {
+      "memory_id": "mem_mq326via_2g8xeu",
+      "layer": "verified_sources",
+      "created_at": "2026-06-07T00:43:49.378Z",
+      "updated_at": "2026-06-07T00:43:49.378Z",
+      "ttl_seconds": null,
+      "project_id": "room_arche_site",
+      "source_id": "arche_master_source_v1_3",
+      "summary": "Canonical ArchE source pointer.",
+      "validated": true
+    },
+    {
+      "memory_id": "mem_mq3274ta_m2mkms",
+      "layer": "verified_sources",
+      "created_at": "2026-06-07T00:44:01.438Z",
+      "updated_at": "2026-06-07T00:44:01.438Z",
+      "ttl_seconds": null,
+      "project_id": "room_arche_site",
+      "source_id": "arche_master_source_v1_3",
+      "summary": "Canonical ArchE source pointer.",
+      "validated": true
+    },
+    {
+      "memory_id": "mem_mq32meum_01fe0r",
+      "layer": "verified_sources",
+      "created_at": "2026-06-07T00:55:54.286Z",
+      "updated_at": "2026-06-07T00:55:54.286Z",
+      "ttl_seconds": null,
+      "project_id": "room_arche_site",
+      "source_id": "arche_master_source_v1_3",
+      "summary": "Canonical ArchE source pointer.",
+      "validated": true
+    }
+  ]
+}

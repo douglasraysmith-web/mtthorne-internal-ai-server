@@ -1,0 +1,11 @@
+{
+  "storage_version": "storage_adapter_v0_6_0",
+  "active_driver": "json_file",
+  "available_drivers": ["json_file"],
+  "future_drivers": ["sqlite", "postgres", "redis_streams", "qdrant_manifest"],
+  "migration_rule": "All server modules must use the storage adapter boundary; do not hard-code database calls inside AI, lane, or route modules.",
+  "public_activation": "inactive",
+  "provider_dispatch": "inactive",
+  "customer_data": "inactive",
+  "payment_account_access": "inactive"
+}

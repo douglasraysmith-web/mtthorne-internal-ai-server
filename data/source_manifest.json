@@ -1,0 +1,52 @@
+{
+  "sources": [
+    {
+      "source_id": "arche_master_source_v1_3",
+      "title": "ArchE Master Source v1.3",
+      "source_type": "governance_text",
+      "project_room": "room_arche_site",
+      "authority_level": "active_project_source",
+      "status": "active",
+      "allowed_ai": ["arche"],
+      "visibility": "owner_only",
+      "raw_source_storage": false,
+      "notes": "Metadata only. Source governs ArchE/ArchEAngel internal behavior and public/private boundary."
+    },
+    {
+      "source_id": "approved_av_sources",
+      "title": "Approved AV Source Library",
+      "source_type": "future_connector_manifest",
+      "project_room": "room_av_ai",
+      "authority_level": "pending",
+      "status": "proposed",
+      "allowed_ai": ["av_ai", "arche"],
+      "visibility": "owner_only",
+      "raw_source_storage": false,
+      "notes": "Connect approved AV documentation, drivers, protocols, and package rules here."
+    },
+    {
+      "source_id": "approved_brand_mark",
+      "title": "Approved MT Thorne Brand Mark",
+      "source_type": "image_asset_manifest",
+      "project_room": "room_vlock_images",
+      "authority_level": "active_rule",
+      "status": "active",
+      "allowed_ai": ["vlock_ai", "arche"],
+      "visibility": "owner_only",
+      "raw_source_storage": false,
+      "notes": "Do not redraw or reinterpret. Use only the approved uploaded asset when available."
+    },
+    {
+      "source_id": "support_policy",
+      "title": "Publishing Company Support Policy",
+      "source_type": "future_policy_manifest",
+      "project_room": "room_janitor_client_reply",
+      "authority_level": "pending",
+      "status": "proposed",
+      "allowed_ai": ["janitor", "arche"],
+      "visibility": "owner_only",
+      "raw_source_storage": false,
+      "notes": "Support, triage, business boundary, customer reply, and escalation policy goes here."
+    }
+  ]
+}

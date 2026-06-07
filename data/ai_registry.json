@@ -1,0 +1,40 @@
+{
+  "primary_ais": [
+    {
+      "id": "arche",
+      "name": "ArchĒ",
+      "role": "Governance, project rooms, source-lock, routing, verification, and internal site/project control.",
+      "public_facing": false,
+      "includes": ["archeangel_escalation_mode"]
+    },
+    {
+      "id": "av_ai",
+      "name": "AV.AI",
+      "role": "Audio/video and home theater intelligence, intake, proposal support, design guidance, and premium AV knowledge.",
+      "public_facing": "prepared_only"
+    },
+    {
+      "id": "vlock_ai",
+      "name": "V-Lock AI",
+      "role": "Visual consistency, brand/image protection, illustration production review, and image interpretation quality.",
+      "public_facing": false,
+      "includes": ["warlock_escalation_coordinator"]
+    },
+    {
+      "id": "janitor",
+      "name": "The Janitor",
+      "role": "Client reply, support triage, after-hours gatekeeping, issue classification, business friction handling, and professional boundary replies.",
+      "public_facing": "prepared_only"
+    }
+  ],
+  "round_table_lanes": [
+    "source_lock",
+    "builder",
+    "verifier",
+    "error_ledger",
+    "speed_router",
+    "quality_judge",
+    "security_privacy"
+  ],
+  "law": "Four primary AIs. Seven internal lanes. No cross-project contamination. No public/private leakage. No unverified claims. Every error becomes a prevention rule. Speed comes from routing and cache. Quality comes from verification and the round table."
+}

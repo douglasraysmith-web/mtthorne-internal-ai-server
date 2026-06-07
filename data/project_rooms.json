@@ -1,0 +1,52 @@
+{
+  "rooms": [
+    {
+      "project_id": "room_arche_site",
+      "project_name": "ArchĒ / mtthorne.com Internal Governance",
+      "active_ai": "arche",
+      "allowed_sources": ["arche_master_source_v1_3"],
+      "forbidden_sources": ["owner_private_records", "payment_records", "customer_records"],
+      "current_status": "internal_prepared",
+      "visibility": "owner_only",
+      "artifact_rules": ["truth_bound", "no_unverified_release_claims", "batch_deploy_milestones"],
+      "error_rules": ["zero_repeat_preventable_errors"],
+      "last_verified_state": "v3.4.3 customer chat readiness prepared; public chat inactive"
+    },
+    {
+      "project_id": "room_av_ai",
+      "project_name": "AV.AI / Home Theater Intelligence",
+      "active_ai": "av_ai",
+      "allowed_sources": ["approved_av_sources", "home_theater_tools"],
+      "forbidden_sources": ["unapproved_vendor_feeds", "private_book_projects"],
+      "current_status": "internal_prepared",
+      "visibility": "owner_only",
+      "artifact_rules": ["premium_quality", "no_unapproved_vendor_claims"],
+      "error_rules": ["no_generic_av_output"],
+      "last_verified_state": "source scaffold prepared"
+    },
+    {
+      "project_id": "room_vlock_images",
+      "project_name": "V-Lock AI / Visual Production",
+      "active_ai": "vlock_ai",
+      "allowed_sources": ["approved_brand_mark", "active_visual_briefs"],
+      "forbidden_sources": ["redrawn_brand_marks", "unapproved_style_transfer"],
+      "current_status": "internal_prepared",
+      "visibility": "owner_only",
+      "artifact_rules": ["do_not_recreate_brand_mark", "production_grade_review"],
+      "error_rules": ["no_close_but_wrong_visual_substitution"],
+      "last_verified_state": "source scaffold prepared"
+    },
+    {
+      "project_id": "room_janitor_client_reply",
+      "project_name": "The Janitor / Client Reply Gatekeeper",
+      "active_ai": "janitor",
+      "allowed_sources": ["support_policy", "business_issue_catalog"],
+      "forbidden_sources": ["raw_owner_records", "payment_account_records", "private_project_rooms"],
+      "current_status": "internal_prepared",
+      "visibility": "owner_only",
+      "artifact_rules": ["professional_boundary", "calm_reply", "triage_before_action"],
+      "error_rules": ["no_false_payment_or_account_access_claims"],
+      "last_verified_state": "source scaffold prepared"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "name": "mtthorne-internal-ai-server",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Stable internal AI sidecar for 4 primary AI systems plus 7 round-table lanes, using existing GitHub/Railway/Netlify/R2/OpenAI/Anthropic services with provider/cost gates, owner-approval locks, deployment profiles, queue/storage/R2 adapters, release gates, traces, memory layers, and bridge prep.",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "AI_SERVER_PORT=8787 node src/server.js",
+    "test": "node --test --test-concurrency=1 tests/*.test.js",
+    "health": "node src/cli.js health",
+    "decision": "node src/cli.js decision",
+    "queue": "node src/cli.js queue"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {}
+}

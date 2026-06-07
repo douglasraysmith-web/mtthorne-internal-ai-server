@@ -1,0 +1,10 @@
+{
+  "object_storage_version": "r2_adapter_v0_8_0",
+  "active_driver": "local_manifest",
+  "available_drivers": ["local_manifest"],
+  "future_drivers": ["cloudflare_r2_s3_compatible"],
+  "bucket_policy": "Use R2 for approved artifacts, bridge archives, source packets, backups, and large payloads by ID. Do not store secrets or unapproved private records.",
+  "payload_rule": "Pass object IDs/pointers through queues and bridge records. Do not embed large artifacts, raw owner records, provider payloads, customer records, payment data, or API keys.",
+  "public_activation": "inactive",
+  "provider_dispatch": "inactive"
+}

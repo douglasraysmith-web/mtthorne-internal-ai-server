@@ -1,0 +1,15 @@
+{
+  "errors": [
+    {
+      "error_id": "err_archangel_classification_001",
+      "project_room": "room_arche_site",
+      "visible_failure": "ArchEAngel was counted as a separate primary AI instead of an escalation layer under ArchE.",
+      "likely_cause": "Loose classification between primary AI identities and helper/escalation lanes.",
+      "repair": "Classify ArchEAngel as escalation mode under ArchE. Classify WarLock as escalation coordinator under V-Lock AI.",
+      "verification_check": "Primary AI count must equal four: ArchE, AV.AI, V-Lock AI, The Janitor.",
+      "do_not_repeat_rule": "Never count escalation layers as separate primary AIs unless user explicitly reclassifies them.",
+      "carryforward_rule": "Separate primary AIs, escalation layers, and round-table lanes in every architecture document.",
+      "status": "active"
+    }
+  ]
+}

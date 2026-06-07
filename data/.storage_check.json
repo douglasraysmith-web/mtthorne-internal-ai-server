@@ -1,0 +1,7 @@
+{
+  "check_id": "storage_check_mq32mg4c_cy4lv9",
+  "created_at": "2026-06-07T00:55:55.932Z",
+  "driver": "json_file",
+  "data_dir": "C:\\Users\\dougl\\Downloads\\internal-ai-server\\data",
+  "purpose": "Verify adapter read/write round trip without touching business records."
+}

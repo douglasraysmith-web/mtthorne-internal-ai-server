@@ -1,0 +1,10 @@
+{
+  "routing_keywords": {
+    "arche": ["arche", "mtthorne.com", "site", "project room", "source", "deploy", "netlify", "public", "private", "governance"],
+    "av_ai": ["av", "audio", "video", "home theater", "proposal", "receiver", "speaker", "projector", "installation"],
+    "vlock_ai": ["image", "illustration", "brand", "cover", "visual", "logo", "picture", "render"],
+    "janitor": ["client", "customer", "email", "reply", "support", "after hours", "complaint", "refund", "issue"]
+  },
+  "escalation_triggers": ["3", "3 5 1", "high-risk", "security", "payment", "customer data", "public activation", "deploy", "release", "legal", "repeated failure"],
+  "blocked_public_terms": ["api key", "owner token", "provider payload", "raw prompt", "private project room", "payment record", "customer record", "registry log"]
+}
