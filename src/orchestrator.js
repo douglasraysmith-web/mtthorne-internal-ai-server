@@ -19,11 +19,11 @@ export function health() {
   return {
     ok: true,
     service: 'mtthorne-internal-ai-server',
-    version: '1.0.0',
+    version: '1.1.0',
     primary_ai_count: 4,
     round_table_lane_count: 7,
     total_operating_seats: 11,
-    public_chat: 'inactive_until_explicit_approval',
+    public_chat: process.env.AI_PUBLIC_MODE === 'true' ? 'enabled' : 'inactive_until_explicit_approval',
     provider_dispatch: process.env.AI_ALLOW_PROVIDER_DISPATCH === 'true' ? 'enabled' : 'inactive',
     rooms: listProjectRooms().length,
     sources: listSources().length,
@@ -41,13 +41,16 @@ export function health() {
     object_storage_layer: 'r2_adapter_v0_8_0',
     object_storage_driver: r2StorageStatus().active_driver,
     deployment_readiness_layer: 'deployment_readiness_v0_8_0',
-    provider_gate_layer: 'provider_dispatch_gate_v1_0_0',
+    provider_gate_layer: 'provider_dispatch_gate_v1_1_0',
     provider_dispatch_gate: providerStatus().provider_dispatch,
     cost_gate_layer: 'cost_gate_v1_0_0',
     owner_approval_layer: 'owner_approval_gate_v1_0_0',
     deployment_profile_layer: 'existing_services_profile_v1_0_0',
-    stable_sidecar_layer: 'stable_internal_sidecar_v1_0_0',
-    emergency_stop: costStatus().emergency_stop
+    stable_sidecar_layer: 'stable_internal_sidecar_v1_1_0',
+    emergency_stop: costStatus().emergency_stop,
+    ava_gateway_layer: 'ava_gateway_v1_1_0',
+    arche_live_bridge_layer: 'arche_live_bridge_v1_1_0',
+    r2_live_driver_layer: 'r2_live_driver_v1_1_0'
   };
 }
 

@@ -8,7 +8,7 @@ import { listTraces, getTrace } from '../src/servers/trace.js';
 
 test('v0.4.0 health exposes contract, trace, memory, and release layers', () => {
   const h = health();
-  assert.ok(['0.5.0','0.5.1','0.6.0','0.7.0','0.8.0','0.9.0','0.9.0','0.9.0','0.9.0','1.0.0'].includes(h.version));
+  assert.ok(['0.5.0','0.5.1','0.6.0','0.7.0','0.8.0','0.9.0','0.9.0','0.9.0','0.9.0','1.0.0','1.0.1','1.1.0'].includes(h.version));
   assert.equal(h.contract_layer, 'typed_message_contract_v0_4_0');
   assert.equal(h.trace_layer, 'trace_log_v0_5_0');
   assert.equal(h.memory_layer, 'memory_layers_v0_4_0');

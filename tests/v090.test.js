@@ -5,15 +5,15 @@ import { providerStatus, providerCheck, providerEstimate, providerDispatch, cost
 
 test('v0.9.0 health exposes provider and cost gate layers', () => {
   const h = health();
-  assert.equal(h.version, '1.0.0');
-  assert.equal(h.provider_gate_layer, 'provider_dispatch_gate_v1_0_0');
+  assert.ok(['1.0.0','1.0.1','1.1.0'].includes(h.version));
+  assert.ok(['provider_dispatch_gate_v1_0_0','provider_dispatch_gate_v1_1_0'].includes(h.provider_gate_layer));
   assert.equal(h.cost_gate_layer, 'cost_gate_v1_0_0');
 });
 
 test('v0.9.0 provider status recognizes existing providers but keeps dispatch gated', () => {
   const s = providerStatus();
   assert.equal(s.ok, true);
-  assert.equal(s.provider_gate_version, 'provider_dispatch_gate_v1_0_0');
+  assert.ok(['provider_dispatch_gate_v1_0_0','provider_dispatch_gate_v1_1_0'].includes(s.provider_gate_version));
   assert.ok(s.supported_providers.includes('openai'));
   assert.ok(s.supported_providers.includes('anthropic'));
   assert.equal(s.real_provider_calls, 'blocked_no_network_driver');
@@ -34,8 +34,8 @@ test('v0.9.0 provider estimate returns a cost without dispatching', () => {
   assert.equal(estimate.cost_gate_note, 'Estimate only; no provider API call performed.');
 });
 
-test('v0.9.0 provider dispatch is blocked by default', () => {
-  const result = providerDispatch({ provider: 'openai', request: 'Call provider now.', estimated_input_tokens: 100, estimated_output_tokens: 100 });
+test('v0.9.0 provider dispatch is blocked by default', async () => {
+  const result = await providerDispatch({ provider: 'openai', request: 'Call provider now.', estimated_input_tokens: 100, estimated_output_tokens: 100 });
   assert.equal(result.ok, false);
   assert.equal(result.status, 'blocked');
   assert.equal(result.network_call, 'not_performed');

@@ -5,7 +5,7 @@ import { enqueueJob, processJob, replayJob, getJob, listRecentJobs } from '../sr
 
 test('v0.5.1 health exposes updated queue and workflow layers', () => {
   const h = health();
-  assert.ok(['0.5.1','0.6.0','0.7.0','0.8.0','0.9.0','0.9.0','0.9.0','1.0.0'].includes(h.version));
+  assert.ok(['0.5.1','0.6.0','0.7.0','0.8.0','0.9.0','0.9.0','0.9.0','1.0.0','1.0.1','1.1.0'].includes(h.version));
   assert.equal(h.queue_layer, 'durable_queue_lifecycle_v0_5_1');
   assert.equal(h.workflow_layer, 'replayable_workflows_v0_5_1');
 });

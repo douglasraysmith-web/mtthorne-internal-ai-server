@@ -2,6 +2,7 @@ import path from 'node:path';
 import { CONFIG } from '../config.js';
 import { resolveDataDir, readJson, writeJson, nowIso, id } from '../utils/store.js';
 import { scanPublicBoundary } from './publicBoundary.js';
+import { callProvider } from './providerNetwork.js';
 
 const costFile = () => path.join(resolveDataDir(), 'cost_ledger.json');
 const providerLogFile = () => path.join(resolveDataDir(), 'provider_dispatch_log.json');
@@ -75,7 +76,7 @@ export function providerStatus() {
   const cost = loadCostState();
   return {
     ok: true,
-    provider_gate_version: 'provider_dispatch_gate_v1_0_0',
+    provider_gate_version: 'provider_dispatch_gate_v1_1_0',
     provider_dispatch: CONFIG.allowProviderDispatch ? 'enabled_by_env_but_still_gated' : 'inactive',
     active_dispatch_driver: CONFIG.allowProviderNetwork ? 'network_driver_enabled_by_env_but_guarded' : 'gated_no_network_default',
     openai_key_present: keys.openai,
@@ -181,7 +182,7 @@ export function approvalCheck(input = {}) {
   return result;
 }
 
-export function providerDispatch(input = {}) {
+export async function providerDispatch(input = {}) {
   const estimate = providerEstimate(input);
   const cost = loadCostState();
   const boundary = scanPublicBoundary({ ...input, provider_dispatch: true });
@@ -201,32 +202,52 @@ export function providerDispatch(input = {}) {
   if (boundary.blocks?.length) blocks.push(...boundary.blocks);
 
   const gatePassed = blocks.length === 0;
-  const networkWouldRun = gatePassed && CONFIG.allowProviderNetwork && !CONFIG.providerDryRunOnly;
+  const networkWillRun = gatePassed && CONFIG.allowProviderNetwork && !CONFIG.providerDryRunOnly;
+  let providerResponse = null;
+  let networkError = null;
+
+  if (networkWillRun) {
+    try {
+      providerResponse = await callProvider({
+        provider: estimate.provider,
+        request: String(input.request || input.prompt || input.text || ''),
+        system: String(input.system || input.instructions || 'You are a careful assistant for M.T. Thorne Publishing Company. Follow the supplied project boundary and do not expose private data.'),
+        max_output_tokens: Number(input.max_output_tokens || input.estimated_output_tokens || 1200),
+        model: input.model
+      });
+      const next = loadCostState();
+      next.spent_today_usd = Number((Number(next.spent_today_usd || 0) + Number(estimate.estimated_cost_usd || 0)).toFixed(6));
+      next.events = [{ at: nowIso(), event: 'provider_charge_estimate_recorded', provider: estimate.provider, estimated_cost_usd: estimate.estimated_cost_usd }, ...(next.events || [])].slice(0, 100);
+      saveCostState(next);
+    } catch (error) {
+      networkError = String(error?.message || error);
+    }
+  }
+
+  const ok = gatePassed && (!networkWillRun || Boolean(providerResponse));
   const result = {
-    ok: gatePassed,
-    provider_gate_version: 'provider_dispatch_gate_v1_0_0',
-    status: gatePassed ? (networkWouldRun ? 'dispatch_gate_passed_network_driver_available_but_not_implemented' : 'dispatch_gate_passed_dry_run_only') : 'blocked',
+    ok,
+    provider_gate_version: 'provider_dispatch_gate_v1_1_0',
+    status: !gatePassed ? 'blocked' : networkError ? 'network_failed' : networkWillRun ? 'provider_response_received' : 'dispatch_gate_passed_dry_run_only',
     provider: estimate.provider,
     model_route: estimate.model_route,
     estimate,
     approval,
     blocks,
     warnings,
-    network_call: 'not_performed',
-    charged: false,
-    response: gatePassed ? {
-      simulated: true,
-      summary: 'Provider dispatch gate passed, but v1.0.0 remains dry-run/no-network unless a later network driver is explicitly implemented and approved.'
-    } : null
+    network_call: networkWillRun ? (providerResponse ? 'performed' : 'attempted_failed') : 'not_performed',
+    charged: networkWillRun && Boolean(providerResponse),
+    response: providerResponse,
+    error: networkError
   };
-  appendProviderLog({ type: 'dispatch_attempt', ok: result.ok, provider: result.provider, status: result.status, estimated_cost_usd: estimate.estimated_cost_usd, blocks, warnings });
+  appendProviderLog({ type: 'dispatch_attempt', ok: result.ok, provider: result.provider, status: result.status, estimated_cost_usd: estimate.estimated_cost_usd, blocks, warnings, network_call: result.network_call });
   return result;
 }
 
 export function providerLog(input = {}) {
   const limit = Number(input.limit || 50);
   const log = readJson(providerLogFile(), { entries: [] });
-  return { ok: true, provider_gate_version: 'provider_dispatch_gate_v1_0_0', entries: (log.entries || []).slice(0, limit) };
+  return { ok: true, provider_gate_version: 'provider_dispatch_gate_v1_1_0', entries: (log.entries || []).slice(0, limit) };
 }
 
 export function costStatus() {

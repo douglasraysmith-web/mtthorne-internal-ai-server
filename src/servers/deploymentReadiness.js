@@ -37,7 +37,7 @@ export function deploymentReadinessCheck() {
     railway_start_command: 'npm start',
     railway_required_env: [
       'AI_SERVER_HOST=0.0.0.0',
-      'AI_SERVER_PORT=${PORT}',
+      'Use Railway PORT automatically; do not set AI_SERVER_PORT unless overriding locally',
       'AI_PUBLIC_MODE=false',
       'AI_ALLOW_PROVIDER_DISPATCH=false',
       'AI_ALLOW_ARCHE_PUSH=false'

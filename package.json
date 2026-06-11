@@ -1,9 +1,9 @@
 {
   "name": "mtthorne-internal-ai-server",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "type": "module",
-  "description": "Stable internal AI sidecar for 4 primary AI systems plus 7 round-table lanes, using existing GitHub/Railway/Netlify/R2/OpenAI/Anthropic services with provider/cost gates, owner-approval locks, deployment profiles, queue/storage/R2 adapters, release gates, traces, memory layers, and bridge prep.",
+  "description": "Stable internal AI sidecar v1.0.1 Railway port-safe patch for 4 primary AI systems plus 7 round-table lanes, using existing GitHub/Railway/Netlify/R2/OpenAI/Anthropic services with provider/cost gates, owner-approval locks, deployment profiles, queue/storage/R2 adapters, release gates, traces, memory layers, and bridge prep.",
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
@@ -16,5 +16,7 @@
   "engines": {
     "node": ">=20"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.828.0"
+  }
 }

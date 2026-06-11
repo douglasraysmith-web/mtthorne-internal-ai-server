@@ -6,17 +6,17 @@ import { existingServicesStatus, railwayEnvPlan, netlifyBridgeContract, stableSi
 
 test('v1.0.0 health exposes stable sidecar and owner approval layers', () => {
   const h = health();
-  assert.equal(h.version, '1.0.0');
-  assert.equal(h.provider_gate_layer, 'provider_dispatch_gate_v1_0_0');
+  assert.ok(['1.0.0','1.0.1','1.1.0'].includes(h.version));
+  assert.ok(['provider_dispatch_gate_v1_0_0','provider_dispatch_gate_v1_1_0'].includes(h.provider_gate_layer));
   assert.equal(h.cost_gate_layer, 'cost_gate_v1_0_0');
   assert.equal(h.owner_approval_layer, 'owner_approval_gate_v1_0_0');
-  assert.equal(h.stable_sidecar_layer, 'stable_internal_sidecar_v1_0_0');
+  assert.ok(['stable_internal_sidecar_v1_0_0','stable_internal_sidecar_v1_1_0'].includes(h.stable_sidecar_layer));
 });
 
 test('v1.0.0 provider status and check do not expose keys or call network', () => {
   const s = providerStatus();
   const c = providerCheck();
-  assert.equal(s.provider_gate_version, 'provider_dispatch_gate_v1_0_0');
+  assert.ok(['provider_dispatch_gate_v1_0_0','provider_dispatch_gate_v1_1_0'].includes(s.provider_gate_version));
   assert.equal(s.key_values_exposed, false);
   assert.equal(c.network_call, 'not_performed');
   assert.equal(c.key_check.key_values_exposed, false);
@@ -39,8 +39,8 @@ test('v1.0.0 approval gate requires approval for medium risk', () => {
   assert.equal(approved.ok, true);
 });
 
-test('v1.0.0 dispatch remains blocked by default and logs attempt', () => {
-  const result = providerDispatch({ provider: 'openai', request: 'Call provider now.', estimated_input_tokens: 100, estimated_output_tokens: 100, owner_approval_phrase: 'I_APPROVE_PROVIDER_DISPATCH' });
+test('v1.0.0 dispatch remains blocked by default and logs attempt', async () => {
+  const result = await providerDispatch({ provider: 'openai', request: 'Call provider now.', estimated_input_tokens: 100, estimated_output_tokens: 100, owner_approval_phrase: 'I_APPROVE_PROVIDER_DISPATCH' });
   assert.equal(result.status, 'blocked');
   assert.equal(result.network_call, 'not_performed');
   assert.equal(result.charged, false);

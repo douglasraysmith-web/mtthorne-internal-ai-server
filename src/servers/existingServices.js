@@ -22,7 +22,7 @@ export function railwayEnvPlan() {
     profile_version: 'existing_services_profile_v1_0_0',
     required_for_private_sidecar: [
       'AI_SERVER_HOST=0.0.0.0',
-      'AI_SERVER_PORT=${PORT}',
+      'Use Railway PORT automatically; do not set AI_SERVER_PORT unless overriding locally',
       'AI_PUBLIC_MODE=false',
       'AI_ALLOW_PROVIDER_DISPATCH=false',
       'AI_ALLOW_PROVIDER_NETWORK=false',
