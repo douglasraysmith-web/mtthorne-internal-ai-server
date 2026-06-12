@@ -182,3 +182,8 @@ A provider dispatch request is blocked unless the environment allows dispatch, e
 ## v1.0.0 Stable Existing-Services Sidecar
 
 This version adds owner-approval gates, provider dispatch logging, existing-services profile endpoints, Railway env planning, Netlify bridge contract, and a stable sidecar check. It still does not activate public chat, provider network calls, customer-data access, payment access, automatic ArchE import, or real R2 writes.
+
+
+### Registry safety
+
+Before deployment, run `npm run verify:registry`. The build must not contain internal-only npm registry URLs.

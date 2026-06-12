@@ -59,3 +59,7 @@ This prevents silent fallback when PostgreSQL is unavailable.
 - Local JSON stays as an atomic recovery copy unless disabled.
 - The HTTP migration route requires the owner approval token.
 - AVA session memory now uses the shared storage adapter and remains bounded to eight turns with a 30-minute TTL.
+
+## Registry safety gate
+
+The deployable package includes `.npmrc` pinned to `https://registry.npmjs.org/` and a `verify:registry` script. `npm run predeploy` fails if `package-lock.json` or `.npmrc` contains internal-only registry references.

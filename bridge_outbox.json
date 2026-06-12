@@ -1,8 +1,8 @@
 [
   {
-    "bridge_id": "bridge_mqagcmb3_0hoedn",
-    "created_at": "2026-06-12T04:54:35.247Z",
-    "updated_at": "2026-06-12T04:54:35.247Z",
+    "bridge_id": "bridge_mqb6p6p8_p0xrcy",
+    "created_at": "2026-06-12T17:12:11.564Z",
+    "updated_at": "2026-06-12T17:12:11.564Z",
     "status": "queued_for_manual_import",
     "target": "arche-backend",
     "project_id": "room_arche_site",
@@ -61,9 +61,9 @@
         "context": {
           "contract": {
             "contract_version": "typed_message_contract_v0_4_0",
-            "request_id": "req_mqagcm76_32bzpi",
-            "trace_id": "trace_mqagcm76_00aop7",
-            "created_at": "2026-06-12T04:54:35.106Z",
+            "request_id": "req_mqb6p6lc_uke1ez",
+            "trace_id": "trace_mqb6p6lc_q2wfru",
+            "created_at": "2026-06-12T17:12:11.424Z",
             "project_id": "room_arche_site",
             "requested_by": "owner",
             "risk_tier": "high",
@@ -80,8 +80,8 @@
             }
           },
           "trace": {
-            "trace_id": "trace_mqagcm76_00aop7",
-            "request_id": "req_mqagcm76_32bzpi"
+            "trace_id": "trace_mqb6p6lc_q2wfru",
+            "request_id": "req_mqb6p6lc_uke1ez"
           },
           "route": {
             "selected_ai": "arche",
@@ -175,9 +175,9 @@
     }
   },
   {
-    "bridge_id": "bridge_mqagcm6z_hhjmp2",
-    "created_at": "2026-06-12T04:54:35.099Z",
-    "updated_at": "2026-06-12T04:54:35.099Z",
+    "bridge_id": "bridge_mqb6p6l5_s4hduf",
+    "created_at": "2026-06-12T17:12:11.417Z",
+    "updated_at": "2026-06-12T17:12:11.417Z",
     "status": "queued_for_manual_import",
     "target": "arche-backend",
     "project_id": "room_arche_site",
@@ -234,9 +234,9 @@
         "context": {
           "contract": {
             "contract_version": "typed_message_contract_v0_4_0",
-            "request_id": "req_mqagcm31_hqzfpx",
-            "trace_id": "trace_mqagcm31_oa3cwz",
-            "created_at": "2026-06-12T04:54:34.957Z",
+            "request_id": "req_mqb6p6h4_agcc0i",
+            "trace_id": "trace_mqb6p6h4_ppmds3",
+            "created_at": "2026-06-12T17:12:11.272Z",
             "project_id": "room_arche_site",
             "requested_by": "owner",
             "risk_tier": "medium",
@@ -253,8 +253,8 @@
             }
           },
           "trace": {
-            "trace_id": "trace_mqagcm31_oa3cwz",
-            "request_id": "req_mqagcm31_hqzfpx"
+            "trace_id": "trace_mqb6p6h4_ppmds3",
+            "request_id": "req_mqb6p6h4_agcc0i"
           },
           "route": {
             "selected_ai": "arche",

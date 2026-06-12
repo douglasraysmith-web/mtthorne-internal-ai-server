@@ -13,7 +13,9 @@
     "decision": "node src/cli.js decision",
     "queue": "node src/cli.js queue",
     "storage:migrate": "node scripts/migrate-json-to-postgres.mjs",
-    "storage:migrate:overwrite": "node scripts/migrate-json-to-postgres.mjs --overwrite"
+    "storage:migrate:overwrite": "node scripts/migrate-json-to-postgres.mjs --overwrite",
+    "verify:registry": "node scripts/verify-public-registry.mjs",
+    "predeploy": "npm run verify:registry && npm test"
   },
   "engines": {
     "node": ">=20"
