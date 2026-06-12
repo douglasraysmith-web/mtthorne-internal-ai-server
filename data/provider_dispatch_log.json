@@ -19,6 +19,68 @@
         "provider_dry_run_only_active"
       ],
       "network_call": "not_performed",
+      "at": "2026-06-12T19:43:50.078Z"
+    },
+    {
+      "type": "dispatch_attempt",
+      "ok": false,
+      "provider": "openai",
+      "status": "blocked",
+      "estimated_cost_usd": 0.000075,
+      "blocks": [
+        "provider_dispatch_env_disabled",
+        "provider_network_driver_disabled",
+        "cost_gate_emergency_stop_active",
+        "provider_key_missing:openai",
+        "estimated_cost_exceeds_or_daily_limit_zero",
+        "Provider dispatch is inactive unless explicitly enabled."
+      ],
+      "warnings": [
+        "provider_dry_run_only_active"
+      ],
+      "network_call": "not_performed",
+      "at": "2026-06-12T19:43:49.895Z"
+    },
+    {
+      "type": "dispatch_attempt",
+      "ok": false,
+      "provider": "openai",
+      "status": "blocked",
+      "estimated_cost_usd": 0.000075,
+      "blocks": [
+        "provider_dispatch_env_disabled",
+        "provider_network_driver_disabled",
+        "cost_gate_emergency_stop_active",
+        "provider_key_missing:openai",
+        "estimated_cost_exceeds_or_daily_limit_zero",
+        "owner_approval_required",
+        "Provider dispatch is inactive unless explicitly enabled."
+      ],
+      "warnings": [
+        "provider_dry_run_only_active"
+      ],
+      "network_call": "not_performed",
+      "at": "2026-06-12T19:43:49.748Z"
+    },
+    {
+      "type": "dispatch_attempt",
+      "ok": false,
+      "provider": "openai",
+      "status": "blocked",
+      "estimated_cost_usd": 0.000001,
+      "blocks": [
+        "provider_dispatch_env_disabled",
+        "provider_network_driver_disabled",
+        "cost_gate_emergency_stop_active",
+        "provider_key_missing:openai",
+        "estimated_cost_exceeds_or_daily_limit_zero",
+        "owner_approval_required",
+        "Provider dispatch is inactive unless explicitly enabled."
+      ],
+      "warnings": [
+        "provider_dry_run_only_active"
+      ],
+      "network_call": "not_performed",
       "at": "2026-06-12T18:56:03.367Z"
     },
     {

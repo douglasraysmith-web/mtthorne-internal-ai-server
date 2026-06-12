@@ -1,0 +1,145 @@
+{
+  "ais": {
+    "arche": {
+      "ai_id": "arche",
+      "project_id": "room_arche_site",
+      "seed_version": "arche_postgres_seed_v1_0_0",
+      "repository_commit": "10413707310d46417654f22ebb770fb307c9176b",
+      "owner_package_created_at": "2026-06-12T18:21:47Z",
+      "source_count": 46,
+      "knowledge_count": 46,
+      "runtime_capability_manifest": {
+        "runtime_id": "arche_runtime_commit_10413707310d",
+        "ai_id": "arche",
+        "project_id": "room_arche_site",
+        "repository": "douglasraysmith-web/arche-backend",
+        "branch": "main",
+        "commit": "10413707310d46417654f22ebb770fb307c9176b",
+        "server_identity": "v1.12.9-owner-control-console-core",
+        "lesson_layers": "v1.12.5-v1.12.8",
+        "archeangel_layers": "through-v1.13.6",
+        "modules": [
+          {
+            "path": "src/archeangel/ArcheAngelComputerMesh.mjs",
+            "sha256": "0a1f6005c54b9d49a65d6824c10b021abf3b229cc74d7a67993e826cac1fca0a",
+            "bytes": 17986
+          },
+          {
+            "path": "src/archeangel/ArcheAngelFoundation.mjs",
+            "sha256": "33284dd32be08bebedf33a392873b94a991d3aa14b2bc501f7f724a1ec669244",
+            "bytes": 27076
+          },
+          {
+            "path": "src/archeangel/ArcheAngelJobQueue.mjs",
+            "sha256": "d85893e251eee949452f07eb8824e2d2a09693462a78a1c838cd96e5263b44d5",
+            "bytes": 27981
+          },
+          {
+            "path": "src/learning/ArcheAuditSchedulerHook.mjs",
+            "sha256": "5789dc7656dbe3eaf3d87d90009b19d2a741abdc4d504dbadc8ca36a86b08aa0",
+            "bytes": 5308
+          },
+          {
+            "path": "src/learning/ArcheAutonomousLearningLoop.mjs",
+            "sha256": "db9623b837cf64a2252307e3cc5d80024e09153ac713003626b1c3d1f914f291",
+            "bytes": 5268
+          },
+          {
+            "path": "src/learning/ArcheLearningStore.mjs",
+            "sha256": "89e83b4da4b7f3986eaa9325cbdc80580484ac52b5f5c77558237e2c91445246",
+            "bytes": 10090
+          },
+          {
+            "path": "src/learning/ArcheLessonRuntime.mjs",
+            "sha256": "a05e6035edcae5d2bc1f252431d2f3d414f05372e25473dcec33a615fe2c661d",
+            "bytes": 14247
+          },
+          {
+            "path": "src/learning/ArcheScheduledSelfAuditLoop.mjs",
+            "sha256": "c399cdc1f1acb7fc6ee01446439bf9688f718e2623dd8900be23efb22ec07618",
+            "bytes": 4780
+          },
+          {
+            "path": "src/learning/ArcheTeachingEngine.mjs",
+            "sha256": "cc2fa4407a7fbe66bd83a3aba02cbdf72b7c028f349b2defae2159c8089daf99",
+            "bytes": 4514
+          },
+          {
+            "path": "src/memory/ArcheAnswerMemoryContext.mjs",
+            "sha256": "aec98fdbf84a53e441d80bf0d159552c8bb14d2b8d963583cba030f8d0f0efce",
+            "bytes": 8114
+          },
+          {
+            "path": "src/memory/ArcheMemoryArchitecture.mjs",
+            "sha256": "12e96f4a6dd52abd92233e8b09874c265a649b626e3059e6e3a290d67e1e7cf4",
+            "bytes": 7919
+          },
+          {
+            "path": "src/memory/ArchePersistentMemoryStore.mjs",
+            "sha256": "d0e64f840eb42e2a7c423efe28b6064605c5eb0fe00cd4e13c599ab48ffa3512",
+            "bytes": 5176
+          },
+          {
+            "path": "src/memory/providers/DisabledPersistentMemoryProvider.mjs",
+            "sha256": "81b76c632740f1a2ffc7a404b103a7a3b293e87c5ef9198ad781c845dd49aea5",
+            "bytes": 778
+          },
+          {
+            "path": "src/memory/providers/PostgresPersistentMemoryProvider.mjs",
+            "sha256": "d54b23c3a7f32597bf6e5a04cc62c5f421cd11264eae33a97a37e87264e8bd00",
+            "bytes": 6612
+          },
+          {
+            "path": "src/owner/OwnerConsoleRegistry.mjs",
+            "sha256": "e5ded8a866c79538b22c66b70622d03618ec145d6fdd9abb4e5bfe2d4d2b590b",
+            "bytes": 4165
+          },
+          {
+            "path": "src/runtime/UnifiedLatentRuntime.mjs",
+            "sha256": "2853fd07c04c4b2e258fe34ce0b89e00c808f42182dac216e70235242a7c37f8",
+            "bytes": 2573
+          },
+          {
+            "path": "src/runtime/accessPolicy.mjs",
+            "sha256": "a9623d4a7a3ef54464e40912898cf495f6d9d3da20c562558d21f3dd1826e949",
+            "bytes": 1564
+          },
+          {
+            "path": "src/runtime/delegationRouter.mjs",
+            "sha256": "3ab99cb3fa064c2f5491b2bd1f8233118a37344b2f7d78408833ee5573cd6554",
+            "bytes": 3785
+          },
+          {
+            "path": "src/runtime/embedLocalHash.mjs",
+            "sha256": "08e84c4a6bc7cfa46612204a699606e4896607acd63ccc721068beb5ad6156aa",
+            "bytes": 3137
+          },
+          {
+            "path": "src/runtime/errorLedger.mjs",
+            "sha256": "f433940ee799272886d42aa13679354f063092254fab5f49b0aacbb670b94558",
+            "bytes": 1348
+          },
+          {
+            "path": "src/runtime/keyAvailabilityRamp.mjs",
+            "sha256": "3d29c3eaf1b1f56853778a0d59433481eb578c802bf870f0f7712d1984810c3d",
+            "bytes": 1049
+          },
+          {
+            "path": "src/runtime/semanticEnvelope.mjs",
+            "sha256": "3f2efd6d0f2e6237dff40a5995783104407ed065b54fb7aea5dcdb9f7187db8e",
+            "bytes": 2543
+          },
+          {
+            "path": "src/runtime/vectorStore.mjs",
+            "sha256": "aaf60028a754d2428cc51de5e1370ee6376ac066f1da9f25bb8e6bc03a99ff58",
+            "bytes": 1704
+          }
+        ],
+        "validated": true,
+        "package_created_at": "2026-06-12T18:21:47Z"
+      },
+      "seeded_at": "2026-06-12T19:16:33.579Z",
+      "status": "active"
+    }
+  }
+}

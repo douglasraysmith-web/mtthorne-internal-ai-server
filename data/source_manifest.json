@@ -1,52 +1,907 @@
 {
   "sources": [
     {
+      "title": "ARCHE MASTER SOURCE v1 3",
+      "status": "approved",
+      "authority": "canonical",
       "source_id": "arche_master_source_v1_3",
-      "title": "ArchE Master Source v1.3",
-      "source_type": "governance_text",
+      "allowed_ai": [
+        "arche"
+      ],
       "project_room": "room_arche_site",
-      "authority_level": "active_project_source",
-      "status": "active",
-      "allowed_ai": ["arche"],
-      "visibility": "owner_only",
-      "raw_source_storage": false,
-      "notes": "Metadata only. Source governs ArchE/ArchEAngel internal behavior and public/private boundary."
+      "source_type": "governing_source",
+      "version": "1.3",
+      "repository_commit": "10413707310d46417654f22ebb770fb307c9176b",
+      "source_path": "governance/ARCHE_MASTER_SOURCE_v1_3.txt",
+      "content_sha256": "288bdd8f09cfabb7e471a579f590ca9632b9a570f065ac3f1fb86e6ff23d3502",
+      "validated": true,
+      "package_created_at": "2026-06-12T18:21:47Z",
+      "updated_at": "2026-06-12T19:16:33.300Z"
     },
     {
-      "source_id": "approved_av_sources",
-      "title": "Approved AV Source Library",
-      "source_type": "future_connector_manifest",
-      "project_room": "room_av_ai",
-      "authority_level": "pending",
-      "status": "proposed",
-      "allowed_ai": ["av_ai", "arche"],
-      "visibility": "owner_only",
-      "raw_source_storage": false,
-      "notes": "Connect approved AV documentation, drivers, protocols, and package rules here."
-    },
-    {
+      "title": "Approved M.T. Thorne Brand Mark",
+      "status": "approved",
+      "authority": "canonical",
       "source_id": "approved_brand_mark",
-      "title": "Approved MT Thorne Brand Mark",
-      "source_type": "image_asset_manifest",
-      "project_room": "room_vlock_images",
-      "authority_level": "active_rule",
-      "status": "active",
-      "allowed_ai": ["vlock_ai", "arche"],
-      "visibility": "owner_only",
-      "raw_source_storage": false,
-      "notes": "Do not redraw or reinterpret. Use only the approved uploaded asset when available."
+      "allowed_ai": [
+        "vlock_ai"
+      ],
+      "project_room": "room_vlock_images"
     },
     {
-      "source_id": "support_policy",
-      "title": "Publishing Company Support Policy",
-      "source_type": "future_policy_manifest",
-      "project_room": "room_janitor_client_reply",
-      "authority_level": "pending",
-      "status": "proposed",
-      "allowed_ai": ["janitor", "arche"],
-      "visibility": "owner_only",
-      "raw_source_storage": false,
-      "notes": "Support, triage, business boundary, customer reply, and escalation policy goes here."
+      "title": "AV.AI Governing Source",
+      "status": "approved",
+      "authority": "canonical",
+      "source_id": "av_ai_master_source",
+      "allowed_ai": [
+        "av_ai"
+      ],
+      "project_room": "room_av_ai"
+    },
+    {
+      "title": "Janitor Support Rules",
+      "status": "approved",
+      "authority": "canonical",
+      "source_id": "approved_support_rules",
+      "allowed_ai": [
+        "janitor"
+      ],
+      "project_room": "room_janitor_client_reply"
+    },
+    {
+      "source_id": "arche_owner_owner_package_manifest_txt",
+      "title": "OWNER PACKAGE MANIFEST",
+      "project_room": "room_arche_site",
+      "allowed_ai": [
+        "arche"
+      ],
+      "status": "approved",
+      "authority": "canonical",
+      "source_type": "governing_source",
+      "version": null,
+      "repository_commit": "10413707310d46417654f22ebb770fb307c9176b",
+      "source_path": "owner/OWNER_PACKAGE_MANIFEST.txt",
+      "content_sha256": "d4338e06cff7db1618a807def315dbec43d76d02cc14e9ca59eb1920a8106422",
+      "validated": true,
+      "package_created_at": "2026-06-12T18:21:47Z",
+      "updated_at": "2026-06-12T19:16:33.309Z",
+      "created_at": "2026-06-12T19:16:33.309Z"
+    },
+    {
+      "source_id": "arche_arche_core_foundation_lesson_json",
+      "title": "arche core foundation lesson",
+      "project_room": "room_arche_site",
+      "allowed_ai": [
+        "arche"
+      ],
+      "status": "approved",
+      "authority": "verified_repository_source",
+      "source_type": "verified_runtime_document",
+      "version": null,
+      "repository_commit": "10413707310d46417654f22ebb770fb307c9176b",
+      "source_path": "arche_core_foundation_lesson.json",
+      "content_sha256": "fbdbfba1232c4c99231dc0b254a0e999e957fae69a5f2ea9f5215def487a388c",
+      "validated": true,
+      "package_created_at": "2026-06-12T18:21:47Z",
+      "updated_at": "2026-06-12T19:16:33.316Z",
+      "created_at": "2026-06-12T19:16:33.316Z"
+    },
+    {
+      "source_id": "arche_arche_visual_personality_lesson_json",
+      "title": "arche visual personality lesson",
+      "project_room": "room_arche_site",
+      "allowed_ai": [
+        "arche"
+      ],
+      "status": "approved",
+      "authority": "verified_repository_source",
+      "source_type": "verified_runtime_document",
+      "version": null,
+      "repository_commit": "10413707310d46417654f22ebb770fb307c9176b",
+      "source_path": "arche_visual_personality_lesson.json",
+      "content_sha256": "4516b19b059be06bccda8b7b548a6bda37f33ae238e864917c4f6404738c934b",
+      "validated": true,
+      "package_created_at": "2026-06-12T18:21:47Z",
+      "updated_at": "2026-06-12T19:16:33.321Z",
+      "created_at": "2026-06-12T19:16:33.321Z"
+    },
+    {
+      "source_id": "arche_arche_basics_batch_json",
+      "title": "arche basics batch",
+      "project_room": "room_arche_site",
+      "allowed_ai": [
+        "arche"
+      ],
+      "status": "approved",
+      "authority": "verified_repository_source",
+      "source_type": "verified_runtime_document",
+      "version": null,
+      "repository_commit": "10413707310d46417654f22ebb770fb307c9176b",
+      "source_path": "arche_basics_batch.json",
+      "content_sha256": "71e2f27261ac459b97f5e36d0d5dda0d6057bbdfe9b147c560b26ca66c70a216",
+      "validated": true,
+      "package_created_at": "2026-06-12T18:21:47Z",
+      "updated_at": "2026-06-12T19:16:33.325Z",
+      "created_at": "2026-06-12T19:16:33.326Z"
+    },
+    {
+      "source_id": "arche_arche_basics_batch_2_json",
+      "title": "arche basics batch 2",
+      "project_room": "room_arche_site",
+      "allowed_ai": [
+        "arche"
+      ],
+      "status": "approved",
+      "authority": "verified_repository_source",
+      "source_type": "verified_runtime_document",
+      "version": null,
+      "repository_commit": "10413707310d46417654f22ebb770fb307c9176b",
+      "source_path": "arche_basics_batch_2.json",
+      "content_sha256": "480fae06587b98ca8e4c7afbbdf285fe84cd99b5624a216cdc38dac3a9ffe053",
+      "validated": true,
+      "package_created_at": "2026-06-12T18:21:47Z",
+      "updated_at": "2026-06-12T19:16:33.334Z",
+      "created_at": "2026-06-12T19:16:33.334Z"
+    },
+    {
+      "source_id": "arche_arche_specialist_number_map_json",
+      "title": "arche specialist number map",
+      "project_room": "room_arche_site",
+      "allowed_ai": [
+        "arche"
+      ],
+      "status": "approved",
+      "authority": "verified_repository_source",
+      "source_type": "verified_runtime_document",
+      "version": null,
+      "repository_commit": "10413707310d46417654f22ebb770fb307c9176b",
+      "source_path": "arche_specialist_number_map.json",
+      "content_sha256": "47bf380f40d219fe6ca6c7dcc4faa2842e4fd84db3782df35d34136c96ea25cb",
+      "validated": true,
+      "package_created_at": "2026-06-12T18:21:47Z",
+      "updated_at": "2026-06-12T19:16:33.339Z",
+      "created_at": "2026-06-12T19:16:33.339Z"
+    },
+    {
+      "source_id": "arche_error_ledger_entry_v1_7_json",
+      "title": "error ledger entry v1 7",
+      "project_room": "room_arche_site",
+      "allowed_ai": [
+        "arche"
+      ],
+      "status": "approved",
+      "authority": "verified_repository_source",
+      "source_type": "verified_runtime_document",
+      "version": "1.7",
+      "repository_commit": "10413707310d46417654f22ebb770fb307c9176b",
+      "source_path": "error_ledger_entry_v1_7.json",
+      "content_sha256": "6a82265f10427b50b63121e4809c0e8dfd5f06e85e56e35a67429cc83aad1160",
+      "validated": true,
+      "package_created_at": "2026-06-12T18:21:47Z",
+      "updated_at": "2026-06-12T19:16:33.344Z",
+      "created_at": "2026-06-12T19:16:33.344Z"
+    },
+    {
+      "source_id": "arche_error_ledger_entry_v1_8_json",
+      "title": "error ledger entry v1 8",
+      "project_room": "room_arche_site",
+      "allowed_ai": [
+        "arche"
+      ],
+      "status": "approved",
+      "authority": "verified_repository_source",
+      "source_type": "verified_runtime_document",
+      "version": "1.8",
+      "repository_commit": "10413707310d46417654f22ebb770fb307c9176b",
+      "source_path": "error_ledger_entry_v1_8.json",
+      "content_sha256": "095e1cfd28f6bf905a79cce01506228ca0366ed4d4a02572b344d7845a88f595",
+      "validated": true,
+      "package_created_at": "2026-06-12T18:21:47Z",
+      "updated_at": "2026-06-12T19:16:33.349Z",
+      "created_at": "2026-06-12T19:16:33.349Z"
+    },
+    {
+      "source_id": "arche_error_ledger_entry_v1_9_json",
+      "title": "error ledger entry v1 9",
+      "project_room": "room_arche_site",
+      "allowed_ai": [
+        "arche"
+      ],
+      "status": "approved",
+      "authority": "verified_repository_source",
+      "source_type": "verified_runtime_document",
+      "version": "1.9",
+      "repository_commit": "10413707310d46417654f22ebb770fb307c9176b",
+      "source_path": "error_ledger_entry_v1_9.json",
+      "content_sha256": "c66034a03d440712367b6c6405fe9260ba390485a73786d0f8713244bf6c308d",
+      "validated": true,
+      "package_created_at": "2026-06-12T18:21:47Z",
+      "updated_at": "2026-06-12T19:16:33.353Z",
+      "created_at": "2026-06-12T19:16:33.353Z"
+    },
+    {
+      "source_id": "arche_data_arche_public_learning_lessons_v1_10_json",
+      "title": "arche public learning lessons v1 10",
+      "project_room": "room_arche_site",
+      "allowed_ai": [
+        "arche"
+      ],
+      "status": "approved",
+      "authority": "verified_repository_source",
+      "source_type": "verified_runtime_document",
+      "version": "1.10",
+      "repository_commit": "10413707310d46417654f22ebb770fb307c9176b",
+      "source_path": "data/arche_public_learning_lessons_v1_10.json",
+      "content_sha256": "b186fdd323ffdae6fd0ee924ea714702dd9160b291f56cb73fb915fb0ed33dd7",
+      "validated": true,
+      "package_created_at": "2026-06-12T18:21:47Z",
+      "updated_at": "2026-06-12T19:16:33.358Z",
+      "created_at": "2026-06-12T19:16:33.358Z"
+    },
+    {
+      "source_id": "arche_data_arche_teacher_curriculum_v1_12_4_json",
+      "title": "arche teacher curriculum v1 12 4",
+      "project_room": "room_arche_site",
+      "allowed_ai": [
+        "arche"
+      ],
+      "status": "approved",
+      "authority": "verified_repository_source",
+      "source_type": "verified_runtime_document",
+      "version": "1.12.4",
+      "repository_commit": "10413707310d46417654f22ebb770fb307c9176b",
+      "source_path": "data/arche_teacher_curriculum_v1_12_4.json",
+      "content_sha256": "1b0ffb60730e86d55492c8cd1c489b3add64a4b88fad96677743f005bed8d1fd",
+      "validated": true,
+      "package_created_at": "2026-06-12T18:21:47Z",
+      "updated_at": "2026-06-12T19:16:33.363Z",
+      "created_at": "2026-06-12T19:16:33.363Z"
+    },
+    {
+      "source_id": "arche_data_arche_memory_store_seed_v1_12_3_json",
+      "title": "arche memory store seed v1 12 3",
+      "project_room": "room_arche_site",
+      "allowed_ai": [
+        "arche"
+      ],
+      "status": "approved",
+      "authority": "verified_repository_source",
+      "source_type": "verified_runtime_document",
+      "version": "1.12.3",
+      "repository_commit": "10413707310d46417654f22ebb770fb307c9176b",
+      "source_path": "data/arche_memory_store_seed_v1_12_3.json",
+      "content_sha256": "a9f89837e053cb6e47a81f7428914f9f462f27615afe3c7cbed9a47071e4234e",
+      "validated": true,
+      "package_created_at": "2026-06-12T18:21:47Z",
+      "updated_at": "2026-06-12T19:16:33.368Z",
+      "created_at": "2026-06-12T19:16:33.368Z"
+    },
+    {
+      "source_id": "arche_docs_readme_v1_10_1_general_question_layer_md",
+      "title": "README v1 10 1 general question layer",
+      "project_room": "room_arche_site",
+      "allowed_ai": [
+        "arche"
+      ],
+      "status": "approved",
+      "authority": "verified_repository_source",
+      "source_type": "verified_runtime_document",
+      "version": "1.10.1",
+      "repository_commit": "10413707310d46417654f22ebb770fb307c9176b",
+      "source_path": "docs/README_v1_10_1_general_question_layer.md",
+      "content_sha256": "8912e749c0dbfe616e78584330a79ceb2649f6c7b5bfe622c0c4d571995087cc",
+      "validated": true,
+      "package_created_at": "2026-06-12T18:21:47Z",
+      "updated_at": "2026-06-12T19:16:33.373Z",
+      "created_at": "2026-06-12T19:16:33.373Z"
+    },
+    {
+      "source_id": "arche_docs_readme_v1_10_2_intelligence_core_md",
+      "title": "README v1 10 2 intelligence core",
+      "project_room": "room_arche_site",
+      "allowed_ai": [
+        "arche"
+      ],
+      "status": "approved",
+      "authority": "verified_repository_source",
+      "source_type": "verified_runtime_document",
+      "version": "1.10.2",
+      "repository_commit": "10413707310d46417654f22ebb770fb307c9176b",
+      "source_path": "docs/README_v1_10_2_intelligence_core.md",
+      "content_sha256": "db5f3a2d131f2cf3036f46e176971aeb0370a1941884fe869fcdf0e2a5c135a5",
+      "validated": true,
+      "package_created_at": "2026-06-12T18:21:47Z",
+      "updated_at": "2026-06-12T19:16:33.378Z",
+      "created_at": "2026-06-12T19:16:33.378Z"
+    },
+    {
+      "source_id": "arche_docs_readme_v1_10_3_common_sense_core_md",
+      "title": "README v1 10 3 common sense core",
+      "project_room": "room_arche_site",
+      "allowed_ai": [
+        "arche"
+      ],
+      "status": "approved",
+      "authority": "verified_repository_source",
+      "source_type": "verified_runtime_document",
+      "version": "1.10.3",
+      "repository_commit": "10413707310d46417654f22ebb770fb307c9176b",
+      "source_path": "docs/README_v1_10_3_common_sense_core.md",
+      "content_sha256": "394f7159455912cf6f6ea07111731050d25cdfeb709ddab919a81866b520ce01",
+      "validated": true,
+      "package_created_at": "2026-06-12T18:21:47Z",
+      "updated_at": "2026-06-12T19:16:33.383Z",
+      "created_at": "2026-06-12T19:16:33.383Z"
+    },
+    {
+      "source_id": "arche_docs_readme_v1_10_learning_core_md",
+      "title": "README v1 10 learning core",
+      "project_room": "room_arche_site",
+      "allowed_ai": [
+        "arche"
+      ],
+      "status": "approved",
+      "authority": "verified_repository_source",
+      "source_type": "verified_runtime_document",
+      "version": "1.10",
+      "repository_commit": "10413707310d46417654f22ebb770fb307c9176b",
+      "source_path": "docs/README_v1_10_learning_core.md",
+      "content_sha256": "77429d45fcc22e1ed221bc57dd711406a321ea0bf88d63dbc9419dd988eb94cb",
+      "validated": true,
+      "package_created_at": "2026-06-12T18:21:47Z",
+      "updated_at": "2026-06-12T19:16:33.388Z",
+      "created_at": "2026-06-12T19:16:33.388Z"
+    },
+    {
+      "source_id": "arche_docs_readme_v1_11_2_learning_store_core_md",
+      "title": "README v1 11 2 learning store core",
+      "project_room": "room_arche_site",
+      "allowed_ai": [
+        "arche"
+      ],
+      "status": "approved",
+      "authority": "verified_repository_source",
+      "source_type": "verified_runtime_document",
+      "version": "1.11.2",
+      "repository_commit": "10413707310d46417654f22ebb770fb307c9176b",
+      "source_path": "docs/README_v1_11_2_learning_store_core.md",
+      "content_sha256": "7357d11e3e4b71d997c6fb2df151cc5b00bcfa87ba1d889b888edd3c01496428",
+      "validated": true,
+      "package_created_at": "2026-06-12T18:21:47Z",
+      "updated_at": "2026-06-12T19:16:33.393Z",
+      "created_at": "2026-06-12T19:16:33.393Z"
+    },
+    {
+      "source_id": "arche_docs_readme_v1_11_3_personality_core_md",
+      "title": "README v1 11 3 personality core",
+      "project_room": "room_arche_site",
+      "allowed_ai": [
+        "arche"
+      ],
+      "status": "approved",
+      "authority": "verified_repository_source",
+      "source_type": "verified_runtime_document",
+      "version": "1.11.3",
+      "repository_commit": "10413707310d46417654f22ebb770fb307c9176b",
+      "source_path": "docs/README_v1_11_3_personality_core.md",
+      "content_sha256": "543b687783ad74916efa4b711bf329c4119043e6796748d9b6d28ee78695c2ab",
+      "validated": true,
+      "package_created_at": "2026-06-12T18:21:47Z",
+      "updated_at": "2026-06-12T19:16:33.398Z",
+      "created_at": "2026-06-12T19:16:33.398Z"
+    },
+    {
+      "source_id": "arche_docs_readme_v1_11_virtual_computer_md",
+      "title": "README v1 11 virtual computer",
+      "project_room": "room_arche_site",
+      "allowed_ai": [
+        "arche"
+      ],
+      "status": "approved",
+      "authority": "verified_repository_source",
+      "source_type": "verified_runtime_document",
+      "version": "1.11",
+      "repository_commit": "10413707310d46417654f22ebb770fb307c9176b",
+      "source_path": "docs/README_v1_11_virtual_computer.md",
+      "content_sha256": "c027e261922bc00a84929a8e02ab9767b97f336e9d85289333227a0768e7e536",
+      "validated": true,
+      "package_created_at": "2026-06-12T18:21:47Z",
+      "updated_at": "2026-06-12T19:16:33.404Z",
+      "created_at": "2026-06-12T19:16:33.404Z"
+    },
+    {
+      "source_id": "arche_docs_readme_v1_12_1_memory_architecture_md",
+      "title": "README v1 12 1 memory architecture",
+      "project_room": "room_arche_site",
+      "allowed_ai": [
+        "arche"
+      ],
+      "status": "approved",
+      "authority": "verified_repository_source",
+      "source_type": "verified_runtime_document",
+      "version": "1.12.1",
+      "repository_commit": "10413707310d46417654f22ebb770fb307c9176b",
+      "source_path": "docs/README_v1_12_1_memory_architecture.md",
+      "content_sha256": "6839f21fd96af0ba052ae7896b171a357273e24884a0fdc416fb3072c4a8a4a3",
+      "validated": true,
+      "package_created_at": "2026-06-12T18:21:47Z",
+      "updated_at": "2026-06-12T19:16:33.408Z",
+      "created_at": "2026-06-12T19:16:33.408Z"
+    },
+    {
+      "source_id": "arche_docs_readme_v1_12_2_storage_vault_core_md",
+      "title": "README v1 12 2 storage vault core",
+      "project_room": "room_arche_site",
+      "allowed_ai": [
+        "arche"
+      ],
+      "status": "approved",
+      "authority": "verified_repository_source",
+      "source_type": "verified_runtime_document",
+      "version": "1.12.2",
+      "repository_commit": "10413707310d46417654f22ebb770fb307c9176b",
+      "source_path": "docs/README_v1_12_2_storage_vault_core.md",
+      "content_sha256": "e595c573f2f0d164552e446eda5d7493504f801f207e73cc636293a9d2071227",
+      "validated": true,
+      "package_created_at": "2026-06-12T18:21:47Z",
+      "updated_at": "2026-06-12T19:16:33.414Z",
+      "created_at": "2026-06-12T19:16:33.414Z"
+    },
+    {
+      "source_id": "arche_docs_readme_v1_12_3_persistent_memory_store_core_md",
+      "title": "README v1 12 3 persistent memory store core",
+      "project_room": "room_arche_site",
+      "allowed_ai": [
+        "arche"
+      ],
+      "status": "approved",
+      "authority": "verified_repository_source",
+      "source_type": "verified_runtime_document",
+      "version": "1.12.3",
+      "repository_commit": "10413707310d46417654f22ebb770fb307c9176b",
+      "source_path": "docs/README_v1_12_3_persistent_memory_store_core.md",
+      "content_sha256": "75db33edf1d46906442af9fb2ebad3f483964f2eff729d27bd5ac76c29ad1eef",
+      "validated": true,
+      "package_created_at": "2026-06-12T18:21:47Z",
+      "updated_at": "2026-06-12T19:16:33.419Z",
+      "created_at": "2026-06-12T19:16:33.419Z"
+    },
+    {
+      "source_id": "arche_docs_readme_v1_12_3_storage_activation_core_md",
+      "title": "README v1 12 3 storage activation core",
+      "project_room": "room_arche_site",
+      "allowed_ai": [
+        "arche"
+      ],
+      "status": "approved",
+      "authority": "verified_repository_source",
+      "source_type": "verified_runtime_document",
+      "version": "1.12.3",
+      "repository_commit": "10413707310d46417654f22ebb770fb307c9176b",
+      "source_path": "docs/README_v1_12_3_storage_activation_core.md",
+      "content_sha256": "7dad972f859520d663398caf0fa0f4a070742731e8b9236c3fa10661c397697b",
+      "validated": true,
+      "package_created_at": "2026-06-12T18:21:47Z",
+      "updated_at": "2026-06-12T19:16:33.424Z",
+      "created_at": "2026-06-12T19:16:33.424Z"
+    },
+    {
+      "source_id": "arche_docs_readme_v1_12_4_storage_logical_key_core_md",
+      "title": "README v1 12 4 storage logical key core",
+      "project_room": "room_arche_site",
+      "allowed_ai": [
+        "arche"
+      ],
+      "status": "approved",
+      "authority": "verified_repository_source",
+      "source_type": "verified_runtime_document",
+      "version": "1.12.4",
+      "repository_commit": "10413707310d46417654f22ebb770fb307c9176b",
+      "source_path": "docs/README_v1_12_4_storage_logical_key_core.md",
+      "content_sha256": "e728160602f0f17d69ae8c28cc19c4bed87e3f3dee2e48b2f35a7b43bccf2f3e",
+      "validated": true,
+      "package_created_at": "2026-06-12T18:21:47Z",
+      "updated_at": "2026-06-12T19:16:33.429Z",
+      "created_at": "2026-06-12T19:16:33.429Z"
+    },
+    {
+      "source_id": "arche_docs_readme_v1_12_4_teacher_memory_core_md",
+      "title": "README v1 12 4 teacher memory core",
+      "project_room": "room_arche_site",
+      "allowed_ai": [
+        "arche"
+      ],
+      "status": "approved",
+      "authority": "verified_repository_source",
+      "source_type": "verified_runtime_document",
+      "version": "1.12.4",
+      "repository_commit": "10413707310d46417654f22ebb770fb307c9176b",
+      "source_path": "docs/README_v1_12_4_teacher_memory_core.md",
+      "content_sha256": "26583111a769dd0b60c8bcfb427ae4284371f698ebac412848cde81afe3fafe9",
+      "validated": true,
+      "package_created_at": "2026-06-12T18:21:47Z",
+      "updated_at": "2026-06-12T19:16:33.435Z",
+      "created_at": "2026-06-12T19:16:33.435Z"
+    },
+    {
+      "source_id": "arche_docs_readme_v1_12_5_lesson_runtime_core_md",
+      "title": "README v1 12 5 lesson runtime core",
+      "project_room": "room_arche_site",
+      "allowed_ai": [
+        "arche"
+      ],
+      "status": "approved",
+      "authority": "verified_repository_source",
+      "source_type": "verified_runtime_document",
+      "version": "1.12.5",
+      "repository_commit": "10413707310d46417654f22ebb770fb307c9176b",
+      "source_path": "docs/README_v1_12_5_lesson_runtime_core.md",
+      "content_sha256": "09abb26135e4040bea9090d01059505640706d7e13e0af89b392e6d173dcc34a",
+      "validated": true,
+      "package_created_at": "2026-06-12T18:21:47Z",
+      "updated_at": "2026-06-12T19:16:33.440Z",
+      "created_at": "2026-06-12T19:16:33.440Z"
+    },
+    {
+      "source_id": "arche_docs_readme_v1_12_5_memory_persistence_core_md",
+      "title": "README v1 12 5 memory persistence core",
+      "project_room": "room_arche_site",
+      "allowed_ai": [
+        "arche"
+      ],
+      "status": "approved",
+      "authority": "verified_repository_source",
+      "source_type": "verified_runtime_document",
+      "version": "1.12.5",
+      "repository_commit": "10413707310d46417654f22ebb770fb307c9176b",
+      "source_path": "docs/README_v1_12_5_memory_persistence_core.md",
+      "content_sha256": "efaaf648d1346b4ad1d0846baa19420d066b2f6ef9ad6d2d2b7260c43a9e9506",
+      "validated": true,
+      "package_created_at": "2026-06-12T18:21:47Z",
+      "updated_at": "2026-06-12T19:16:33.445Z",
+      "created_at": "2026-06-12T19:16:33.445Z"
+    },
+    {
+      "source_id": "arche_docs_readme_v1_12_6_autonomous_learning_core_md",
+      "title": "README v1 12 6 autonomous learning core",
+      "project_room": "room_arche_site",
+      "allowed_ai": [
+        "arche"
+      ],
+      "status": "approved",
+      "authority": "verified_repository_source",
+      "source_type": "verified_runtime_document",
+      "version": "1.12.6",
+      "repository_commit": "10413707310d46417654f22ebb770fb307c9176b",
+      "source_path": "docs/README_v1_12_6_autonomous_learning_core.md",
+      "content_sha256": "7c68b2208c9fc1e338a19fe985b11facb5e1d97b97af5c7390f14ef6f5831da2",
+      "validated": true,
+      "package_created_at": "2026-06-12T18:21:47Z",
+      "updated_at": "2026-06-12T19:16:33.451Z",
+      "created_at": "2026-06-12T19:16:33.451Z"
+    },
+    {
+      "source_id": "arche_docs_readme_v1_12_6_memory_action_alias_core_md",
+      "title": "README v1 12 6 memory action alias core",
+      "project_room": "room_arche_site",
+      "allowed_ai": [
+        "arche"
+      ],
+      "status": "approved",
+      "authority": "verified_repository_source",
+      "source_type": "verified_runtime_document",
+      "version": "1.12.6",
+      "repository_commit": "10413707310d46417654f22ebb770fb307c9176b",
+      "source_path": "docs/README_v1_12_6_memory_action_alias_core.md",
+      "content_sha256": "10cbadd9cf3ca5edf84b541e420793e6b77228879d8c9a430baec4ccb63b476e",
+      "validated": true,
+      "package_created_at": "2026-06-12T18:21:47Z",
+      "updated_at": "2026-06-12T19:16:33.457Z",
+      "created_at": "2026-06-12T19:16:33.457Z"
+    },
+    {
+      "source_id": "arche_docs_readme_v1_12_7_memory_integrated_answer_core_md",
+      "title": "README v1 12 7 memory integrated answer core",
+      "project_room": "room_arche_site",
+      "allowed_ai": [
+        "arche"
+      ],
+      "status": "approved",
+      "authority": "verified_repository_source",
+      "source_type": "verified_runtime_document",
+      "version": "1.12.7",
+      "repository_commit": "10413707310d46417654f22ebb770fb307c9176b",
+      "source_path": "docs/README_v1_12_7_memory_integrated_answer_core.md",
+      "content_sha256": "dc47cc227691a253afb455493e9e47856d7aa0671ee7af753d1d9f504e5957ce",
+      "validated": true,
+      "package_created_at": "2026-06-12T18:21:47Z",
+      "updated_at": "2026-06-12T19:16:33.463Z",
+      "created_at": "2026-06-12T19:16:33.463Z"
+    },
+    {
+      "source_id": "arche_docs_readme_v1_12_7_scheduled_self_audit_core_md",
+      "title": "README v1 12 7 scheduled self audit core",
+      "project_room": "room_arche_site",
+      "allowed_ai": [
+        "arche"
+      ],
+      "status": "approved",
+      "authority": "verified_repository_source",
+      "source_type": "verified_runtime_document",
+      "version": "1.12.7",
+      "repository_commit": "10413707310d46417654f22ebb770fb307c9176b",
+      "source_path": "docs/README_v1_12_7_scheduled_self_audit_core.md",
+      "content_sha256": "a8e240f181feb00ae10e8457544fc0546e6b53dd8b4bc5eef84c640cb5f98d06",
+      "validated": true,
+      "package_created_at": "2026-06-12T18:21:47Z",
+      "updated_at": "2026-06-12T19:16:33.469Z",
+      "created_at": "2026-06-12T19:16:33.469Z"
+    },
+    {
+      "source_id": "arche_docs_readme_v1_12_8_audit_scheduler_hook_core_md",
+      "title": "README v1 12 8 audit scheduler hook core",
+      "project_room": "room_arche_site",
+      "allowed_ai": [
+        "arche"
+      ],
+      "status": "approved",
+      "authority": "verified_repository_source",
+      "source_type": "verified_runtime_document",
+      "version": "1.12.8",
+      "repository_commit": "10413707310d46417654f22ebb770fb307c9176b",
+      "source_path": "docs/README_v1_12_8_audit_scheduler_hook_core.md",
+      "content_sha256": "87120643b000922980417bd85f360987ce799265a844be6b09422932b6da7b5f",
+      "validated": true,
+      "package_created_at": "2026-06-12T18:21:47Z",
+      "updated_at": "2026-06-12T19:16:33.474Z",
+      "created_at": "2026-06-12T19:16:33.474Z"
+    },
+    {
+      "source_id": "arche_docs_readme_v1_12_8_teaching_core_md",
+      "title": "README v1 12 8 teaching core",
+      "project_room": "room_arche_site",
+      "allowed_ai": [
+        "arche"
+      ],
+      "status": "approved",
+      "authority": "verified_repository_source",
+      "source_type": "verified_runtime_document",
+      "version": "1.12.8",
+      "repository_commit": "10413707310d46417654f22ebb770fb307c9176b",
+      "source_path": "docs/README_v1_12_8_teaching_core.md",
+      "content_sha256": "39130fe391649c447ac43916f73c7539a29382b9362275e9c1201f3c6cb42553",
+      "validated": true,
+      "package_created_at": "2026-06-12T18:21:47Z",
+      "updated_at": "2026-06-12T19:16:33.480Z",
+      "created_at": "2026-06-12T19:16:33.480Z"
+    },
+    {
+      "source_id": "arche_docs_readme_v1_12_9_multi_ai_shared_vault_core_md",
+      "title": "README v1 12 9 multi ai shared vault core",
+      "project_room": "room_arche_site",
+      "allowed_ai": [
+        "arche"
+      ],
+      "status": "approved",
+      "authority": "verified_repository_source",
+      "source_type": "verified_runtime_document",
+      "version": "1.12.9",
+      "repository_commit": "10413707310d46417654f22ebb770fb307c9176b",
+      "source_path": "docs/README_v1_12_9_multi_ai_shared_vault_core.md",
+      "content_sha256": "184ad097616978867e7985c3be310d8949b3737efa1ba3f32bf5c5dfdadfabb0",
+      "validated": true,
+      "package_created_at": "2026-06-12T18:21:47Z",
+      "updated_at": "2026-06-12T19:16:33.485Z",
+      "created_at": "2026-06-12T19:16:33.485Z"
+    },
+    {
+      "source_id": "arche_docs_readme_v1_12_9_owner_control_console_core_md",
+      "title": "README v1 12 9 owner control console core",
+      "project_room": "room_arche_site",
+      "allowed_ai": [
+        "arche"
+      ],
+      "status": "approved",
+      "authority": "verified_repository_source",
+      "source_type": "verified_runtime_document",
+      "version": "1.12.9",
+      "repository_commit": "10413707310d46417654f22ebb770fb307c9176b",
+      "source_path": "docs/README_v1_12_9_owner_control_console_core.md",
+      "content_sha256": "dcd29177f12781fe9966904a8ce0511d1dbfdfaa80c094dcf5dce2b1444e0610",
+      "validated": true,
+      "package_created_at": "2026-06-12T18:21:47Z",
+      "updated_at": "2026-06-12T19:16:33.491Z",
+      "created_at": "2026-06-12T19:16:33.491Z"
+    },
+    {
+      "source_id": "arche_docs_readme_v1_12_digital_being_speed_core_md",
+      "title": "README v1 12 digital being speed core",
+      "project_room": "room_arche_site",
+      "allowed_ai": [
+        "arche"
+      ],
+      "status": "approved",
+      "authority": "verified_repository_source",
+      "source_type": "verified_runtime_document",
+      "version": "1.12",
+      "repository_commit": "10413707310d46417654f22ebb770fb307c9176b",
+      "source_path": "docs/README_v1_12_digital_being_speed_core.md",
+      "content_sha256": "17a6c6021e446fc8741eb11c39786f8feb17b5769c262ce6bf9b13aa19aa531e",
+      "validated": true,
+      "package_created_at": "2026-06-12T18:21:47Z",
+      "updated_at": "2026-06-12T19:16:33.496Z",
+      "created_at": "2026-06-12T19:16:33.496Z"
+    },
+    {
+      "source_id": "arche_docs_readme_v1_13_0_multi_ai_shared_vault_operations_core_md",
+      "title": "README v1 13 0 multi ai shared vault operations core",
+      "project_room": "room_arche_site",
+      "allowed_ai": [
+        "arche"
+      ],
+      "status": "approved",
+      "authority": "verified_repository_source",
+      "source_type": "verified_runtime_document",
+      "version": "1.13.0",
+      "repository_commit": "10413707310d46417654f22ebb770fb307c9176b",
+      "source_path": "docs/README_v1_13_0_multi_ai_shared_vault_operations_core.md",
+      "content_sha256": "86ea0805a8f99c386c9fcaaf1037ea9edb51351cd5b0de3794897f991251b63d",
+      "validated": true,
+      "package_created_at": "2026-06-12T18:21:47Z",
+      "updated_at": "2026-06-12T19:16:33.502Z",
+      "created_at": "2026-06-12T19:16:33.502Z"
+    },
+    {
+      "source_id": "arche_docs_readme_v1_13_1_internal_computer_operations_core_md",
+      "title": "README v1 13 1 internal computer operations core",
+      "project_room": "room_arche_site",
+      "allowed_ai": [
+        "arche"
+      ],
+      "status": "approved",
+      "authority": "verified_repository_source",
+      "source_type": "verified_runtime_document",
+      "version": "1.13.1",
+      "repository_commit": "10413707310d46417654f22ebb770fb307c9176b",
+      "source_path": "docs/README_v1_13_1_internal_computer_operations_core.md",
+      "content_sha256": "1b3e22f48942c193619ce7fe8851d2beabc5e2c74d3de30d556f0e386529f815",
+      "validated": true,
+      "package_created_at": "2026-06-12T18:21:47Z",
+      "updated_at": "2026-06-12T19:16:33.507Z",
+      "created_at": "2026-06-12T19:16:33.507Z"
+    },
+    {
+      "source_id": "arche_docs_readme_v1_13_2_archeangel_foundation_core_md",
+      "title": "README v1 13 2 archeangel foundation core",
+      "project_room": "room_arche_site",
+      "allowed_ai": [
+        "arche"
+      ],
+      "status": "approved",
+      "authority": "verified_repository_source",
+      "source_type": "verified_runtime_document",
+      "version": "1.13.2",
+      "repository_commit": "10413707310d46417654f22ebb770fb307c9176b",
+      "source_path": "docs/README_v1_13_2_archeangel_foundation_core.md",
+      "content_sha256": "f2fba45c5bffd9250a161822793d53bfc3ed353399a93b372d05a2a16a98ba6d",
+      "validated": true,
+      "package_created_at": "2026-06-12T18:21:47Z",
+      "updated_at": "2026-06-12T19:16:33.513Z",
+      "created_at": "2026-06-12T19:16:33.513Z"
+    },
+    {
+      "source_id": "arche_docs_readme_v1_13_3_archeangel_supervision_integration_core_md",
+      "title": "README v1 13 3 archeangel supervision integration core",
+      "project_room": "room_arche_site",
+      "allowed_ai": [
+        "arche"
+      ],
+      "status": "approved",
+      "authority": "verified_repository_source",
+      "source_type": "verified_runtime_document",
+      "version": "1.13.3",
+      "repository_commit": "10413707310d46417654f22ebb770fb307c9176b",
+      "source_path": "docs/README_v1_13_3_archeangel_supervision_integration_core.md",
+      "content_sha256": "4915b770fc38c8100d40efaf28e7bdaeea5bdec06028da044eeac37478fd664e",
+      "validated": true,
+      "package_created_at": "2026-06-12T18:21:47Z",
+      "updated_at": "2026-06-12T19:16:33.519Z",
+      "created_at": "2026-06-12T19:16:33.519Z"
+    },
+    {
+      "source_id": "arche_docs_readme_v1_13_4_archeangel_computer_mesh_core_md",
+      "title": "README v1 13 4 archeangel computer mesh core",
+      "project_room": "room_arche_site",
+      "allowed_ai": [
+        "arche"
+      ],
+      "status": "approved",
+      "authority": "verified_repository_source",
+      "source_type": "verified_runtime_document",
+      "version": "1.13.4",
+      "repository_commit": "10413707310d46417654f22ebb770fb307c9176b",
+      "source_path": "docs/README_v1_13_4_archeangel_computer_mesh_core.md",
+      "content_sha256": "b90c728baf62a2de0ac36b7aad0dc690f08e6f15f5910e0a9da46cd37b6720a5",
+      "validated": true,
+      "package_created_at": "2026-06-12T18:21:47Z",
+      "updated_at": "2026-06-12T19:16:33.525Z",
+      "created_at": "2026-06-12T19:16:33.525Z"
+    },
+    {
+      "source_id": "arche_docs_readme_v1_13_5_archeangel_job_queue_worker_registry_core_md",
+      "title": "README v1 13 5 archeangel job queue worker registry core",
+      "project_room": "room_arche_site",
+      "allowed_ai": [
+        "arche"
+      ],
+      "status": "approved",
+      "authority": "verified_repository_source",
+      "source_type": "verified_runtime_document",
+      "version": "1.13.5",
+      "repository_commit": "10413707310d46417654f22ebb770fb307c9176b",
+      "source_path": "docs/README_v1_13_5_archeangel_job_queue_worker_registry_core.md",
+      "content_sha256": "d3a22cc08a2109e1e5ba8117460cccf4458188ad8f36642b037dd59f78278392",
+      "validated": true,
+      "package_created_at": "2026-06-12T18:21:47Z",
+      "updated_at": "2026-06-12T19:16:33.531Z",
+      "created_at": "2026-06-12T19:16:33.531Z"
+    },
+    {
+      "source_id": "arche_docs_readme_v1_13_6_archeangel_queue_auth_unification_core_md",
+      "title": "README v1 13 6 archeangel queue auth unification core",
+      "project_room": "room_arche_site",
+      "allowed_ai": [
+        "arche"
+      ],
+      "status": "approved",
+      "authority": "verified_repository_source",
+      "source_type": "verified_runtime_document",
+      "version": "1.13.6",
+      "repository_commit": "10413707310d46417654f22ebb770fb307c9176b",
+      "source_path": "docs/README_v1_13_6_archeangel_queue_auth_unification_core.md",
+      "content_sha256": "06b4c04a94ac80f7237ec79c6d6336c2a6bd77749905c80fed282768c46d6322",
+      "validated": true,
+      "package_created_at": "2026-06-12T18:21:47Z",
+      "updated_at": "2026-06-12T19:16:33.537Z",
+      "created_at": "2026-06-12T19:16:33.537Z"
+    },
+    {
+      "source_id": "arche_docs_connect_only_handoff_v1_9_md",
+      "title": "CONNECT ONLY HANDOFF v1 9",
+      "project_room": "room_arche_site",
+      "allowed_ai": [
+        "arche"
+      ],
+      "status": "approved",
+      "authority": "verified_repository_source",
+      "source_type": "verified_runtime_document",
+      "version": "1.9",
+      "repository_commit": "10413707310d46417654f22ebb770fb307c9176b",
+      "source_path": "docs/CONNECT_ONLY_HANDOFF_v1_9.md",
+      "content_sha256": "a7327c1e94022b87cd9b27b5d5a40babe87a4990023754a7b87e17b24aecb679",
+      "validated": true,
+      "package_created_at": "2026-06-12T18:21:47Z",
+      "updated_at": "2026-06-12T19:16:33.543Z",
+      "created_at": "2026-06-12T19:16:33.543Z"
+    },
+    {
+      "source_id": "arche_docs_source_assimilation_v1_8_json",
+      "title": "source assimilation v1 8",
+      "project_room": "room_arche_site",
+      "allowed_ai": [
+        "arche"
+      ],
+      "status": "approved",
+      "authority": "verified_repository_source",
+      "source_type": "verified_runtime_document",
+      "version": "1.8",
+      "repository_commit": "10413707310d46417654f22ebb770fb307c9176b",
+      "source_path": "docs/source_assimilation_v1_8.json",
+      "content_sha256": "3b6028185218c1920fb8c604187c32ab181ac2157c3d6d0559049c9df6bf8e3e",
+      "validated": true,
+      "package_created_at": "2026-06-12T18:21:47Z",
+      "updated_at": "2026-06-12T19:16:33.549Z",
+      "created_at": "2026-06-12T19:16:33.549Z"
     }
   ]
 }
