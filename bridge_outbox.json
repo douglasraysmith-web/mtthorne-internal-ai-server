@@ -1,5 +1,339 @@
 [
   {
+    "bridge_id": "bridge_mqb70w4q_3ldhn6",
+    "created_at": "2026-06-12T17:21:17.738Z",
+    "updated_at": "2026-06-12T17:21:17.738Z",
+    "status": "queued_for_manual_import",
+    "target": "arche-backend",
+    "project_id": "room_arche_site",
+    "selected_ai": "arche",
+    "public_safe": true,
+    "import_allowed": false,
+    "import_rule": "Manual review required. Do not merge into arche-backend runtime behavior without explicit owner approval.",
+    "payload": {
+      "bridge_version": "arche_bridge_payload_v0_4_0",
+      "target": "arche-backend",
+      "created_for": "owner_only_internal_handoff",
+      "public_safe": true,
+      "selected_ai": "arche",
+      "project_room": "room_arche_site",
+      "mode": "round_table_reviewed",
+      "lanes": [
+        "source_lock",
+        "builder",
+        "verifier",
+        "error_ledger",
+        "speed_router",
+        "quality_judge",
+        "security_privacy"
+      ],
+      "quality_report": {
+        "score": 88,
+        "status": "usable",
+        "scores": {
+          "accuracy": 90,
+          "source_compliance": 92,
+          "brand_compliance": 90,
+          "business_usefulness": 88,
+          "customer_safety": 94,
+          "clarity": 86,
+          "completeness": 88,
+          "speed": 82,
+          "deploy_readiness": 82,
+          "risk": 90
+        }
+      },
+      "contamination": {
+        "ok": true,
+        "status": "clean",
+        "project_id": "room_arche_site",
+        "active_ai": "arche",
+        "blocks": [],
+        "warnings": [],
+        "rule": "No room-to-room transfer or unapproved source use without explicit owner approval."
+      },
+      "handoff": "usable_internal_handoff",
+      "output": {
+        "ai": "arche",
+        "name": "ArchĒ",
+        "summary": "Governance route prepared. Project identity, source boundary, privacy class, error route, and verification state are checked before handoff.",
+        "action": "supervise_project_work",
+        "context": {
+          "contract": {
+            "contract_version": "typed_message_contract_v0_4_0",
+            "request_id": "req_mqb70w0i_dswyqd",
+            "trace_id": "trace_mqb70w0i_h4gxyi",
+            "created_at": "2026-06-12T17:21:17.586Z",
+            "project_id": "room_arche_site",
+            "requested_by": "owner",
+            "risk_tier": "high",
+            "speed_mode": "round_table",
+            "source_policy": "room_only",
+            "requires_verification": true,
+            "payload": {
+              "request": "Blocked push test."
+            },
+            "original": {
+              "request": "Blocked push test.",
+              "project_id": "room_arche_site",
+              "record_history": false
+            }
+          },
+          "trace": {
+            "trace_id": "trace_mqb70w0i_h4gxyi",
+            "request_id": "req_mqb70w0i_dswyqd"
+          },
+          "route": {
+            "selected_ai": "arche",
+            "room": "room_arche_site",
+            "mode": "round_table_reviewed",
+            "lanes": [
+              "source_lock",
+              "builder",
+              "verifier",
+              "error_ledger",
+              "speed_router",
+              "quality_judge",
+              "security_privacy"
+            ],
+            "reason": "Escalation trigger detected or requested; using all seven round-table lanes."
+          },
+          "preflight_lanes": {
+            "source_lock": {
+              "lane": "source_lock",
+              "ok": true,
+              "source_access": {
+                "ok": true,
+                "report": []
+              }
+            },
+            "builder": {
+              "lane": "builder",
+              "ok": true,
+              "build_target": "internal_response_or_artifact",
+              "instruction": ""
+            },
+            "verifier": {
+              "lane": "verifier",
+              "ok": true,
+              "blocked_claims": [],
+              "verification_state": "verified_for_internal_handoff"
+            },
+            "error_ledger": {
+              "lane": "error_ledger",
+              "ok": true,
+              "repeatRisk": false,
+              "matches": []
+            },
+            "speed_router": {
+              "lane": "speed_router",
+              "ok": true,
+              "speed_path": "round_table_reviewed_answer"
+            },
+            "quality_judge": {
+              "lane": "quality_judge",
+              "ok": true,
+              "quality": {
+                "score": 86,
+                "status": "usable",
+                "scores": {
+                  "accuracy": 90,
+                  "source_compliance": 92,
+                  "brand_compliance": 90,
+                  "business_usefulness": 70,
+                  "customer_safety": 94,
+                  "clarity": 86,
+                  "completeness": 88,
+                  "speed": 82,
+                  "deploy_readiness": 82,
+                  "risk": 90
+                }
+              }
+            },
+            "security_privacy": {
+              "lane": "security_privacy",
+              "ok": true,
+              "boundary": {
+                "ok": true,
+                "blocks": []
+              }
+            }
+          },
+          "contamination": {
+            "ok": true,
+            "status": "clean",
+            "project_id": "room_arche_site",
+            "active_ai": "arche",
+            "blocks": [],
+            "warnings": [],
+            "rule": "No room-to-room transfer or unapproved source use without explicit owner approval."
+          }
+        }
+      },
+      "blocked_items": [],
+      "import_rule": "Do not import into arche-backend as public/runtime behavior until owner explicitly approves activation."
+    }
+  },
+  {
+    "bridge_id": "bridge_mqb70w08_mmzcp3",
+    "created_at": "2026-06-12T17:21:17.576Z",
+    "updated_at": "2026-06-12T17:21:17.576Z",
+    "status": "queued_for_manual_import",
+    "target": "arche-backend",
+    "project_id": "room_arche_site",
+    "selected_ai": "arche",
+    "public_safe": true,
+    "import_allowed": false,
+    "import_rule": "Manual review required. Do not merge into arche-backend runtime behavior without explicit owner approval.",
+    "payload": {
+      "bridge_version": "arche_bridge_payload_v0_4_0",
+      "target": "arche-backend",
+      "created_for": "owner_only_internal_handoff",
+      "public_safe": true,
+      "selected_ai": "arche",
+      "project_room": "room_arche_site",
+      "mode": "balanced",
+      "lanes": [
+        "source_lock",
+        "speed_router",
+        "security_privacy",
+        "verifier",
+        "quality_judge"
+      ],
+      "quality_report": {
+        "score": 88,
+        "status": "usable",
+        "scores": {
+          "accuracy": 90,
+          "source_compliance": 92,
+          "brand_compliance": 90,
+          "business_usefulness": 88,
+          "customer_safety": 94,
+          "clarity": 86,
+          "completeness": 88,
+          "speed": 82,
+          "deploy_readiness": 82,
+          "risk": 90
+        }
+      },
+      "contamination": {
+        "ok": true,
+        "status": "clean",
+        "project_id": "room_arche_site",
+        "active_ai": "arche",
+        "blocks": [],
+        "warnings": [],
+        "rule": "No room-to-room transfer or unapproved source use without explicit owner approval."
+      },
+      "handoff": "usable_internal_handoff",
+      "output": {
+        "ai": "arche",
+        "name": "ArchĒ",
+        "summary": "Governance route prepared. Project identity, source boundary, privacy class, error route, and verification state are checked before handoff.",
+        "action": "supervise_project_work",
+        "context": {
+          "contract": {
+            "contract_version": "typed_message_contract_v0_4_0",
+            "request_id": "req_mqb70vvy_ederox",
+            "trace_id": "trace_mqb70vvy_2oafjl",
+            "created_at": "2026-06-12T17:21:17.422Z",
+            "project_id": "room_arche_site",
+            "requested_by": "owner",
+            "risk_tier": "medium",
+            "speed_mode": "balanced",
+            "source_policy": "room_only",
+            "requires_verification": true,
+            "payload": {
+              "request": "Prepare safe bridge payload."
+            },
+            "original": {
+              "request": "Prepare safe bridge payload.",
+              "project_id": "room_arche_site",
+              "record_history": false
+            }
+          },
+          "trace": {
+            "trace_id": "trace_mqb70vvy_2oafjl",
+            "request_id": "req_mqb70vvy_ederox"
+          },
+          "route": {
+            "selected_ai": "arche",
+            "room": "room_arche_site",
+            "mode": "balanced",
+            "lanes": [
+              "source_lock",
+              "speed_router",
+              "security_privacy",
+              "verifier",
+              "quality_judge"
+            ],
+            "reason": "Standard internal route with source, speed, security, and verification checks."
+          },
+          "preflight_lanes": {
+            "source_lock": {
+              "lane": "source_lock",
+              "ok": true,
+              "source_access": {
+                "ok": true,
+                "report": []
+              }
+            },
+            "speed_router": {
+              "lane": "speed_router",
+              "ok": true,
+              "speed_path": "instant_or_cached_answer"
+            },
+            "security_privacy": {
+              "lane": "security_privacy",
+              "ok": true,
+              "boundary": {
+                "ok": true,
+                "blocks": []
+              }
+            },
+            "verifier": {
+              "lane": "verifier",
+              "ok": true,
+              "blocked_claims": [],
+              "verification_state": "verified_for_internal_handoff"
+            },
+            "quality_judge": {
+              "lane": "quality_judge",
+              "ok": true,
+              "quality": {
+                "score": 86,
+                "status": "usable",
+                "scores": {
+                  "accuracy": 90,
+                  "source_compliance": 92,
+                  "brand_compliance": 90,
+                  "business_usefulness": 70,
+                  "customer_safety": 94,
+                  "clarity": 86,
+                  "completeness": 88,
+                  "speed": 82,
+                  "deploy_readiness": 82,
+                  "risk": 90
+                }
+              }
+            }
+          },
+          "contamination": {
+            "ok": true,
+            "status": "clean",
+            "project_id": "room_arche_site",
+            "active_ai": "arche",
+            "blocks": [],
+            "warnings": [],
+            "rule": "No room-to-room transfer or unapproved source use without explicit owner approval."
+          }
+        }
+      },
+      "blocked_items": [],
+      "import_rule": "Do not import into arche-backend as public/runtime behavior until owner explicitly approves activation."
+    }
+  },
+  {
     "bridge_id": "bridge_mqb6p6p8_p0xrcy",
     "created_at": "2026-06-12T17:12:11.564Z",
     "updated_at": "2026-06-12T17:12:11.564Z",

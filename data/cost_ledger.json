@@ -7,8 +7,28 @@
   "current_day": "2026-06-12",
   "owner_approval_required": true,
   "low_risk_auto_limit_usd": 0,
-  "updated_at": "2026-06-12T17:12:16.562Z",
+  "updated_at": "2026-06-12T17:21:23.097Z",
   "events": [
+    {
+      "at": "2026-06-12T17:21:23.096Z",
+      "event": "emergency_stop_enabled"
+    },
+    {
+      "at": "2026-06-12T17:21:23.090Z",
+      "event": "daily_limit_updated",
+      "daily_limit_usd": 0,
+      "low_risk_auto_limit_usd": 0
+    },
+    {
+      "at": "2026-06-12T17:21:22.982Z",
+      "event": "emergency_stop_enabled"
+    },
+    {
+      "at": "2026-06-12T17:21:22.977Z",
+      "event": "daily_limit_updated",
+      "daily_limit_usd": 1.25,
+      "low_risk_auto_limit_usd": 0
+    },
     {
       "at": "2026-06-12T17:12:16.562Z",
       "event": "emergency_stop_enabled"
