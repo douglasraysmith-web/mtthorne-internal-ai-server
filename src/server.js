@@ -15,7 +15,7 @@ import { listTraces, listOpenTraces, getTrace, repairStuckTraces } from './serve
 import { memoryStatus, listMemory, addMemory } from './servers/memory.js';
 import { releaseCheck } from './servers/releaseGate.js';
 import { initializeStorage, storageStatus, storageStatusLive, storageSelfCheck, storageConnectionCheck, migrateStorageFromJson, storageMigrationPlan } from './servers/storage.js';
-import { knowledgeStatus, searchKnowledge, seedArcheKnowledge, loadArcheSeed, verifyArcheKnowledge } from './servers/knowledge.js';
+import { knowledgeStatus, searchKnowledge, seedArcheKnowledge, loadArcheSeed, verifyArcheKnowledge, seedAvAiKnowledge, loadAvAiSeed, verifyAvAiKnowledge } from './servers/knowledge.js';
 import { queueAdapterStatus, queueAdapterCheck, queueAdapterMigrationPlan } from './servers/queueAdapter.js';
 import { r2StorageStatus, r2StorageCheck, r2StorageMigrationPlan } from './servers/r2Storage.js';
 import { deploymentReadinessStatus, deploymentReadinessCheck, deploymentReadinessPlan } from './servers/deploymentReadiness.js';
@@ -67,7 +67,7 @@ const server = http.createServer(async (req, res) => {
     } : {};
     if (req.method === 'OPTIONS') return send(res, 204, {}, corsHeaders);
 
-    if (req.method === 'GET' && url.pathname === '/public/status') return send(res, 200, { ok: true, service: 'mtthorne-internal-ai-server', version: '1.6.0', ava: avaStatus(), arche_bridge: archeLiveBridgeStatus(), r2: await r2LiveStatus() }, corsHeaders);
+    if (req.method === 'GET' && url.pathname === '/public/status') return send(res, 200, { ok: true, service: 'mtthorne-internal-ai-server', version: '1.7.0', ava: avaStatus(), arche_bridge: archeLiveBridgeStatus(), r2: await r2LiveStatus() }, corsHeaders);
     if (req.method === 'GET' && url.pathname === '/api/ava/status') return send(res, 200, avaStatus(), corsHeaders);
     if (req.method === 'POST' && url.pathname === '/api/ava/chat') return send(res, 200, await avaChat(await readBody(req), { ip: req.headers['x-forwarded-for'] || req.socket.remoteAddress }), corsHeaders);
 
@@ -114,6 +114,15 @@ const server = http.createServer(async (req, res) => {
       const verification = verifyArcheKnowledge(seed);
       if (!verification.ok) return send(res, 400, { ok: false, error: 'arche_seed_verification_failed', verification });
       return send(res, 200, await seedArcheKnowledge(seed, { overwrite: body.overwrite !== false }));
+    }
+
+    if (req.method === 'POST' && url.pathname === '/knowledge/seed/avai') {
+      const body = await readBody(req);
+      if (!ownerAuthorized(req, body)) return send(res, 401, { ok: false, error: 'owner_approval_required' });
+      const seed = loadAvAiSeed();
+      const verification = verifyAvAiKnowledge(seed);
+      if (!verification.ok) return send(res, 400, { ok: false, error: 'avai_seed_verification_failed', verification });
+      return send(res, 200, await seedAvAiKnowledge(seed, { overwrite: body.overwrite !== false }));
     }
 
     if (req.method === 'GET' && url.pathname === '/queue/adapter/status') return send(res, 200, queueAdapterStatus());
@@ -224,5 +233,5 @@ if (!storageStartup.ok && process.env.AI_POSTGRES_REQUIRE_CONNECTION === 'true')
 console.log(JSON.stringify({ event: 'storage_initialized', ...storageStartup }));
 
 server.listen(CONFIG.port, CONFIG.host, () => {
-  console.log(`Internal AI Server v1.6.0 listening on http://${CONFIG.host}:${CONFIG.port}`);
+  console.log(`Internal AI Server v1.7.0 listening on http://${CONFIG.host}:${CONFIG.port}`);
 });

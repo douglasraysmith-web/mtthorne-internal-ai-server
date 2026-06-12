@@ -87074,6 +87074,3489 @@
       "completed_at": "2026-06-12T19:43:49.466Z",
       "blocked_at": null,
       "owner_review_at": null
+    },
+    {
+      "queue_id": "queue_mqbcew94_41ido8",
+      "created_at": "2026-06-12T19:52:09.160Z",
+      "updated_at": "2026-06-12T19:52:09.471Z",
+      "status": "completed",
+      "lifecycle": [
+        "queued",
+        "running",
+        "completed"
+      ],
+      "priority": "normal",
+      "attempts": 1,
+      "max_attempts": 2,
+      "replay_of": null,
+      "replay_safe": false,
+      "project_id": "room_arche_site",
+      "request": "Prepare a deploy milestone without public activation.",
+      "input": {
+        "request": "Prepare a deploy milestone without public activation.",
+        "project_id": "room_arche_site",
+        "record_history": false
+      },
+      "result": {
+        "ok": true,
+        "contract": {
+          "ok": true,
+          "blocks": [],
+          "warnings": [],
+          "envelope": {
+            "contract_version": "typed_message_contract_v0_4_0",
+            "request_id": "req_mqbcewcs_2o79w3",
+            "trace_id": "trace_mqbcewcs_h2ghl4",
+            "created_at": "2026-06-12T19:52:09.292Z",
+            "project_id": "room_arche_site",
+            "requested_by": "owner",
+            "risk_tier": "high",
+            "speed_mode": "round_table",
+            "source_policy": "room_only",
+            "requires_verification": true,
+            "payload": {
+              "request": "Prepare a deploy milestone without public activation."
+            },
+            "original": {
+              "request": "Prepare a deploy milestone without public activation.",
+              "project_id": "room_arche_site",
+              "record_history": false
+            }
+          }
+        },
+        "trace": {
+          "trace_id": "trace_mqbcewcs_h2ghl4",
+          "request_id": "req_mqbcewcs_2o79w3"
+        },
+        "route": {
+          "selected_ai": "arche",
+          "room": "room_arche_site",
+          "mode": "round_table_reviewed",
+          "lanes": [
+            "source_lock",
+            "builder",
+            "verifier",
+            "error_ledger",
+            "speed_router",
+            "quality_judge",
+            "security_privacy"
+          ],
+          "reason": "Escalation trigger detected or requested; using all seven round-table lanes."
+        },
+        "contamination": {
+          "ok": true,
+          "status": "clean",
+          "project_id": "room_arche_site",
+          "active_ai": "arche",
+          "blocks": [],
+          "warnings": [],
+          "rule": "No room-to-room transfer or unapproved source use without explicit owner approval."
+        },
+        "preflight": {
+          "ok": true,
+          "lanes": {
+            "source_lock": {
+              "lane": "source_lock",
+              "ok": true,
+              "source_access": {
+                "ok": true,
+                "report": []
+              }
+            },
+            "builder": {
+              "lane": "builder",
+              "ok": true,
+              "build_target": "internal_response_or_artifact",
+              "instruction": ""
+            },
+            "verifier": {
+              "lane": "verifier",
+              "ok": true,
+              "blocked_claims": [],
+              "verification_state": "verified_for_internal_handoff"
+            },
+            "error_ledger": {
+              "lane": "error_ledger",
+              "ok": true,
+              "repeatRisk": false,
+              "matches": []
+            },
+            "speed_router": {
+              "lane": "speed_router",
+              "ok": true,
+              "speed_path": "round_table_reviewed_answer"
+            },
+            "quality_judge": {
+              "lane": "quality_judge",
+              "ok": true,
+              "quality": {
+                "score": 86,
+                "status": "usable",
+                "scores": {
+                  "accuracy": 90,
+                  "source_compliance": 92,
+                  "brand_compliance": 90,
+                  "business_usefulness": 70,
+                  "customer_safety": 94,
+                  "clarity": 86,
+                  "completeness": 88,
+                  "speed": 82,
+                  "deploy_readiness": 82,
+                  "risk": 90
+                }
+              }
+            },
+            "security_privacy": {
+              "lane": "security_privacy",
+              "ok": true,
+              "boundary": {
+                "ok": true,
+                "blocks": []
+              }
+            }
+          }
+        },
+        "output": {
+          "ai": "arche",
+          "name": "ArchĒ",
+          "summary": "Governance route prepared. Project identity, source boundary, privacy class, error route, and verification state are checked before handoff.",
+          "action": "supervise_project_work",
+          "context": {
+            "contract": {
+              "contract_version": "typed_message_contract_v0_4_0",
+              "request_id": "req_mqbcewcs_2o79w3",
+              "trace_id": "trace_mqbcewcs_h2ghl4",
+              "created_at": "2026-06-12T19:52:09.292Z",
+              "project_id": "room_arche_site",
+              "requested_by": "owner",
+              "risk_tier": "high",
+              "speed_mode": "round_table",
+              "source_policy": "room_only",
+              "requires_verification": true,
+              "payload": {
+                "request": "Prepare a deploy milestone without public activation."
+              },
+              "original": {
+                "request": "Prepare a deploy milestone without public activation.",
+                "project_id": "room_arche_site",
+                "record_history": false
+              }
+            },
+            "trace": {
+              "trace_id": "trace_mqbcewcs_h2ghl4",
+              "request_id": "req_mqbcewcs_2o79w3"
+            },
+            "route": {
+              "selected_ai": "arche",
+              "room": "room_arche_site",
+              "mode": "round_table_reviewed",
+              "lanes": [
+                "source_lock",
+                "builder",
+                "verifier",
+                "error_ledger",
+                "speed_router",
+                "quality_judge",
+                "security_privacy"
+              ],
+              "reason": "Escalation trigger detected or requested; using all seven round-table lanes."
+            },
+            "preflight_lanes": {
+              "source_lock": {
+                "lane": "source_lock",
+                "ok": true,
+                "source_access": {
+                  "ok": true,
+                  "report": []
+                }
+              },
+              "builder": {
+                "lane": "builder",
+                "ok": true,
+                "build_target": "internal_response_or_artifact",
+                "instruction": ""
+              },
+              "verifier": {
+                "lane": "verifier",
+                "ok": true,
+                "blocked_claims": [],
+                "verification_state": "verified_for_internal_handoff"
+              },
+              "error_ledger": {
+                "lane": "error_ledger",
+                "ok": true,
+                "repeatRisk": false,
+                "matches": []
+              },
+              "speed_router": {
+                "lane": "speed_router",
+                "ok": true,
+                "speed_path": "round_table_reviewed_answer"
+              },
+              "quality_judge": {
+                "lane": "quality_judge",
+                "ok": true,
+                "quality": {
+                  "score": 86,
+                  "status": "usable",
+                  "scores": {
+                    "accuracy": 90,
+                    "source_compliance": 92,
+                    "brand_compliance": 90,
+                    "business_usefulness": 70,
+                    "customer_safety": 94,
+                    "clarity": 86,
+                    "completeness": 88,
+                    "speed": 82,
+                    "deploy_readiness": 82,
+                    "risk": 90
+                  }
+                }
+              },
+              "security_privacy": {
+                "lane": "security_privacy",
+                "ok": true,
+                "boundary": {
+                  "ok": true,
+                  "blocks": []
+                }
+              }
+            },
+            "contamination": {
+              "ok": true,
+              "status": "clean",
+              "project_id": "room_arche_site",
+              "active_ai": "arche",
+              "blocks": [],
+              "warnings": [],
+              "rule": "No room-to-room transfer or unapproved source use without explicit owner approval."
+            }
+          }
+        },
+        "review": {
+          "ok": true,
+          "lanes": {
+            "source_lock": {
+              "lane": "source_lock",
+              "ok": true,
+              "source_access": {
+                "ok": true,
+                "report": []
+              }
+            },
+            "builder": {
+              "lane": "builder",
+              "ok": true,
+              "build_target": "internal_response_or_artifact",
+              "instruction": ""
+            },
+            "verifier": {
+              "lane": "verifier",
+              "ok": true,
+              "blocked_claims": [],
+              "verification_state": "verified_for_internal_handoff"
+            },
+            "error_ledger": {
+              "lane": "error_ledger",
+              "ok": true,
+              "repeatRisk": false,
+              "matches": []
+            },
+            "speed_router": {
+              "lane": "speed_router",
+              "ok": true,
+              "speed_path": "round_table_reviewed_answer"
+            },
+            "quality_judge": {
+              "lane": "quality_judge",
+              "ok": true,
+              "quality": {
+                "score": 88,
+                "status": "usable",
+                "scores": {
+                  "accuracy": 90,
+                  "source_compliance": 92,
+                  "brand_compliance": 90,
+                  "business_usefulness": 88,
+                  "customer_safety": 94,
+                  "clarity": 86,
+                  "completeness": 88,
+                  "speed": 82,
+                  "deploy_readiness": 82,
+                  "risk": 90
+                }
+              }
+            },
+            "security_privacy": {
+              "lane": "security_privacy",
+              "ok": true,
+              "boundary": {
+                "ok": true,
+                "blocks": []
+              }
+            }
+          }
+        },
+        "quality_report": {
+          "score": 88,
+          "status": "usable",
+          "scores": {
+            "accuracy": 90,
+            "source_compliance": 92,
+            "brand_compliance": 90,
+            "business_usefulness": 88,
+            "customer_safety": 94,
+            "clarity": 86,
+            "completeness": 88,
+            "speed": 82,
+            "deploy_readiness": 82,
+            "risk": 90
+          }
+        },
+        "blocks": [],
+        "warnings": [],
+        "handoff": "usable_internal_handoff"
+      },
+      "failed_at": null,
+      "failure_reason": null,
+      "repair_hint": null,
+      "dead_letter": false,
+      "started_at": "2026-06-12T19:52:09.224Z",
+      "completed_at": "2026-06-12T19:52:09.462Z",
+      "blocked_at": null,
+      "owner_review_at": null
+    },
+    {
+      "queue_id": "queue_mqbcexs0_iu22ss",
+      "created_at": "2026-06-12T19:52:11.136Z",
+      "updated_at": "2026-06-12T19:52:11.445Z",
+      "status": "completed",
+      "lifecycle": [
+        "queued",
+        "running",
+        "completed"
+      ],
+      "priority": "normal",
+      "attempts": 1,
+      "max_attempts": 2,
+      "replay_of": null,
+      "replay_safe": false,
+      "project_id": "room_janitor_client_reply",
+      "request": "Build a safe client reply.",
+      "input": {
+        "request": "Build a safe client reply.",
+        "project_id": "room_janitor_client_reply"
+      },
+      "result": {
+        "ok": true,
+        "contract": {
+          "ok": true,
+          "blocks": [],
+          "warnings": [],
+          "envelope": {
+            "contract_version": "typed_message_contract_v0_4_0",
+            "request_id": "req_mqbcexvh_k69a0l",
+            "trace_id": "trace_mqbcexvh_341z9k",
+            "created_at": "2026-06-12T19:52:11.261Z",
+            "project_id": "room_janitor_client_reply",
+            "requested_by": "owner",
+            "risk_tier": "low",
+            "speed_mode": "fast",
+            "source_policy": "room_only",
+            "requires_verification": true,
+            "payload": {
+              "request": "Build a safe client reply."
+            },
+            "original": {
+              "request": "Build a safe client reply.",
+              "project_id": "room_janitor_client_reply"
+            }
+          }
+        },
+        "trace": {
+          "trace_id": "trace_mqbcexvh_341z9k",
+          "request_id": "req_mqbcexvh_k69a0l"
+        },
+        "route": {
+          "selected_ai": "janitor",
+          "room": "room_janitor_client_reply",
+          "mode": "fast",
+          "lanes": [
+            "source_lock",
+            "speed_router",
+            "security_privacy",
+            "verifier"
+          ],
+          "reason": "Standard internal route with source, speed, security, and verification checks."
+        },
+        "contamination": {
+          "ok": true,
+          "status": "clean",
+          "project_id": "room_janitor_client_reply",
+          "active_ai": "janitor",
+          "blocks": [],
+          "warnings": [],
+          "rule": "No room-to-room transfer or unapproved source use without explicit owner approval."
+        },
+        "preflight": {
+          "ok": true,
+          "lanes": {
+            "source_lock": {
+              "lane": "source_lock",
+              "ok": true,
+              "source_access": {
+                "ok": true,
+                "report": []
+              }
+            },
+            "speed_router": {
+              "lane": "speed_router",
+              "ok": true,
+              "speed_path": "instant_or_cached_answer"
+            },
+            "security_privacy": {
+              "lane": "security_privacy",
+              "ok": true,
+              "boundary": {
+                "ok": true,
+                "blocks": []
+              }
+            },
+            "verifier": {
+              "lane": "verifier",
+              "ok": true,
+              "blocked_claims": [],
+              "verification_state": "verified_for_internal_handoff"
+            }
+          }
+        },
+        "output": {
+          "ai": "janitor",
+          "name": "The Janitor",
+          "summary": "Client-reply route prepared. Triage, boundary protection, support classification, and professional response handling are active.",
+          "action": "handle_support_or_client_reply_work",
+          "context": {
+            "contract": {
+              "contract_version": "typed_message_contract_v0_4_0",
+              "request_id": "req_mqbcexvh_k69a0l",
+              "trace_id": "trace_mqbcexvh_341z9k",
+              "created_at": "2026-06-12T19:52:11.261Z",
+              "project_id": "room_janitor_client_reply",
+              "requested_by": "owner",
+              "risk_tier": "low",
+              "speed_mode": "fast",
+              "source_policy": "room_only",
+              "requires_verification": true,
+              "payload": {
+                "request": "Build a safe client reply."
+              },
+              "original": {
+                "request": "Build a safe client reply.",
+                "project_id": "room_janitor_client_reply"
+              }
+            },
+            "trace": {
+              "trace_id": "trace_mqbcexvh_341z9k",
+              "request_id": "req_mqbcexvh_k69a0l"
+            },
+            "route": {
+              "selected_ai": "janitor",
+              "room": "room_janitor_client_reply",
+              "mode": "fast",
+              "lanes": [
+                "source_lock",
+                "speed_router",
+                "security_privacy",
+                "verifier"
+              ],
+              "reason": "Standard internal route with source, speed, security, and verification checks."
+            },
+            "preflight_lanes": {
+              "source_lock": {
+                "lane": "source_lock",
+                "ok": true,
+                "source_access": {
+                  "ok": true,
+                  "report": []
+                }
+              },
+              "speed_router": {
+                "lane": "speed_router",
+                "ok": true,
+                "speed_path": "instant_or_cached_answer"
+              },
+              "security_privacy": {
+                "lane": "security_privacy",
+                "ok": true,
+                "boundary": {
+                  "ok": true,
+                  "blocks": []
+                }
+              },
+              "verifier": {
+                "lane": "verifier",
+                "ok": true,
+                "blocked_claims": [],
+                "verification_state": "verified_for_internal_handoff"
+              }
+            },
+            "contamination": {
+              "ok": true,
+              "status": "clean",
+              "project_id": "room_janitor_client_reply",
+              "active_ai": "janitor",
+              "blocks": [],
+              "warnings": [],
+              "rule": "No room-to-room transfer or unapproved source use without explicit owner approval."
+            }
+          }
+        },
+        "review": {
+          "ok": true,
+          "lanes": {
+            "source_lock": {
+              "lane": "source_lock",
+              "ok": true,
+              "source_access": {
+                "ok": true,
+                "report": []
+              }
+            },
+            "speed_router": {
+              "lane": "speed_router",
+              "ok": true,
+              "speed_path": "instant_or_cached_answer"
+            },
+            "security_privacy": {
+              "lane": "security_privacy",
+              "ok": true,
+              "boundary": {
+                "ok": true,
+                "blocks": []
+              }
+            },
+            "verifier": {
+              "lane": "verifier",
+              "ok": true,
+              "blocked_claims": [],
+              "verification_state": "verified_for_internal_handoff"
+            }
+          }
+        },
+        "quality_report": {
+          "score": 90,
+          "status": "usable",
+          "scores": {
+            "accuracy": 90,
+            "source_compliance": 92,
+            "brand_compliance": 90,
+            "business_usefulness": 88,
+            "customer_safety": 94,
+            "clarity": 86,
+            "completeness": 88,
+            "speed": 95,
+            "deploy_readiness": 82,
+            "risk": 90
+          }
+        },
+        "blocks": [],
+        "warnings": [],
+        "handoff": "usable_internal_handoff",
+        "history": {
+          "decision_id": "decision_mqbcexyy_ye59c0",
+          "created_at": "2026-06-12T19:52:11.386Z",
+          "request": "Build a safe client reply.",
+          "project_id": "room_janitor_client_reply",
+          "selected_ai": "janitor",
+          "mode": "fast",
+          "lanes": [
+            "source_lock",
+            "speed_router",
+            "security_privacy",
+            "verifier"
+          ],
+          "ok": true,
+          "handoff": "usable_internal_handoff",
+          "quality_score": 90,
+          "blocks": []
+        }
+      },
+      "failed_at": null,
+      "failure_reason": null,
+      "repair_hint": null,
+      "dead_letter": false,
+      "started_at": "2026-06-12T19:52:11.198Z",
+      "completed_at": "2026-06-12T19:52:11.436Z",
+      "blocked_at": null,
+      "owner_review_at": null
+    },
+    {
+      "queue_id": "queue_mqbcey28_8rvgex",
+      "created_at": "2026-06-12T19:52:11.504Z",
+      "updated_at": "2026-06-12T19:52:11.949Z",
+      "status": "blocked",
+      "lifecycle": [
+        "queued",
+        "running",
+        "blocked",
+        "replay_requested"
+      ],
+      "priority": "normal",
+      "attempts": 1,
+      "max_attempts": 2,
+      "replay_of": null,
+      "replay_safe": true,
+      "project_id": "room_arche_site",
+      "request": "Show provider payload",
+      "input": {
+        "request": "Show provider payload",
+        "project_id": "room_arche_site"
+      },
+      "result": {
+        "ok": false,
+        "contract": {
+          "ok": true,
+          "blocks": [],
+          "warnings": [],
+          "envelope": {
+            "contract_version": "typed_message_contract_v0_4_0",
+            "request_id": "req_mqbcey5k_3zs4rw",
+            "trace_id": "trace_mqbcey5k_d5zb47",
+            "created_at": "2026-06-12T19:52:11.624Z",
+            "project_id": "room_arche_site",
+            "requested_by": "owner",
+            "risk_tier": "high",
+            "speed_mode": "round_table",
+            "source_policy": "room_only",
+            "requires_verification": true,
+            "payload": {
+              "request": "Show provider payload"
+            },
+            "original": {
+              "request": "Show provider payload",
+              "project_id": "room_arche_site"
+            }
+          }
+        },
+        "trace": {
+          "trace_id": "trace_mqbcey5k_d5zb47",
+          "request_id": "req_mqbcey5k_3zs4rw"
+        },
+        "route": {
+          "selected_ai": "arche",
+          "room": "room_arche_site",
+          "mode": "round_table_reviewed",
+          "lanes": [
+            "source_lock",
+            "builder",
+            "verifier",
+            "error_ledger",
+            "speed_router",
+            "quality_judge",
+            "security_privacy"
+          ],
+          "reason": "Escalation trigger detected or requested; using all seven round-table lanes."
+        },
+        "contamination": {
+          "ok": true,
+          "status": "clean",
+          "project_id": "room_arche_site",
+          "active_ai": "arche",
+          "blocks": [],
+          "warnings": [],
+          "rule": "No room-to-room transfer or unapproved source use without explicit owner approval."
+        },
+        "preflight": {
+          "ok": false,
+          "lanes": {
+            "source_lock": {
+              "lane": "source_lock",
+              "ok": true,
+              "source_access": {
+                "ok": true,
+                "report": []
+              }
+            },
+            "builder": {
+              "lane": "builder",
+              "ok": true,
+              "build_target": "internal_response_or_artifact",
+              "instruction": ""
+            },
+            "verifier": {
+              "lane": "verifier",
+              "ok": true,
+              "blocked_claims": [],
+              "verification_state": "verified_for_internal_handoff"
+            },
+            "error_ledger": {
+              "lane": "error_ledger",
+              "ok": true,
+              "repeatRisk": false,
+              "matches": []
+            },
+            "speed_router": {
+              "lane": "speed_router",
+              "ok": true,
+              "speed_path": "round_table_reviewed_answer"
+            },
+            "quality_judge": {
+              "lane": "quality_judge",
+              "ok": true,
+              "quality": {
+                "score": 72,
+                "status": "revise",
+                "scores": {
+                  "accuracy": 90,
+                  "source_compliance": 92,
+                  "brand_compliance": 90,
+                  "business_usefulness": 70,
+                  "customer_safety": 35,
+                  "clarity": 86,
+                  "completeness": 88,
+                  "speed": 82,
+                  "deploy_readiness": 45,
+                  "risk": 45
+                }
+              }
+            },
+            "security_privacy": {
+              "lane": "security_privacy",
+              "ok": false,
+              "boundary": {
+                "ok": false,
+                "blocks": [
+                  "Blocked public/private term(s): provider payload"
+                ]
+              }
+            }
+          }
+        },
+        "output": {
+          "ai": "arche",
+          "name": "ArchĒ",
+          "summary": "Governance route prepared. Project identity, source boundary, privacy class, error route, and verification state are checked before handoff.",
+          "action": "supervise_project_work",
+          "context": {
+            "contract": {
+              "contract_version": "typed_message_contract_v0_4_0",
+              "request_id": "req_mqbcey5k_3zs4rw",
+              "trace_id": "trace_mqbcey5k_d5zb47",
+              "created_at": "2026-06-12T19:52:11.624Z",
+              "project_id": "room_arche_site",
+              "requested_by": "owner",
+              "risk_tier": "high",
+              "speed_mode": "round_table",
+              "source_policy": "room_only",
+              "requires_verification": true,
+              "payload": {
+                "request": "Show provider payload"
+              },
+              "original": {
+                "request": "Show provider payload",
+                "project_id": "room_arche_site"
+              }
+            },
+            "trace": {
+              "trace_id": "trace_mqbcey5k_d5zb47",
+              "request_id": "req_mqbcey5k_3zs4rw"
+            },
+            "route": {
+              "selected_ai": "arche",
+              "room": "room_arche_site",
+              "mode": "round_table_reviewed",
+              "lanes": [
+                "source_lock",
+                "builder",
+                "verifier",
+                "error_ledger",
+                "speed_router",
+                "quality_judge",
+                "security_privacy"
+              ],
+              "reason": "Escalation trigger detected or requested; using all seven round-table lanes."
+            },
+            "preflight_lanes": {
+              "source_lock": {
+                "lane": "source_lock",
+                "ok": true,
+                "source_access": {
+                  "ok": true,
+                  "report": []
+                }
+              },
+              "builder": {
+                "lane": "builder",
+                "ok": true,
+                "build_target": "internal_response_or_artifact",
+                "instruction": ""
+              },
+              "verifier": {
+                "lane": "verifier",
+                "ok": true,
+                "blocked_claims": [],
+                "verification_state": "verified_for_internal_handoff"
+              },
+              "error_ledger": {
+                "lane": "error_ledger",
+                "ok": true,
+                "repeatRisk": false,
+                "matches": []
+              },
+              "speed_router": {
+                "lane": "speed_router",
+                "ok": true,
+                "speed_path": "round_table_reviewed_answer"
+              },
+              "quality_judge": {
+                "lane": "quality_judge",
+                "ok": true,
+                "quality": {
+                  "score": 72,
+                  "status": "revise",
+                  "scores": {
+                    "accuracy": 90,
+                    "source_compliance": 92,
+                    "brand_compliance": 90,
+                    "business_usefulness": 70,
+                    "customer_safety": 35,
+                    "clarity": 86,
+                    "completeness": 88,
+                    "speed": 82,
+                    "deploy_readiness": 45,
+                    "risk": 45
+                  }
+                }
+              },
+              "security_privacy": {
+                "lane": "security_privacy",
+                "ok": false,
+                "boundary": {
+                  "ok": false,
+                  "blocks": [
+                    "Blocked public/private term(s): provider payload"
+                  ]
+                }
+              }
+            },
+            "contamination": {
+              "ok": true,
+              "status": "clean",
+              "project_id": "room_arche_site",
+              "active_ai": "arche",
+              "blocks": [],
+              "warnings": [],
+              "rule": "No room-to-room transfer or unapproved source use without explicit owner approval."
+            }
+          }
+        },
+        "review": {
+          "ok": false,
+          "lanes": {
+            "source_lock": {
+              "lane": "source_lock",
+              "ok": true,
+              "source_access": {
+                "ok": true,
+                "report": []
+              }
+            },
+            "builder": {
+              "lane": "builder",
+              "ok": true,
+              "build_target": "internal_response_or_artifact",
+              "instruction": ""
+            },
+            "verifier": {
+              "lane": "verifier",
+              "ok": true,
+              "blocked_claims": [],
+              "verification_state": "verified_for_internal_handoff"
+            },
+            "error_ledger": {
+              "lane": "error_ledger",
+              "ok": true,
+              "repeatRisk": false,
+              "matches": []
+            },
+            "speed_router": {
+              "lane": "speed_router",
+              "ok": true,
+              "speed_path": "round_table_reviewed_answer"
+            },
+            "quality_judge": {
+              "lane": "quality_judge",
+              "ok": true,
+              "quality": {
+                "score": 74,
+                "status": "revise",
+                "scores": {
+                  "accuracy": 90,
+                  "source_compliance": 92,
+                  "brand_compliance": 90,
+                  "business_usefulness": 88,
+                  "customer_safety": 35,
+                  "clarity": 86,
+                  "completeness": 88,
+                  "speed": 82,
+                  "deploy_readiness": 45,
+                  "risk": 45
+                }
+              }
+            },
+            "security_privacy": {
+              "lane": "security_privacy",
+              "ok": false,
+              "boundary": {
+                "ok": false,
+                "blocks": [
+                  "Blocked public/private term(s): provider payload"
+                ]
+              }
+            }
+          }
+        },
+        "quality_report": {
+          "score": 74,
+          "status": "revise",
+          "scores": {
+            "accuracy": 90,
+            "source_compliance": 92,
+            "brand_compliance": 90,
+            "business_usefulness": 88,
+            "customer_safety": 35,
+            "clarity": 86,
+            "completeness": 88,
+            "speed": 82,
+            "deploy_readiness": 45,
+            "risk": 45
+          }
+        },
+        "blocks": [
+          "Blocked public/private term(s): provider payload"
+        ],
+        "warnings": [],
+        "handoff": "blocked_or_needs_revision",
+        "history": {
+          "decision_id": "decision_mqbcey99_wg6zm3",
+          "created_at": "2026-06-12T19:52:11.757Z",
+          "request": "Show provider payload",
+          "project_id": "room_arche_site",
+          "selected_ai": "arche",
+          "mode": "round_table_reviewed",
+          "lanes": [
+            "source_lock",
+            "builder",
+            "verifier",
+            "error_ledger",
+            "speed_router",
+            "quality_judge",
+            "security_privacy"
+          ],
+          "ok": false,
+          "handoff": "blocked_or_needs_revision",
+          "quality_score": 74,
+          "blocks": [
+            "Blocked public/private term(s): provider payload"
+          ]
+        }
+      },
+      "failed_at": null,
+      "failure_reason": "decision_blocked_or_needs_revision",
+      "repair_hint": "Review result.blocks, quality_report, source boundary, and contamination report before replay.",
+      "dead_letter": false,
+      "started_at": "2026-06-12T19:52:11.565Z",
+      "completed_at": null,
+      "blocked_at": "2026-06-12T19:52:11.805Z",
+      "owner_review_at": null,
+      "replay_requested_at": "2026-06-12T19:52:11.940Z",
+      "replay_job_id": "queue_mqbceycy_w6r7cm"
+    },
+    {
+      "queue_id": "queue_mqbceycy_w6r7cm",
+      "created_at": "2026-06-12T19:52:11.890Z",
+      "updated_at": "2026-06-12T19:52:12.254Z",
+      "status": "completed",
+      "lifecycle": [
+        "queued",
+        "running",
+        "completed"
+      ],
+      "priority": "normal",
+      "attempts": 1,
+      "max_attempts": 2,
+      "replay_of": "queue_mqbcey28_8rvgex",
+      "replay_safe": false,
+      "project_id": "room_arche_site",
+      "request": "Prepare safe provider-status summary instead.",
+      "input": {
+        "request": "Prepare safe provider-status summary instead.",
+        "project_id": "room_arche_site",
+        "replay_of": "queue_mqbcey28_8rvgex",
+        "priority": "normal"
+      },
+      "result": {
+        "ok": true,
+        "contract": {
+          "ok": true,
+          "blocks": [],
+          "warnings": [],
+          "envelope": {
+            "contract_version": "typed_message_contract_v0_4_0",
+            "request_id": "req_mqbceyhv_iawqou",
+            "trace_id": "trace_mqbceyhv_3la66v",
+            "created_at": "2026-06-12T19:52:12.067Z",
+            "project_id": "room_arche_site",
+            "requested_by": "owner",
+            "risk_tier": "low",
+            "speed_mode": "fast",
+            "source_policy": "room_only",
+            "requires_verification": true,
+            "payload": {
+              "request": "Prepare safe provider-status summary instead."
+            },
+            "original": {
+              "request": "Prepare safe provider-status summary instead.",
+              "project_id": "room_arche_site",
+              "replay_of": "queue_mqbcey28_8rvgex",
+              "priority": "normal"
+            }
+          }
+        },
+        "trace": {
+          "trace_id": "trace_mqbceyhv_3la66v",
+          "request_id": "req_mqbceyhv_iawqou"
+        },
+        "route": {
+          "selected_ai": "arche",
+          "room": "room_arche_site",
+          "mode": "fast",
+          "lanes": [
+            "source_lock",
+            "speed_router",
+            "security_privacy",
+            "verifier"
+          ],
+          "reason": "Standard internal route with source, speed, security, and verification checks."
+        },
+        "contamination": {
+          "ok": true,
+          "status": "clean",
+          "project_id": "room_arche_site",
+          "active_ai": "arche",
+          "blocks": [],
+          "warnings": [],
+          "rule": "No room-to-room transfer or unapproved source use without explicit owner approval."
+        },
+        "preflight": {
+          "ok": true,
+          "lanes": {
+            "source_lock": {
+              "lane": "source_lock",
+              "ok": true,
+              "source_access": {
+                "ok": true,
+                "report": []
+              }
+            },
+            "speed_router": {
+              "lane": "speed_router",
+              "ok": true,
+              "speed_path": "instant_or_cached_answer"
+            },
+            "security_privacy": {
+              "lane": "security_privacy",
+              "ok": true,
+              "boundary": {
+                "ok": true,
+                "blocks": []
+              }
+            },
+            "verifier": {
+              "lane": "verifier",
+              "ok": true,
+              "blocked_claims": [],
+              "verification_state": "verified_for_internal_handoff"
+            }
+          }
+        },
+        "output": {
+          "ai": "arche",
+          "name": "ArchĒ",
+          "summary": "Governance route prepared. Project identity, source boundary, privacy class, error route, and verification state are checked before handoff.",
+          "action": "supervise_project_work",
+          "context": {
+            "contract": {
+              "contract_version": "typed_message_contract_v0_4_0",
+              "request_id": "req_mqbceyhv_iawqou",
+              "trace_id": "trace_mqbceyhv_3la66v",
+              "created_at": "2026-06-12T19:52:12.067Z",
+              "project_id": "room_arche_site",
+              "requested_by": "owner",
+              "risk_tier": "low",
+              "speed_mode": "fast",
+              "source_policy": "room_only",
+              "requires_verification": true,
+              "payload": {
+                "request": "Prepare safe provider-status summary instead."
+              },
+              "original": {
+                "request": "Prepare safe provider-status summary instead.",
+                "project_id": "room_arche_site",
+                "replay_of": "queue_mqbcey28_8rvgex",
+                "priority": "normal"
+              }
+            },
+            "trace": {
+              "trace_id": "trace_mqbceyhv_3la66v",
+              "request_id": "req_mqbceyhv_iawqou"
+            },
+            "route": {
+              "selected_ai": "arche",
+              "room": "room_arche_site",
+              "mode": "fast",
+              "lanes": [
+                "source_lock",
+                "speed_router",
+                "security_privacy",
+                "verifier"
+              ],
+              "reason": "Standard internal route with source, speed, security, and verification checks."
+            },
+            "preflight_lanes": {
+              "source_lock": {
+                "lane": "source_lock",
+                "ok": true,
+                "source_access": {
+                  "ok": true,
+                  "report": []
+                }
+              },
+              "speed_router": {
+                "lane": "speed_router",
+                "ok": true,
+                "speed_path": "instant_or_cached_answer"
+              },
+              "security_privacy": {
+                "lane": "security_privacy",
+                "ok": true,
+                "boundary": {
+                  "ok": true,
+                  "blocks": []
+                }
+              },
+              "verifier": {
+                "lane": "verifier",
+                "ok": true,
+                "blocked_claims": [],
+                "verification_state": "verified_for_internal_handoff"
+              }
+            },
+            "contamination": {
+              "ok": true,
+              "status": "clean",
+              "project_id": "room_arche_site",
+              "active_ai": "arche",
+              "blocks": [],
+              "warnings": [],
+              "rule": "No room-to-room transfer or unapproved source use without explicit owner approval."
+            }
+          }
+        },
+        "review": {
+          "ok": true,
+          "lanes": {
+            "source_lock": {
+              "lane": "source_lock",
+              "ok": true,
+              "source_access": {
+                "ok": true,
+                "report": []
+              }
+            },
+            "speed_router": {
+              "lane": "speed_router",
+              "ok": true,
+              "speed_path": "instant_or_cached_answer"
+            },
+            "security_privacy": {
+              "lane": "security_privacy",
+              "ok": true,
+              "boundary": {
+                "ok": true,
+                "blocks": []
+              }
+            },
+            "verifier": {
+              "lane": "verifier",
+              "ok": true,
+              "blocked_claims": [],
+              "verification_state": "verified_for_internal_handoff"
+            }
+          }
+        },
+        "quality_report": {
+          "score": 90,
+          "status": "usable",
+          "scores": {
+            "accuracy": 90,
+            "source_compliance": 92,
+            "brand_compliance": 90,
+            "business_usefulness": 88,
+            "customer_safety": 94,
+            "clarity": 86,
+            "completeness": 88,
+            "speed": 95,
+            "deploy_readiness": 82,
+            "risk": 90
+          }
+        },
+        "blocks": [],
+        "warnings": [],
+        "handoff": "usable_internal_handoff",
+        "history": {
+          "decision_id": "decision_mqbceyld_tdhrc1",
+          "created_at": "2026-06-12T19:52:12.193Z",
+          "request": "Prepare safe provider-status summary instead.",
+          "project_id": "room_arche_site",
+          "selected_ai": "arche",
+          "mode": "fast",
+          "lanes": [
+            "source_lock",
+            "speed_router",
+            "security_privacy",
+            "verifier"
+          ],
+          "ok": true,
+          "handoff": "usable_internal_handoff",
+          "quality_score": 90,
+          "blocks": []
+        }
+      },
+      "failed_at": null,
+      "failure_reason": null,
+      "repair_hint": null,
+      "dead_letter": false,
+      "started_at": "2026-06-12T19:52:12.007Z",
+      "completed_at": "2026-06-12T19:52:12.244Z",
+      "blocked_at": null,
+      "owner_review_at": null
+    },
+    {
+      "queue_id": "queue_mqbceyti_ik6js8",
+      "created_at": "2026-06-12T19:52:12.486Z",
+      "updated_at": "2026-06-12T19:52:12.486Z",
+      "status": "queued",
+      "lifecycle": [
+        "queued"
+      ],
+      "priority": "normal",
+      "attempts": 0,
+      "max_attempts": 2,
+      "replay_of": null,
+      "replay_safe": true,
+      "project_id": "room_janitor_client_reply",
+      "request": "Recent queue lookup test.",
+      "input": {
+        "request": "Recent queue lookup test.",
+        "project_id": "room_janitor_client_reply",
+        "auto_process": false
+      },
+      "result": null,
+      "failed_at": null,
+      "failure_reason": null,
+      "repair_hint": null,
+      "dead_letter": false
+    },
+    {
+      "queue_id": "queue_mqbceyvj_9amrz9",
+      "created_at": "2026-06-12T19:52:12.559Z",
+      "updated_at": "2026-06-12T19:52:13.016Z",
+      "status": "completed",
+      "lifecycle": [
+        "queued",
+        "running",
+        "completed",
+        "replay_requested"
+      ],
+      "priority": "normal",
+      "attempts": 1,
+      "max_attempts": 2,
+      "replay_of": null,
+      "replay_safe": false,
+      "project_id": "room_janitor_client_reply",
+      "request": "Replay auto process test.",
+      "input": {
+        "request": "Replay auto process test.",
+        "project_id": "room_janitor_client_reply"
+      },
+      "result": {
+        "ok": true,
+        "contract": {
+          "ok": true,
+          "blocks": [],
+          "warnings": [],
+          "envelope": {
+            "contract_version": "typed_message_contract_v0_4_0",
+            "request_id": "req_mqbceyz6_zpp6h5",
+            "trace_id": "trace_mqbceyz6_vruu8b",
+            "created_at": "2026-06-12T19:52:12.690Z",
+            "project_id": "room_janitor_client_reply",
+            "requested_by": "owner",
+            "risk_tier": "low",
+            "speed_mode": "fast",
+            "source_policy": "room_only",
+            "requires_verification": true,
+            "payload": {
+              "request": "Replay auto process test."
+            },
+            "original": {
+              "request": "Replay auto process test.",
+              "project_id": "room_janitor_client_reply"
+            }
+          }
+        },
+        "trace": {
+          "trace_id": "trace_mqbceyz6_vruu8b",
+          "request_id": "req_mqbceyz6_zpp6h5"
+        },
+        "route": {
+          "selected_ai": "janitor",
+          "room": "room_janitor_client_reply",
+          "mode": "fast",
+          "lanes": [
+            "source_lock",
+            "speed_router",
+            "security_privacy",
+            "verifier"
+          ],
+          "reason": "Standard internal route with source, speed, security, and verification checks."
+        },
+        "contamination": {
+          "ok": true,
+          "status": "clean",
+          "project_id": "room_janitor_client_reply",
+          "active_ai": "janitor",
+          "blocks": [],
+          "warnings": [],
+          "rule": "No room-to-room transfer or unapproved source use without explicit owner approval."
+        },
+        "preflight": {
+          "ok": true,
+          "lanes": {
+            "source_lock": {
+              "lane": "source_lock",
+              "ok": true,
+              "source_access": {
+                "ok": true,
+                "report": []
+              }
+            },
+            "speed_router": {
+              "lane": "speed_router",
+              "ok": true,
+              "speed_path": "instant_or_cached_answer"
+            },
+            "security_privacy": {
+              "lane": "security_privacy",
+              "ok": true,
+              "boundary": {
+                "ok": true,
+                "blocks": []
+              }
+            },
+            "verifier": {
+              "lane": "verifier",
+              "ok": true,
+              "blocked_claims": [],
+              "verification_state": "verified_for_internal_handoff"
+            }
+          }
+        },
+        "output": {
+          "ai": "janitor",
+          "name": "The Janitor",
+          "summary": "Client-reply route prepared. Triage, boundary protection, support classification, and professional response handling are active.",
+          "action": "handle_support_or_client_reply_work",
+          "context": {
+            "contract": {
+              "contract_version": "typed_message_contract_v0_4_0",
+              "request_id": "req_mqbceyz6_zpp6h5",
+              "trace_id": "trace_mqbceyz6_vruu8b",
+              "created_at": "2026-06-12T19:52:12.690Z",
+              "project_id": "room_janitor_client_reply",
+              "requested_by": "owner",
+              "risk_tier": "low",
+              "speed_mode": "fast",
+              "source_policy": "room_only",
+              "requires_verification": true,
+              "payload": {
+                "request": "Replay auto process test."
+              },
+              "original": {
+                "request": "Replay auto process test.",
+                "project_id": "room_janitor_client_reply"
+              }
+            },
+            "trace": {
+              "trace_id": "trace_mqbceyz6_vruu8b",
+              "request_id": "req_mqbceyz6_zpp6h5"
+            },
+            "route": {
+              "selected_ai": "janitor",
+              "room": "room_janitor_client_reply",
+              "mode": "fast",
+              "lanes": [
+                "source_lock",
+                "speed_router",
+                "security_privacy",
+                "verifier"
+              ],
+              "reason": "Standard internal route with source, speed, security, and verification checks."
+            },
+            "preflight_lanes": {
+              "source_lock": {
+                "lane": "source_lock",
+                "ok": true,
+                "source_access": {
+                  "ok": true,
+                  "report": []
+                }
+              },
+              "speed_router": {
+                "lane": "speed_router",
+                "ok": true,
+                "speed_path": "instant_or_cached_answer"
+              },
+              "security_privacy": {
+                "lane": "security_privacy",
+                "ok": true,
+                "boundary": {
+                  "ok": true,
+                  "blocks": []
+                }
+              },
+              "verifier": {
+                "lane": "verifier",
+                "ok": true,
+                "blocked_claims": [],
+                "verification_state": "verified_for_internal_handoff"
+              }
+            },
+            "contamination": {
+              "ok": true,
+              "status": "clean",
+              "project_id": "room_janitor_client_reply",
+              "active_ai": "janitor",
+              "blocks": [],
+              "warnings": [],
+              "rule": "No room-to-room transfer or unapproved source use without explicit owner approval."
+            }
+          }
+        },
+        "review": {
+          "ok": true,
+          "lanes": {
+            "source_lock": {
+              "lane": "source_lock",
+              "ok": true,
+              "source_access": {
+                "ok": true,
+                "report": []
+              }
+            },
+            "speed_router": {
+              "lane": "speed_router",
+              "ok": true,
+              "speed_path": "instant_or_cached_answer"
+            },
+            "security_privacy": {
+              "lane": "security_privacy",
+              "ok": true,
+              "boundary": {
+                "ok": true,
+                "blocks": []
+              }
+            },
+            "verifier": {
+              "lane": "verifier",
+              "ok": true,
+              "blocked_claims": [],
+              "verification_state": "verified_for_internal_handoff"
+            }
+          }
+        },
+        "quality_report": {
+          "score": 90,
+          "status": "usable",
+          "scores": {
+            "accuracy": 90,
+            "source_compliance": 92,
+            "brand_compliance": 90,
+            "business_usefulness": 88,
+            "customer_safety": 94,
+            "clarity": 86,
+            "completeness": 88,
+            "speed": 95,
+            "deploy_readiness": 82,
+            "risk": 90
+          }
+        },
+        "blocks": [],
+        "warnings": [],
+        "handoff": "usable_internal_handoff",
+        "history": {
+          "decision_id": "decision_mqbcez2s_uu2myt",
+          "created_at": "2026-06-12T19:52:12.820Z",
+          "request": "Replay auto process test.",
+          "project_id": "room_janitor_client_reply",
+          "selected_ai": "janitor",
+          "mode": "fast",
+          "lanes": [
+            "source_lock",
+            "speed_router",
+            "security_privacy",
+            "verifier"
+          ],
+          "ok": true,
+          "handoff": "usable_internal_handoff",
+          "quality_score": 90,
+          "blocks": []
+        }
+      },
+      "failed_at": null,
+      "failure_reason": null,
+      "repair_hint": null,
+      "dead_letter": false,
+      "started_at": "2026-06-12T19:52:12.626Z",
+      "completed_at": "2026-06-12T19:52:12.870Z",
+      "blocked_at": null,
+      "owner_review_at": null,
+      "replay_requested_at": "2026-06-12T19:52:13.006Z",
+      "replay_job_id": "queue_mqbcez6f_idakvg"
+    },
+    {
+      "queue_id": "queue_mqbcez6f_idakvg",
+      "created_at": "2026-06-12T19:52:12.951Z",
+      "updated_at": "2026-06-12T19:52:13.340Z",
+      "status": "completed",
+      "lifecycle": [
+        "queued",
+        "running",
+        "completed"
+      ],
+      "priority": "normal",
+      "attempts": 1,
+      "max_attempts": 2,
+      "replay_of": "queue_mqbceyvj_9amrz9",
+      "replay_safe": false,
+      "project_id": "room_janitor_client_reply",
+      "request": "Replay auto process test.",
+      "input": {
+        "request": "Replay auto process test.",
+        "project_id": "room_janitor_client_reply",
+        "replay_of": "queue_mqbceyvj_9amrz9",
+        "priority": "normal"
+      },
+      "result": {
+        "ok": true,
+        "contract": {
+          "ok": true,
+          "blocks": [],
+          "warnings": [],
+          "envelope": {
+            "contract_version": "typed_message_contract_v0_4_0",
+            "request_id": "req_mqbcezbz_nsv53m",
+            "trace_id": "trace_mqbcezbz_flenip",
+            "created_at": "2026-06-12T19:52:13.151Z",
+            "project_id": "room_janitor_client_reply",
+            "requested_by": "owner",
+            "risk_tier": "low",
+            "speed_mode": "fast",
+            "source_policy": "room_only",
+            "requires_verification": true,
+            "payload": {
+              "request": "Replay auto process test."
+            },
+            "original": {
+              "request": "Replay auto process test.",
+              "project_id": "room_janitor_client_reply",
+              "replay_of": "queue_mqbceyvj_9amrz9",
+              "priority": "normal"
+            }
+          }
+        },
+        "trace": {
+          "trace_id": "trace_mqbcezbz_flenip",
+          "request_id": "req_mqbcezbz_nsv53m"
+        },
+        "route": {
+          "selected_ai": "janitor",
+          "room": "room_janitor_client_reply",
+          "mode": "fast",
+          "lanes": [
+            "source_lock",
+            "speed_router",
+            "security_privacy",
+            "verifier"
+          ],
+          "reason": "Standard internal route with source, speed, security, and verification checks."
+        },
+        "contamination": {
+          "ok": true,
+          "status": "clean",
+          "project_id": "room_janitor_client_reply",
+          "active_ai": "janitor",
+          "blocks": [],
+          "warnings": [],
+          "rule": "No room-to-room transfer or unapproved source use without explicit owner approval."
+        },
+        "preflight": {
+          "ok": true,
+          "lanes": {
+            "source_lock": {
+              "lane": "source_lock",
+              "ok": true,
+              "source_access": {
+                "ok": true,
+                "report": []
+              }
+            },
+            "speed_router": {
+              "lane": "speed_router",
+              "ok": true,
+              "speed_path": "instant_or_cached_answer"
+            },
+            "security_privacy": {
+              "lane": "security_privacy",
+              "ok": true,
+              "boundary": {
+                "ok": true,
+                "blocks": []
+              }
+            },
+            "verifier": {
+              "lane": "verifier",
+              "ok": true,
+              "blocked_claims": [],
+              "verification_state": "verified_for_internal_handoff"
+            }
+          }
+        },
+        "output": {
+          "ai": "janitor",
+          "name": "The Janitor",
+          "summary": "Client-reply route prepared. Triage, boundary protection, support classification, and professional response handling are active.",
+          "action": "handle_support_or_client_reply_work",
+          "context": {
+            "contract": {
+              "contract_version": "typed_message_contract_v0_4_0",
+              "request_id": "req_mqbcezbz_nsv53m",
+              "trace_id": "trace_mqbcezbz_flenip",
+              "created_at": "2026-06-12T19:52:13.151Z",
+              "project_id": "room_janitor_client_reply",
+              "requested_by": "owner",
+              "risk_tier": "low",
+              "speed_mode": "fast",
+              "source_policy": "room_only",
+              "requires_verification": true,
+              "payload": {
+                "request": "Replay auto process test."
+              },
+              "original": {
+                "request": "Replay auto process test.",
+                "project_id": "room_janitor_client_reply",
+                "replay_of": "queue_mqbceyvj_9amrz9",
+                "priority": "normal"
+              }
+            },
+            "trace": {
+              "trace_id": "trace_mqbcezbz_flenip",
+              "request_id": "req_mqbcezbz_nsv53m"
+            },
+            "route": {
+              "selected_ai": "janitor",
+              "room": "room_janitor_client_reply",
+              "mode": "fast",
+              "lanes": [
+                "source_lock",
+                "speed_router",
+                "security_privacy",
+                "verifier"
+              ],
+              "reason": "Standard internal route with source, speed, security, and verification checks."
+            },
+            "preflight_lanes": {
+              "source_lock": {
+                "lane": "source_lock",
+                "ok": true,
+                "source_access": {
+                  "ok": true,
+                  "report": []
+                }
+              },
+              "speed_router": {
+                "lane": "speed_router",
+                "ok": true,
+                "speed_path": "instant_or_cached_answer"
+              },
+              "security_privacy": {
+                "lane": "security_privacy",
+                "ok": true,
+                "boundary": {
+                  "ok": true,
+                  "blocks": []
+                }
+              },
+              "verifier": {
+                "lane": "verifier",
+                "ok": true,
+                "blocked_claims": [],
+                "verification_state": "verified_for_internal_handoff"
+              }
+            },
+            "contamination": {
+              "ok": true,
+              "status": "clean",
+              "project_id": "room_janitor_client_reply",
+              "active_ai": "janitor",
+              "blocks": [],
+              "warnings": [],
+              "rule": "No room-to-room transfer or unapproved source use without explicit owner approval."
+            }
+          }
+        },
+        "review": {
+          "ok": true,
+          "lanes": {
+            "source_lock": {
+              "lane": "source_lock",
+              "ok": true,
+              "source_access": {
+                "ok": true,
+                "report": []
+              }
+            },
+            "speed_router": {
+              "lane": "speed_router",
+              "ok": true,
+              "speed_path": "instant_or_cached_answer"
+            },
+            "security_privacy": {
+              "lane": "security_privacy",
+              "ok": true,
+              "boundary": {
+                "ok": true,
+                "blocks": []
+              }
+            },
+            "verifier": {
+              "lane": "verifier",
+              "ok": true,
+              "blocked_claims": [],
+              "verification_state": "verified_for_internal_handoff"
+            }
+          }
+        },
+        "quality_report": {
+          "score": 90,
+          "status": "usable",
+          "scores": {
+            "accuracy": 90,
+            "source_compliance": 92,
+            "brand_compliance": 90,
+            "business_usefulness": 88,
+            "customer_safety": 94,
+            "clarity": 86,
+            "completeness": 88,
+            "speed": 95,
+            "deploy_readiness": 82,
+            "risk": 90
+          }
+        },
+        "blocks": [],
+        "warnings": [],
+        "handoff": "usable_internal_handoff",
+        "history": {
+          "decision_id": "decision_mqbcezfk_wwhejt",
+          "created_at": "2026-06-12T19:52:13.280Z",
+          "request": "Replay auto process test.",
+          "project_id": "room_janitor_client_reply",
+          "selected_ai": "janitor",
+          "mode": "fast",
+          "lanes": [
+            "source_lock",
+            "speed_router",
+            "security_privacy",
+            "verifier"
+          ],
+          "ok": true,
+          "handoff": "usable_internal_handoff",
+          "quality_score": 90,
+          "blocks": []
+        }
+      },
+      "failed_at": null,
+      "failure_reason": null,
+      "repair_hint": null,
+      "dead_letter": false,
+      "started_at": "2026-06-12T19:52:13.090Z",
+      "completed_at": "2026-06-12T19:52:13.329Z",
+      "blocked_at": null,
+      "owner_review_at": null
+    },
+    {
+      "queue_id": "queue_mqbcezj4_0cr93c",
+      "created_at": "2026-06-12T19:52:13.408Z",
+      "updated_at": "2026-06-12T19:52:13.875Z",
+      "status": "completed",
+      "lifecycle": [
+        "queued",
+        "running",
+        "completed",
+        "replay_requested"
+      ],
+      "priority": "normal",
+      "attempts": 1,
+      "max_attempts": 2,
+      "replay_of": null,
+      "replay_safe": false,
+      "project_id": "room_janitor_client_reply",
+      "request": "Manual replay queue test.",
+      "input": {
+        "request": "Manual replay queue test.",
+        "project_id": "room_janitor_client_reply"
+      },
+      "result": {
+        "ok": true,
+        "contract": {
+          "ok": true,
+          "blocks": [],
+          "warnings": [],
+          "envelope": {
+            "contract_version": "typed_message_contract_v0_4_0",
+            "request_id": "req_mqbcezml_erav1f",
+            "trace_id": "trace_mqbcezml_4064vk",
+            "created_at": "2026-06-12T19:52:13.533Z",
+            "project_id": "room_janitor_client_reply",
+            "requested_by": "owner",
+            "risk_tier": "low",
+            "speed_mode": "fast",
+            "source_policy": "room_only",
+            "requires_verification": true,
+            "payload": {
+              "request": "Manual replay queue test."
+            },
+            "original": {
+              "request": "Manual replay queue test.",
+              "project_id": "room_janitor_client_reply"
+            }
+          }
+        },
+        "trace": {
+          "trace_id": "trace_mqbcezml_4064vk",
+          "request_id": "req_mqbcezml_erav1f"
+        },
+        "route": {
+          "selected_ai": "janitor",
+          "room": "room_janitor_client_reply",
+          "mode": "fast",
+          "lanes": [
+            "source_lock",
+            "speed_router",
+            "security_privacy",
+            "verifier"
+          ],
+          "reason": "Standard internal route with source, speed, security, and verification checks."
+        },
+        "contamination": {
+          "ok": true,
+          "status": "clean",
+          "project_id": "room_janitor_client_reply",
+          "active_ai": "janitor",
+          "blocks": [],
+          "warnings": [],
+          "rule": "No room-to-room transfer or unapproved source use without explicit owner approval."
+        },
+        "preflight": {
+          "ok": true,
+          "lanes": {
+            "source_lock": {
+              "lane": "source_lock",
+              "ok": true,
+              "source_access": {
+                "ok": true,
+                "report": []
+              }
+            },
+            "speed_router": {
+              "lane": "speed_router",
+              "ok": true,
+              "speed_path": "instant_or_cached_answer"
+            },
+            "security_privacy": {
+              "lane": "security_privacy",
+              "ok": true,
+              "boundary": {
+                "ok": true,
+                "blocks": []
+              }
+            },
+            "verifier": {
+              "lane": "verifier",
+              "ok": true,
+              "blocked_claims": [],
+              "verification_state": "verified_for_internal_handoff"
+            }
+          }
+        },
+        "output": {
+          "ai": "janitor",
+          "name": "The Janitor",
+          "summary": "Client-reply route prepared. Triage, boundary protection, support classification, and professional response handling are active.",
+          "action": "handle_support_or_client_reply_work",
+          "context": {
+            "contract": {
+              "contract_version": "typed_message_contract_v0_4_0",
+              "request_id": "req_mqbcezml_erav1f",
+              "trace_id": "trace_mqbcezml_4064vk",
+              "created_at": "2026-06-12T19:52:13.533Z",
+              "project_id": "room_janitor_client_reply",
+              "requested_by": "owner",
+              "risk_tier": "low",
+              "speed_mode": "fast",
+              "source_policy": "room_only",
+              "requires_verification": true,
+              "payload": {
+                "request": "Manual replay queue test."
+              },
+              "original": {
+                "request": "Manual replay queue test.",
+                "project_id": "room_janitor_client_reply"
+              }
+            },
+            "trace": {
+              "trace_id": "trace_mqbcezml_4064vk",
+              "request_id": "req_mqbcezml_erav1f"
+            },
+            "route": {
+              "selected_ai": "janitor",
+              "room": "room_janitor_client_reply",
+              "mode": "fast",
+              "lanes": [
+                "source_lock",
+                "speed_router",
+                "security_privacy",
+                "verifier"
+              ],
+              "reason": "Standard internal route with source, speed, security, and verification checks."
+            },
+            "preflight_lanes": {
+              "source_lock": {
+                "lane": "source_lock",
+                "ok": true,
+                "source_access": {
+                  "ok": true,
+                  "report": []
+                }
+              },
+              "speed_router": {
+                "lane": "speed_router",
+                "ok": true,
+                "speed_path": "instant_or_cached_answer"
+              },
+              "security_privacy": {
+                "lane": "security_privacy",
+                "ok": true,
+                "boundary": {
+                  "ok": true,
+                  "blocks": []
+                }
+              },
+              "verifier": {
+                "lane": "verifier",
+                "ok": true,
+                "blocked_claims": [],
+                "verification_state": "verified_for_internal_handoff"
+              }
+            },
+            "contamination": {
+              "ok": true,
+              "status": "clean",
+              "project_id": "room_janitor_client_reply",
+              "active_ai": "janitor",
+              "blocks": [],
+              "warnings": [],
+              "rule": "No room-to-room transfer or unapproved source use without explicit owner approval."
+            }
+          }
+        },
+        "review": {
+          "ok": true,
+          "lanes": {
+            "source_lock": {
+              "lane": "source_lock",
+              "ok": true,
+              "source_access": {
+                "ok": true,
+                "report": []
+              }
+            },
+            "speed_router": {
+              "lane": "speed_router",
+              "ok": true,
+              "speed_path": "instant_or_cached_answer"
+            },
+            "security_privacy": {
+              "lane": "security_privacy",
+              "ok": true,
+              "boundary": {
+                "ok": true,
+                "blocks": []
+              }
+            },
+            "verifier": {
+              "lane": "verifier",
+              "ok": true,
+              "blocked_claims": [],
+              "verification_state": "verified_for_internal_handoff"
+            }
+          }
+        },
+        "quality_report": {
+          "score": 90,
+          "status": "usable",
+          "scores": {
+            "accuracy": 90,
+            "source_compliance": 92,
+            "brand_compliance": 90,
+            "business_usefulness": 88,
+            "customer_safety": 94,
+            "clarity": 86,
+            "completeness": 88,
+            "speed": 95,
+            "deploy_readiness": 82,
+            "risk": 90
+          }
+        },
+        "blocks": [],
+        "warnings": [],
+        "handoff": "usable_internal_handoff",
+        "history": {
+          "decision_id": "decision_mqbcezqg_a5ar9b",
+          "created_at": "2026-06-12T19:52:13.672Z",
+          "request": "Manual replay queue test.",
+          "project_id": "room_janitor_client_reply",
+          "selected_ai": "janitor",
+          "mode": "fast",
+          "lanes": [
+            "source_lock",
+            "speed_router",
+            "security_privacy",
+            "verifier"
+          ],
+          "ok": true,
+          "handoff": "usable_internal_handoff",
+          "quality_score": 90,
+          "blocks": []
+        }
+      },
+      "failed_at": null,
+      "failure_reason": null,
+      "repair_hint": null,
+      "dead_letter": false,
+      "started_at": "2026-06-12T19:52:13.470Z",
+      "completed_at": "2026-06-12T19:52:13.729Z",
+      "blocked_at": null,
+      "owner_review_at": null,
+      "replay_requested_at": "2026-06-12T19:52:13.865Z",
+      "replay_job_id": "queue_mqbcezuc_2or4sh"
+    },
+    {
+      "queue_id": "queue_mqbcezuc_2or4sh",
+      "created_at": "2026-06-12T19:52:13.812Z",
+      "updated_at": "2026-06-12T19:52:13.812Z",
+      "status": "queued",
+      "lifecycle": [
+        "queued"
+      ],
+      "priority": "normal",
+      "attempts": 0,
+      "max_attempts": 2,
+      "replay_of": "queue_mqbcezj4_0cr93c",
+      "replay_safe": true,
+      "project_id": "room_janitor_client_reply",
+      "request": "Manual replay queue test.",
+      "input": {
+        "request": "Manual replay queue test.",
+        "project_id": "room_janitor_client_reply",
+        "replay_of": "queue_mqbcezj4_0cr93c",
+        "priority": "normal"
+      },
+      "result": null,
+      "failed_at": null,
+      "failure_reason": null,
+      "repair_hint": null,
+      "dead_letter": false
+    },
+    {
+      "queue_id": "queue_mqbcf016_hn58zt",
+      "created_at": "2026-06-12T19:52:14.058Z",
+      "updated_at": "2026-06-12T19:52:14.523Z",
+      "status": "completed",
+      "lifecycle": [
+        "queued",
+        "running",
+        "completed",
+        "replay_requested"
+      ],
+      "priority": "normal",
+      "attempts": 1,
+      "max_attempts": 2,
+      "replay_of": null,
+      "replay_safe": false,
+      "project_id": "room_janitor_client_reply",
+      "request": "Storage adapter queue replay test.",
+      "input": {
+        "request": "Storage adapter queue replay test.",
+        "project_id": "room_janitor_client_reply",
+        "risk_tier": "medium",
+        "speed_mode": "balanced"
+      },
+      "result": {
+        "ok": true,
+        "contract": {
+          "ok": true,
+          "blocks": [],
+          "warnings": [],
+          "envelope": {
+            "contract_version": "typed_message_contract_v0_4_0",
+            "request_id": "req_mqbcf04z_uy30mf",
+            "trace_id": "trace_mqbcf04z_a9bgla",
+            "created_at": "2026-06-12T19:52:14.195Z",
+            "project_id": "room_janitor_client_reply",
+            "requested_by": "owner",
+            "risk_tier": "medium",
+            "speed_mode": "balanced",
+            "source_policy": "room_only",
+            "requires_verification": true,
+            "payload": {
+              "request": "Storage adapter queue replay test."
+            },
+            "original": {
+              "request": "Storage adapter queue replay test.",
+              "project_id": "room_janitor_client_reply",
+              "risk_tier": "medium",
+              "speed_mode": "balanced"
+            }
+          }
+        },
+        "trace": {
+          "trace_id": "trace_mqbcf04z_a9bgla",
+          "request_id": "req_mqbcf04z_uy30mf"
+        },
+        "route": {
+          "selected_ai": "janitor",
+          "room": "room_janitor_client_reply",
+          "mode": "balanced",
+          "lanes": [
+            "source_lock",
+            "speed_router",
+            "security_privacy",
+            "verifier",
+            "quality_judge"
+          ],
+          "reason": "Standard internal route with source, speed, security, and verification checks."
+        },
+        "contamination": {
+          "ok": true,
+          "status": "clean",
+          "project_id": "room_janitor_client_reply",
+          "active_ai": "janitor",
+          "blocks": [],
+          "warnings": [],
+          "rule": "No room-to-room transfer or unapproved source use without explicit owner approval."
+        },
+        "preflight": {
+          "ok": true,
+          "lanes": {
+            "source_lock": {
+              "lane": "source_lock",
+              "ok": true,
+              "source_access": {
+                "ok": true,
+                "report": []
+              }
+            },
+            "speed_router": {
+              "lane": "speed_router",
+              "ok": true,
+              "speed_path": "instant_or_cached_answer"
+            },
+            "security_privacy": {
+              "lane": "security_privacy",
+              "ok": true,
+              "boundary": {
+                "ok": true,
+                "blocks": []
+              }
+            },
+            "verifier": {
+              "lane": "verifier",
+              "ok": true,
+              "blocked_claims": [],
+              "verification_state": "verified_for_internal_handoff"
+            },
+            "quality_judge": {
+              "lane": "quality_judge",
+              "ok": true,
+              "quality": {
+                "score": 86,
+                "status": "usable",
+                "scores": {
+                  "accuracy": 90,
+                  "source_compliance": 92,
+                  "brand_compliance": 90,
+                  "business_usefulness": 70,
+                  "customer_safety": 94,
+                  "clarity": 86,
+                  "completeness": 88,
+                  "speed": 82,
+                  "deploy_readiness": 82,
+                  "risk": 90
+                }
+              }
+            }
+          }
+        },
+        "output": {
+          "ai": "janitor",
+          "name": "The Janitor",
+          "summary": "Client-reply route prepared. Triage, boundary protection, support classification, and professional response handling are active.",
+          "action": "handle_support_or_client_reply_work",
+          "context": {
+            "contract": {
+              "contract_version": "typed_message_contract_v0_4_0",
+              "request_id": "req_mqbcf04z_uy30mf",
+              "trace_id": "trace_mqbcf04z_a9bgla",
+              "created_at": "2026-06-12T19:52:14.195Z",
+              "project_id": "room_janitor_client_reply",
+              "requested_by": "owner",
+              "risk_tier": "medium",
+              "speed_mode": "balanced",
+              "source_policy": "room_only",
+              "requires_verification": true,
+              "payload": {
+                "request": "Storage adapter queue replay test."
+              },
+              "original": {
+                "request": "Storage adapter queue replay test.",
+                "project_id": "room_janitor_client_reply",
+                "risk_tier": "medium",
+                "speed_mode": "balanced"
+              }
+            },
+            "trace": {
+              "trace_id": "trace_mqbcf04z_a9bgla",
+              "request_id": "req_mqbcf04z_uy30mf"
+            },
+            "route": {
+              "selected_ai": "janitor",
+              "room": "room_janitor_client_reply",
+              "mode": "balanced",
+              "lanes": [
+                "source_lock",
+                "speed_router",
+                "security_privacy",
+                "verifier",
+                "quality_judge"
+              ],
+              "reason": "Standard internal route with source, speed, security, and verification checks."
+            },
+            "preflight_lanes": {
+              "source_lock": {
+                "lane": "source_lock",
+                "ok": true,
+                "source_access": {
+                  "ok": true,
+                  "report": []
+                }
+              },
+              "speed_router": {
+                "lane": "speed_router",
+                "ok": true,
+                "speed_path": "instant_or_cached_answer"
+              },
+              "security_privacy": {
+                "lane": "security_privacy",
+                "ok": true,
+                "boundary": {
+                  "ok": true,
+                  "blocks": []
+                }
+              },
+              "verifier": {
+                "lane": "verifier",
+                "ok": true,
+                "blocked_claims": [],
+                "verification_state": "verified_for_internal_handoff"
+              },
+              "quality_judge": {
+                "lane": "quality_judge",
+                "ok": true,
+                "quality": {
+                  "score": 86,
+                  "status": "usable",
+                  "scores": {
+                    "accuracy": 90,
+                    "source_compliance": 92,
+                    "brand_compliance": 90,
+                    "business_usefulness": 70,
+                    "customer_safety": 94,
+                    "clarity": 86,
+                    "completeness": 88,
+                    "speed": 82,
+                    "deploy_readiness": 82,
+                    "risk": 90
+                  }
+                }
+              }
+            },
+            "contamination": {
+              "ok": true,
+              "status": "clean",
+              "project_id": "room_janitor_client_reply",
+              "active_ai": "janitor",
+              "blocks": [],
+              "warnings": [],
+              "rule": "No room-to-room transfer or unapproved source use without explicit owner approval."
+            }
+          }
+        },
+        "review": {
+          "ok": true,
+          "lanes": {
+            "source_lock": {
+              "lane": "source_lock",
+              "ok": true,
+              "source_access": {
+                "ok": true,
+                "report": []
+              }
+            },
+            "speed_router": {
+              "lane": "speed_router",
+              "ok": true,
+              "speed_path": "instant_or_cached_answer"
+            },
+            "security_privacy": {
+              "lane": "security_privacy",
+              "ok": true,
+              "boundary": {
+                "ok": true,
+                "blocks": []
+              }
+            },
+            "verifier": {
+              "lane": "verifier",
+              "ok": true,
+              "blocked_claims": [],
+              "verification_state": "verified_for_internal_handoff"
+            },
+            "quality_judge": {
+              "lane": "quality_judge",
+              "ok": true,
+              "quality": {
+                "score": 88,
+                "status": "usable",
+                "scores": {
+                  "accuracy": 90,
+                  "source_compliance": 92,
+                  "brand_compliance": 90,
+                  "business_usefulness": 88,
+                  "customer_safety": 94,
+                  "clarity": 86,
+                  "completeness": 88,
+                  "speed": 82,
+                  "deploy_readiness": 82,
+                  "risk": 90
+                }
+              }
+            }
+          }
+        },
+        "quality_report": {
+          "score": 88,
+          "status": "usable",
+          "scores": {
+            "accuracy": 90,
+            "source_compliance": 92,
+            "brand_compliance": 90,
+            "business_usefulness": 88,
+            "customer_safety": 94,
+            "clarity": 86,
+            "completeness": 88,
+            "speed": 82,
+            "deploy_readiness": 82,
+            "risk": 90
+          }
+        },
+        "blocks": [],
+        "warnings": [],
+        "handoff": "usable_internal_handoff",
+        "history": {
+          "decision_id": "decision_mqbcf08s_3fshwa",
+          "created_at": "2026-06-12T19:52:14.332Z",
+          "request": "Storage adapter queue replay test.",
+          "project_id": "room_janitor_client_reply",
+          "selected_ai": "janitor",
+          "mode": "balanced",
+          "lanes": [
+            "source_lock",
+            "speed_router",
+            "security_privacy",
+            "verifier",
+            "quality_judge"
+          ],
+          "ok": true,
+          "handoff": "usable_internal_handoff",
+          "quality_score": 88,
+          "blocks": []
+        }
+      },
+      "failed_at": null,
+      "failure_reason": null,
+      "repair_hint": null,
+      "dead_letter": false,
+      "started_at": "2026-06-12T19:52:14.124Z",
+      "completed_at": "2026-06-12T19:52:14.381Z",
+      "blocked_at": null,
+      "owner_review_at": null,
+      "replay_requested_at": "2026-06-12T19:52:14.513Z",
+      "replay_job_id": "queue_mqbcf0cd_dgpvgq"
+    },
+    {
+      "queue_id": "queue_mqbcf0cd_dgpvgq",
+      "created_at": "2026-06-12T19:52:14.461Z",
+      "updated_at": "2026-06-12T19:52:14.834Z",
+      "status": "completed",
+      "lifecycle": [
+        "queued",
+        "running",
+        "completed"
+      ],
+      "priority": "normal",
+      "attempts": 1,
+      "max_attempts": 2,
+      "replay_of": "queue_mqbcf016_hn58zt",
+      "replay_safe": false,
+      "project_id": "room_janitor_client_reply",
+      "request": "Storage adapter queue replay test.",
+      "input": {
+        "request": "Storage adapter queue replay test.",
+        "project_id": "room_janitor_client_reply",
+        "risk_tier": "medium",
+        "speed_mode": "balanced",
+        "replay_of": "queue_mqbcf016_hn58zt",
+        "priority": "normal"
+      },
+      "result": {
+        "ok": true,
+        "contract": {
+          "ok": true,
+          "blocks": [],
+          "warnings": [],
+          "envelope": {
+            "contract_version": "typed_message_contract_v0_4_0",
+            "request_id": "req_mqbcf0hh_yldqci",
+            "trace_id": "trace_mqbcf0hh_fwf0b4",
+            "created_at": "2026-06-12T19:52:14.645Z",
+            "project_id": "room_janitor_client_reply",
+            "requested_by": "owner",
+            "risk_tier": "medium",
+            "speed_mode": "balanced",
+            "source_policy": "room_only",
+            "requires_verification": true,
+            "payload": {
+              "request": "Storage adapter queue replay test."
+            },
+            "original": {
+              "request": "Storage adapter queue replay test.",
+              "project_id": "room_janitor_client_reply",
+              "risk_tier": "medium",
+              "speed_mode": "balanced",
+              "replay_of": "queue_mqbcf016_hn58zt",
+              "priority": "normal"
+            }
+          }
+        },
+        "trace": {
+          "trace_id": "trace_mqbcf0hh_fwf0b4",
+          "request_id": "req_mqbcf0hh_yldqci"
+        },
+        "route": {
+          "selected_ai": "janitor",
+          "room": "room_janitor_client_reply",
+          "mode": "balanced",
+          "lanes": [
+            "source_lock",
+            "speed_router",
+            "security_privacy",
+            "verifier",
+            "quality_judge"
+          ],
+          "reason": "Standard internal route with source, speed, security, and verification checks."
+        },
+        "contamination": {
+          "ok": true,
+          "status": "clean",
+          "project_id": "room_janitor_client_reply",
+          "active_ai": "janitor",
+          "blocks": [],
+          "warnings": [],
+          "rule": "No room-to-room transfer or unapproved source use without explicit owner approval."
+        },
+        "preflight": {
+          "ok": true,
+          "lanes": {
+            "source_lock": {
+              "lane": "source_lock",
+              "ok": true,
+              "source_access": {
+                "ok": true,
+                "report": []
+              }
+            },
+            "speed_router": {
+              "lane": "speed_router",
+              "ok": true,
+              "speed_path": "instant_or_cached_answer"
+            },
+            "security_privacy": {
+              "lane": "security_privacy",
+              "ok": true,
+              "boundary": {
+                "ok": true,
+                "blocks": []
+              }
+            },
+            "verifier": {
+              "lane": "verifier",
+              "ok": true,
+              "blocked_claims": [],
+              "verification_state": "verified_for_internal_handoff"
+            },
+            "quality_judge": {
+              "lane": "quality_judge",
+              "ok": true,
+              "quality": {
+                "score": 86,
+                "status": "usable",
+                "scores": {
+                  "accuracy": 90,
+                  "source_compliance": 92,
+                  "brand_compliance": 90,
+                  "business_usefulness": 70,
+                  "customer_safety": 94,
+                  "clarity": 86,
+                  "completeness": 88,
+                  "speed": 82,
+                  "deploy_readiness": 82,
+                  "risk": 90
+                }
+              }
+            }
+          }
+        },
+        "output": {
+          "ai": "janitor",
+          "name": "The Janitor",
+          "summary": "Client-reply route prepared. Triage, boundary protection, support classification, and professional response handling are active.",
+          "action": "handle_support_or_client_reply_work",
+          "context": {
+            "contract": {
+              "contract_version": "typed_message_contract_v0_4_0",
+              "request_id": "req_mqbcf0hh_yldqci",
+              "trace_id": "trace_mqbcf0hh_fwf0b4",
+              "created_at": "2026-06-12T19:52:14.645Z",
+              "project_id": "room_janitor_client_reply",
+              "requested_by": "owner",
+              "risk_tier": "medium",
+              "speed_mode": "balanced",
+              "source_policy": "room_only",
+              "requires_verification": true,
+              "payload": {
+                "request": "Storage adapter queue replay test."
+              },
+              "original": {
+                "request": "Storage adapter queue replay test.",
+                "project_id": "room_janitor_client_reply",
+                "risk_tier": "medium",
+                "speed_mode": "balanced",
+                "replay_of": "queue_mqbcf016_hn58zt",
+                "priority": "normal"
+              }
+            },
+            "trace": {
+              "trace_id": "trace_mqbcf0hh_fwf0b4",
+              "request_id": "req_mqbcf0hh_yldqci"
+            },
+            "route": {
+              "selected_ai": "janitor",
+              "room": "room_janitor_client_reply",
+              "mode": "balanced",
+              "lanes": [
+                "source_lock",
+                "speed_router",
+                "security_privacy",
+                "verifier",
+                "quality_judge"
+              ],
+              "reason": "Standard internal route with source, speed, security, and verification checks."
+            },
+            "preflight_lanes": {
+              "source_lock": {
+                "lane": "source_lock",
+                "ok": true,
+                "source_access": {
+                  "ok": true,
+                  "report": []
+                }
+              },
+              "speed_router": {
+                "lane": "speed_router",
+                "ok": true,
+                "speed_path": "instant_or_cached_answer"
+              },
+              "security_privacy": {
+                "lane": "security_privacy",
+                "ok": true,
+                "boundary": {
+                  "ok": true,
+                  "blocks": []
+                }
+              },
+              "verifier": {
+                "lane": "verifier",
+                "ok": true,
+                "blocked_claims": [],
+                "verification_state": "verified_for_internal_handoff"
+              },
+              "quality_judge": {
+                "lane": "quality_judge",
+                "ok": true,
+                "quality": {
+                  "score": 86,
+                  "status": "usable",
+                  "scores": {
+                    "accuracy": 90,
+                    "source_compliance": 92,
+                    "brand_compliance": 90,
+                    "business_usefulness": 70,
+                    "customer_safety": 94,
+                    "clarity": 86,
+                    "completeness": 88,
+                    "speed": 82,
+                    "deploy_readiness": 82,
+                    "risk": 90
+                  }
+                }
+              }
+            },
+            "contamination": {
+              "ok": true,
+              "status": "clean",
+              "project_id": "room_janitor_client_reply",
+              "active_ai": "janitor",
+              "blocks": [],
+              "warnings": [],
+              "rule": "No room-to-room transfer or unapproved source use without explicit owner approval."
+            }
+          }
+        },
+        "review": {
+          "ok": true,
+          "lanes": {
+            "source_lock": {
+              "lane": "source_lock",
+              "ok": true,
+              "source_access": {
+                "ok": true,
+                "report": []
+              }
+            },
+            "speed_router": {
+              "lane": "speed_router",
+              "ok": true,
+              "speed_path": "instant_or_cached_answer"
+            },
+            "security_privacy": {
+              "lane": "security_privacy",
+              "ok": true,
+              "boundary": {
+                "ok": true,
+                "blocks": []
+              }
+            },
+            "verifier": {
+              "lane": "verifier",
+              "ok": true,
+              "blocked_claims": [],
+              "verification_state": "verified_for_internal_handoff"
+            },
+            "quality_judge": {
+              "lane": "quality_judge",
+              "ok": true,
+              "quality": {
+                "score": 88,
+                "status": "usable",
+                "scores": {
+                  "accuracy": 90,
+                  "source_compliance": 92,
+                  "brand_compliance": 90,
+                  "business_usefulness": 88,
+                  "customer_safety": 94,
+                  "clarity": 86,
+                  "completeness": 88,
+                  "speed": 82,
+                  "deploy_readiness": 82,
+                  "risk": 90
+                }
+              }
+            }
+          }
+        },
+        "quality_report": {
+          "score": 88,
+          "status": "usable",
+          "scores": {
+            "accuracy": 90,
+            "source_compliance": 92,
+            "brand_compliance": 90,
+            "business_usefulness": 88,
+            "customer_safety": 94,
+            "clarity": 86,
+            "completeness": 88,
+            "speed": 82,
+            "deploy_readiness": 82,
+            "risk": 90
+          }
+        },
+        "blocks": [],
+        "warnings": [],
+        "handoff": "usable_internal_handoff",
+        "history": {
+          "decision_id": "decision_mqbcf0l4_vfvuvz",
+          "created_at": "2026-06-12T19:52:14.776Z",
+          "request": "Storage adapter queue replay test.",
+          "project_id": "room_janitor_client_reply",
+          "selected_ai": "janitor",
+          "mode": "balanced",
+          "lanes": [
+            "source_lock",
+            "speed_router",
+            "security_privacy",
+            "verifier",
+            "quality_judge"
+          ],
+          "ok": true,
+          "handoff": "usable_internal_handoff",
+          "quality_score": 88,
+          "blocks": []
+        }
+      },
+      "failed_at": null,
+      "failure_reason": null,
+      "repair_hint": null,
+      "dead_letter": false,
+      "started_at": "2026-06-12T19:52:14.586Z",
+      "completed_at": "2026-06-12T19:52:14.824Z",
+      "blocked_at": null,
+      "owner_review_at": null
+    },
+    {
+      "queue_id": "queue_mqbcf0rq_uq07el",
+      "created_at": "2026-06-12T19:52:15.014Z",
+      "updated_at": "2026-06-12T19:52:15.460Z",
+      "status": "completed",
+      "lifecycle": [
+        "queued",
+        "running",
+        "completed",
+        "replay_requested"
+      ],
+      "priority": "normal",
+      "attempts": 1,
+      "max_attempts": 2,
+      "replay_of": null,
+      "replay_safe": false,
+      "project_id": "room_janitor_client_reply",
+      "request": "Queue adapter self-check Janitor workflow.",
+      "input": {
+        "request": "Queue adapter self-check Janitor workflow.",
+        "project_id": "room_janitor_client_reply",
+        "priority": "normal",
+        "risk_tier": "medium",
+        "speed_mode": "balanced",
+        "source": "queue_adapter_check"
+      },
+      "result": {
+        "ok": true,
+        "contract": {
+          "ok": true,
+          "blocks": [],
+          "warnings": [],
+          "envelope": {
+            "contract_version": "typed_message_contract_v0_4_0",
+            "request_id": "req_mqbcf0v2_1dsx0l",
+            "trace_id": "trace_mqbcf0v2_x9p0oo",
+            "created_at": "2026-06-12T19:52:15.134Z",
+            "project_id": "room_janitor_client_reply",
+            "requested_by": "owner",
+            "risk_tier": "medium",
+            "speed_mode": "balanced",
+            "source_policy": "room_only",
+            "requires_verification": true,
+            "payload": {
+              "request": "Queue adapter self-check Janitor workflow."
+            },
+            "original": {
+              "request": "Queue adapter self-check Janitor workflow.",
+              "project_id": "room_janitor_client_reply",
+              "priority": "normal",
+              "risk_tier": "medium",
+              "speed_mode": "balanced",
+              "source": "queue_adapter_check"
+            }
+          }
+        },
+        "trace": {
+          "trace_id": "trace_mqbcf0v2_x9p0oo",
+          "request_id": "req_mqbcf0v2_1dsx0l"
+        },
+        "route": {
+          "selected_ai": "janitor",
+          "room": "room_janitor_client_reply",
+          "mode": "balanced",
+          "lanes": [
+            "source_lock",
+            "speed_router",
+            "security_privacy",
+            "verifier",
+            "quality_judge"
+          ],
+          "reason": "Standard internal route with source, speed, security, and verification checks."
+        },
+        "contamination": {
+          "ok": true,
+          "status": "clean",
+          "project_id": "room_janitor_client_reply",
+          "active_ai": "janitor",
+          "blocks": [],
+          "warnings": [],
+          "rule": "No room-to-room transfer or unapproved source use without explicit owner approval."
+        },
+        "preflight": {
+          "ok": true,
+          "lanes": {
+            "source_lock": {
+              "lane": "source_lock",
+              "ok": true,
+              "source_access": {
+                "ok": true,
+                "report": []
+              }
+            },
+            "speed_router": {
+              "lane": "speed_router",
+              "ok": true,
+              "speed_path": "instant_or_cached_answer"
+            },
+            "security_privacy": {
+              "lane": "security_privacy",
+              "ok": true,
+              "boundary": {
+                "ok": true,
+                "blocks": []
+              }
+            },
+            "verifier": {
+              "lane": "verifier",
+              "ok": true,
+              "blocked_claims": [],
+              "verification_state": "verified_for_internal_handoff"
+            },
+            "quality_judge": {
+              "lane": "quality_judge",
+              "ok": true,
+              "quality": {
+                "score": 86,
+                "status": "usable",
+                "scores": {
+                  "accuracy": 90,
+                  "source_compliance": 92,
+                  "brand_compliance": 90,
+                  "business_usefulness": 70,
+                  "customer_safety": 94,
+                  "clarity": 86,
+                  "completeness": 88,
+                  "speed": 82,
+                  "deploy_readiness": 82,
+                  "risk": 90
+                }
+              }
+            }
+          }
+        },
+        "output": {
+          "ai": "janitor",
+          "name": "The Janitor",
+          "summary": "Client-reply route prepared. Triage, boundary protection, support classification, and professional response handling are active.",
+          "action": "handle_support_or_client_reply_work",
+          "context": {
+            "contract": {
+              "contract_version": "typed_message_contract_v0_4_0",
+              "request_id": "req_mqbcf0v2_1dsx0l",
+              "trace_id": "trace_mqbcf0v2_x9p0oo",
+              "created_at": "2026-06-12T19:52:15.134Z",
+              "project_id": "room_janitor_client_reply",
+              "requested_by": "owner",
+              "risk_tier": "medium",
+              "speed_mode": "balanced",
+              "source_policy": "room_only",
+              "requires_verification": true,
+              "payload": {
+                "request": "Queue adapter self-check Janitor workflow."
+              },
+              "original": {
+                "request": "Queue adapter self-check Janitor workflow.",
+                "project_id": "room_janitor_client_reply",
+                "priority": "normal",
+                "risk_tier": "medium",
+                "speed_mode": "balanced",
+                "source": "queue_adapter_check"
+              }
+            },
+            "trace": {
+              "trace_id": "trace_mqbcf0v2_x9p0oo",
+              "request_id": "req_mqbcf0v2_1dsx0l"
+            },
+            "route": {
+              "selected_ai": "janitor",
+              "room": "room_janitor_client_reply",
+              "mode": "balanced",
+              "lanes": [
+                "source_lock",
+                "speed_router",
+                "security_privacy",
+                "verifier",
+                "quality_judge"
+              ],
+              "reason": "Standard internal route with source, speed, security, and verification checks."
+            },
+            "preflight_lanes": {
+              "source_lock": {
+                "lane": "source_lock",
+                "ok": true,
+                "source_access": {
+                  "ok": true,
+                  "report": []
+                }
+              },
+              "speed_router": {
+                "lane": "speed_router",
+                "ok": true,
+                "speed_path": "instant_or_cached_answer"
+              },
+              "security_privacy": {
+                "lane": "security_privacy",
+                "ok": true,
+                "boundary": {
+                  "ok": true,
+                  "blocks": []
+                }
+              },
+              "verifier": {
+                "lane": "verifier",
+                "ok": true,
+                "blocked_claims": [],
+                "verification_state": "verified_for_internal_handoff"
+              },
+              "quality_judge": {
+                "lane": "quality_judge",
+                "ok": true,
+                "quality": {
+                  "score": 86,
+                  "status": "usable",
+                  "scores": {
+                    "accuracy": 90,
+                    "source_compliance": 92,
+                    "brand_compliance": 90,
+                    "business_usefulness": 70,
+                    "customer_safety": 94,
+                    "clarity": 86,
+                    "completeness": 88,
+                    "speed": 82,
+                    "deploy_readiness": 82,
+                    "risk": 90
+                  }
+                }
+              }
+            },
+            "contamination": {
+              "ok": true,
+              "status": "clean",
+              "project_id": "room_janitor_client_reply",
+              "active_ai": "janitor",
+              "blocks": [],
+              "warnings": [],
+              "rule": "No room-to-room transfer or unapproved source use without explicit owner approval."
+            }
+          }
+        },
+        "review": {
+          "ok": true,
+          "lanes": {
+            "source_lock": {
+              "lane": "source_lock",
+              "ok": true,
+              "source_access": {
+                "ok": true,
+                "report": []
+              }
+            },
+            "speed_router": {
+              "lane": "speed_router",
+              "ok": true,
+              "speed_path": "instant_or_cached_answer"
+            },
+            "security_privacy": {
+              "lane": "security_privacy",
+              "ok": true,
+              "boundary": {
+                "ok": true,
+                "blocks": []
+              }
+            },
+            "verifier": {
+              "lane": "verifier",
+              "ok": true,
+              "blocked_claims": [],
+              "verification_state": "verified_for_internal_handoff"
+            },
+            "quality_judge": {
+              "lane": "quality_judge",
+              "ok": true,
+              "quality": {
+                "score": 88,
+                "status": "usable",
+                "scores": {
+                  "accuracy": 90,
+                  "source_compliance": 92,
+                  "brand_compliance": 90,
+                  "business_usefulness": 88,
+                  "customer_safety": 94,
+                  "clarity": 86,
+                  "completeness": 88,
+                  "speed": 82,
+                  "deploy_readiness": 82,
+                  "risk": 90
+                }
+              }
+            }
+          }
+        },
+        "quality_report": {
+          "score": 88,
+          "status": "usable",
+          "scores": {
+            "accuracy": 90,
+            "source_compliance": 92,
+            "brand_compliance": 90,
+            "business_usefulness": 88,
+            "customer_safety": 94,
+            "clarity": 86,
+            "completeness": 88,
+            "speed": 82,
+            "deploy_readiness": 82,
+            "risk": 90
+          }
+        },
+        "blocks": [],
+        "warnings": [],
+        "handoff": "usable_internal_handoff",
+        "history": {
+          "decision_id": "decision_mqbcf0yq_new08f",
+          "created_at": "2026-06-12T19:52:15.267Z",
+          "request": "Queue adapter self-check Janitor workflow.",
+          "project_id": "room_janitor_client_reply",
+          "selected_ai": "janitor",
+          "mode": "balanced",
+          "lanes": [
+            "source_lock",
+            "speed_router",
+            "security_privacy",
+            "verifier",
+            "quality_judge"
+          ],
+          "ok": true,
+          "handoff": "usable_internal_handoff",
+          "quality_score": 88,
+          "blocks": []
+        }
+      },
+      "failed_at": null,
+      "failure_reason": null,
+      "repair_hint": null,
+      "dead_letter": false,
+      "started_at": "2026-06-12T19:52:15.073Z",
+      "completed_at": "2026-06-12T19:52:15.316Z",
+      "blocked_at": null,
+      "owner_review_at": null,
+      "replay_requested_at": "2026-06-12T19:52:15.450Z",
+      "replay_job_id": "queue_mqbcf12e_gkn8za"
+    },
+    {
+      "queue_id": "queue_mqbcf12e_gkn8za",
+      "created_at": "2026-06-12T19:52:15.398Z",
+      "updated_at": "2026-06-12T19:52:15.773Z",
+      "status": "completed",
+      "lifecycle": [
+        "queued",
+        "running",
+        "completed"
+      ],
+      "priority": "normal",
+      "attempts": 1,
+      "max_attempts": 2,
+      "replay_of": "queue_mqbcf0rq_uq07el",
+      "replay_safe": false,
+      "project_id": "room_janitor_client_reply",
+      "request": "Queue adapter self-check Janitor workflow.",
+      "input": {
+        "request": "Queue adapter self-check Janitor workflow.",
+        "project_id": "room_janitor_client_reply",
+        "priority": "normal",
+        "risk_tier": "medium",
+        "speed_mode": "balanced",
+        "source": "queue_adapter_check",
+        "replay_of": "queue_mqbcf0rq_uq07el"
+      },
+      "result": {
+        "ok": true,
+        "contract": {
+          "ok": true,
+          "blocks": [],
+          "warnings": [],
+          "envelope": {
+            "contract_version": "typed_message_contract_v0_4_0",
+            "request_id": "req_mqbcf17l_j48qpq",
+            "trace_id": "trace_mqbcf17l_tv5d7t",
+            "created_at": "2026-06-12T19:52:15.585Z",
+            "project_id": "room_janitor_client_reply",
+            "requested_by": "owner",
+            "risk_tier": "medium",
+            "speed_mode": "balanced",
+            "source_policy": "room_only",
+            "requires_verification": true,
+            "payload": {
+              "request": "Queue adapter self-check Janitor workflow."
+            },
+            "original": {
+              "request": "Queue adapter self-check Janitor workflow.",
+              "project_id": "room_janitor_client_reply",
+              "priority": "normal",
+              "risk_tier": "medium",
+              "speed_mode": "balanced",
+              "source": "queue_adapter_check",
+              "replay_of": "queue_mqbcf0rq_uq07el"
+            }
+          }
+        },
+        "trace": {
+          "trace_id": "trace_mqbcf17l_tv5d7t",
+          "request_id": "req_mqbcf17l_j48qpq"
+        },
+        "route": {
+          "selected_ai": "janitor",
+          "room": "room_janitor_client_reply",
+          "mode": "balanced",
+          "lanes": [
+            "source_lock",
+            "speed_router",
+            "security_privacy",
+            "verifier",
+            "quality_judge"
+          ],
+          "reason": "Standard internal route with source, speed, security, and verification checks."
+        },
+        "contamination": {
+          "ok": true,
+          "status": "clean",
+          "project_id": "room_janitor_client_reply",
+          "active_ai": "janitor",
+          "blocks": [],
+          "warnings": [],
+          "rule": "No room-to-room transfer or unapproved source use without explicit owner approval."
+        },
+        "preflight": {
+          "ok": true,
+          "lanes": {
+            "source_lock": {
+              "lane": "source_lock",
+              "ok": true,
+              "source_access": {
+                "ok": true,
+                "report": []
+              }
+            },
+            "speed_router": {
+              "lane": "speed_router",
+              "ok": true,
+              "speed_path": "instant_or_cached_answer"
+            },
+            "security_privacy": {
+              "lane": "security_privacy",
+              "ok": true,
+              "boundary": {
+                "ok": true,
+                "blocks": []
+              }
+            },
+            "verifier": {
+              "lane": "verifier",
+              "ok": true,
+              "blocked_claims": [],
+              "verification_state": "verified_for_internal_handoff"
+            },
+            "quality_judge": {
+              "lane": "quality_judge",
+              "ok": true,
+              "quality": {
+                "score": 86,
+                "status": "usable",
+                "scores": {
+                  "accuracy": 90,
+                  "source_compliance": 92,
+                  "brand_compliance": 90,
+                  "business_usefulness": 70,
+                  "customer_safety": 94,
+                  "clarity": 86,
+                  "completeness": 88,
+                  "speed": 82,
+                  "deploy_readiness": 82,
+                  "risk": 90
+                }
+              }
+            }
+          }
+        },
+        "output": {
+          "ai": "janitor",
+          "name": "The Janitor",
+          "summary": "Client-reply route prepared. Triage, boundary protection, support classification, and professional response handling are active.",
+          "action": "handle_support_or_client_reply_work",
+          "context": {
+            "contract": {
+              "contract_version": "typed_message_contract_v0_4_0",
+              "request_id": "req_mqbcf17l_j48qpq",
+              "trace_id": "trace_mqbcf17l_tv5d7t",
+              "created_at": "2026-06-12T19:52:15.585Z",
+              "project_id": "room_janitor_client_reply",
+              "requested_by": "owner",
+              "risk_tier": "medium",
+              "speed_mode": "balanced",
+              "source_policy": "room_only",
+              "requires_verification": true,
+              "payload": {
+                "request": "Queue adapter self-check Janitor workflow."
+              },
+              "original": {
+                "request": "Queue adapter self-check Janitor workflow.",
+                "project_id": "room_janitor_client_reply",
+                "priority": "normal",
+                "risk_tier": "medium",
+                "speed_mode": "balanced",
+                "source": "queue_adapter_check",
+                "replay_of": "queue_mqbcf0rq_uq07el"
+              }
+            },
+            "trace": {
+              "trace_id": "trace_mqbcf17l_tv5d7t",
+              "request_id": "req_mqbcf17l_j48qpq"
+            },
+            "route": {
+              "selected_ai": "janitor",
+              "room": "room_janitor_client_reply",
+              "mode": "balanced",
+              "lanes": [
+                "source_lock",
+                "speed_router",
+                "security_privacy",
+                "verifier",
+                "quality_judge"
+              ],
+              "reason": "Standard internal route with source, speed, security, and verification checks."
+            },
+            "preflight_lanes": {
+              "source_lock": {
+                "lane": "source_lock",
+                "ok": true,
+                "source_access": {
+                  "ok": true,
+                  "report": []
+                }
+              },
+              "speed_router": {
+                "lane": "speed_router",
+                "ok": true,
+                "speed_path": "instant_or_cached_answer"
+              },
+              "security_privacy": {
+                "lane": "security_privacy",
+                "ok": true,
+                "boundary": {
+                  "ok": true,
+                  "blocks": []
+                }
+              },
+              "verifier": {
+                "lane": "verifier",
+                "ok": true,
+                "blocked_claims": [],
+                "verification_state": "verified_for_internal_handoff"
+              },
+              "quality_judge": {
+                "lane": "quality_judge",
+                "ok": true,
+                "quality": {
+                  "score": 86,
+                  "status": "usable",
+                  "scores": {
+                    "accuracy": 90,
+                    "source_compliance": 92,
+                    "brand_compliance": 90,
+                    "business_usefulness": 70,
+                    "customer_safety": 94,
+                    "clarity": 86,
+                    "completeness": 88,
+                    "speed": 82,
+                    "deploy_readiness": 82,
+                    "risk": 90
+                  }
+                }
+              }
+            },
+            "contamination": {
+              "ok": true,
+              "status": "clean",
+              "project_id": "room_janitor_client_reply",
+              "active_ai": "janitor",
+              "blocks": [],
+              "warnings": [],
+              "rule": "No room-to-room transfer or unapproved source use without explicit owner approval."
+            }
+          }
+        },
+        "review": {
+          "ok": true,
+          "lanes": {
+            "source_lock": {
+              "lane": "source_lock",
+              "ok": true,
+              "source_access": {
+                "ok": true,
+                "report": []
+              }
+            },
+            "speed_router": {
+              "lane": "speed_router",
+              "ok": true,
+              "speed_path": "instant_or_cached_answer"
+            },
+            "security_privacy": {
+              "lane": "security_privacy",
+              "ok": true,
+              "boundary": {
+                "ok": true,
+                "blocks": []
+              }
+            },
+            "verifier": {
+              "lane": "verifier",
+              "ok": true,
+              "blocked_claims": [],
+              "verification_state": "verified_for_internal_handoff"
+            },
+            "quality_judge": {
+              "lane": "quality_judge",
+              "ok": true,
+              "quality": {
+                "score": 88,
+                "status": "usable",
+                "scores": {
+                  "accuracy": 90,
+                  "source_compliance": 92,
+                  "brand_compliance": 90,
+                  "business_usefulness": 88,
+                  "customer_safety": 94,
+                  "clarity": 86,
+                  "completeness": 88,
+                  "speed": 82,
+                  "deploy_readiness": 82,
+                  "risk": 90
+                }
+              }
+            }
+          }
+        },
+        "quality_report": {
+          "score": 88,
+          "status": "usable",
+          "scores": {
+            "accuracy": 90,
+            "source_compliance": 92,
+            "brand_compliance": 90,
+            "business_usefulness": 88,
+            "customer_safety": 94,
+            "clarity": 86,
+            "completeness": 88,
+            "speed": 82,
+            "deploy_readiness": 82,
+            "risk": 90
+          }
+        },
+        "blocks": [],
+        "warnings": [],
+        "handoff": "usable_internal_handoff",
+        "history": {
+          "decision_id": "decision_mqbcf1b6_cuywfl",
+          "created_at": "2026-06-12T19:52:15.714Z",
+          "request": "Queue adapter self-check Janitor workflow.",
+          "project_id": "room_janitor_client_reply",
+          "selected_ai": "janitor",
+          "mode": "balanced",
+          "lanes": [
+            "source_lock",
+            "speed_router",
+            "security_privacy",
+            "verifier",
+            "quality_judge"
+          ],
+          "ok": true,
+          "handoff": "usable_internal_handoff",
+          "quality_score": 88,
+          "blocks": []
+        }
+      },
+      "failed_at": null,
+      "failure_reason": null,
+      "repair_hint": null,
+      "dead_letter": false,
+      "started_at": "2026-06-12T19:52:15.520Z",
+      "completed_at": "2026-06-12T19:52:15.763Z",
+      "blocked_at": null,
+      "owner_review_at": null
     }
   ]
 }

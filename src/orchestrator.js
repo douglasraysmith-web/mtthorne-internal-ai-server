@@ -19,7 +19,7 @@ export function health() {
   return {
     ok: true,
     service: 'mtthorne-internal-ai-server',
-    version: '1.6.0',
+    version: '1.7.0',
     primary_ai_count: 4,
     round_table_lane_count: 7,
     total_operating_seats: 11,

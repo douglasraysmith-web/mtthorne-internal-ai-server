@@ -49,7 +49,7 @@ export function knowledgeStatus() {
   }
   return {
     ok: true,
-    knowledge_version: 'shared_ai_knowledge_v1_6_0',
+    knowledge_version: 'shared_ai_knowledge_v1_7_0',
     entries: knowledge.length,
     by_ai: byAi,
     registry: registry.ais || {},
@@ -176,6 +176,128 @@ export function verifyArcheKnowledge(seed) {
     seed_version: seed.seed_version,
     sources: seed.sources?.length || 0,
     knowledge_documents: seed.knowledge_documents?.length || 0,
+    runtime_modules_indexed: seed.runtime_capability_manifest?.modules?.length || 0,
+    problems
+  };
+}
+
+
+export async function seedAvAiKnowledge(seed, options = {}) {
+  if (!seed || seed.ai_id !== 'av_ai' || seed.project_id !== 'room_av_ai') {
+    return { ok: false, error: 'invalid_avai_seed_boundary' };
+  }
+  if (
+    seed.safety?.cross_room_entries !== 0 ||
+    seed.safety?.executable_code_ingested !== false ||
+    seed.safety?.ava_separate_unrestricted_room !== false
+  ) {
+    return { ok: false, error: 'unsafe_avai_seed' };
+  }
+
+  const overwrite = options.overwrite !== false;
+  const sourceResults = [];
+  for (const source of seed.sources || []) {
+    if (source.project_room !== 'room_av_ai' || !(source.allowed_ai || []).includes('av_ai')) {
+      return { ok: false, error: 'cross_room_source_detected', source_id: source.source_id };
+    }
+    sourceResults.push(upsertSource(source));
+  }
+
+  const currentKnowledge = readJson(knowledgeFile(), { entries: [] });
+  const knowledgeMerge = mergeBy(currentKnowledge.entries || [], seed.knowledge_documents || [], 'knowledge_id', overwrite);
+  writeJson(knowledgeFile(), { entries: knowledgeMerge.items });
+
+  const currentVerified = readJson(verifiedFile(), { entries: [] });
+  const verifiedMerge = mergeBy(currentVerified.entries || [], seed.verified_sources || [], 'memory_id', overwrite);
+  writeJson(verifiedFile(), { entries: verifiedMerge.items });
+
+  const currentSemantic = readJson(semanticFile(), { entries: [] });
+  const semanticMerge = mergeBy(currentSemantic.entries || [], seed.semantic_memory_manifest || [], 'memory_id', overwrite);
+  writeJson(semanticFile(), { entries: semanticMerge.items });
+
+  const registry = readJson(registryFile(), { ais: {} });
+  registry.ais = registry.ais || {};
+  registry.ais.av_ai = {
+    ai_id: 'av_ai',
+    project_id: 'room_av_ai',
+    seed_version: seed.seed_version,
+    owner_package_version: seed.owner_package_version,
+    owner_package_sha256: seed.owner_package_sha256,
+    owner_package_created_at: seed.owner_package_created_at,
+    source_count: seed.sources?.length || 0,
+    knowledge_count: seed.knowledge_documents?.length || 0,
+    av_ai_technical_count: (seed.knowledge_documents || []).filter((x) => x.knowledge_layer === 'av_ai_technical_authority').length,
+    ava_public_behavior_count: (seed.knowledge_documents || []).filter((x) => x.knowledge_layer === 'ava_public_behavior').length,
+    runtime_capability_manifest: seed.runtime_capability_manifest,
+    seeded_at: nowIso(),
+    status: 'active'
+  };
+  writeJson(registryFile(), registry);
+  await flushPostgresWrites();
+
+  return {
+    ok: true,
+    seed_version: seed.seed_version,
+    ai_id: 'av_ai',
+    project_id: 'room_av_ai',
+    owner_package_version: seed.owner_package_version,
+    sources: sourceResults.length,
+    knowledge: {
+      inserted: knowledgeMerge.inserted.length,
+      updated: knowledgeMerge.updated.length,
+      skipped: knowledgeMerge.skipped.length,
+      total: knowledgeMerge.items.length
+    },
+    verified_sources: {
+      inserted: verifiedMerge.inserted.length,
+      updated: verifiedMerge.updated.length,
+      skipped: verifiedMerge.skipped.length,
+      total: verifiedMerge.items.length
+    },
+    semantic_memory: {
+      inserted: semanticMerge.inserted.length,
+      updated: semanticMerge.updated.length,
+      skipped: semanticMerge.skipped.length,
+      total: semanticMerge.items.length
+    }
+  };
+}
+
+export function loadAvAiSeed(seedPath = path.join(process.cwd(), 'seeds', 'avai', 'avai_knowledge_seed.json')) {
+  return JSON.parse(fs.readFileSync(seedPath, 'utf8'));
+}
+
+export function verifyAvAiKnowledge(seed) {
+  const problems = [];
+  if (seed.ai_id !== 'av_ai') problems.push('wrong_ai_id');
+  if (seed.project_id !== 'room_av_ai') problems.push('wrong_project_id');
+  if (seed.owner_package_version !== '7.8.4') problems.push('unexpected_owner_package_version');
+
+  for (const source of seed.sources || []) {
+    if (source.project_room !== 'room_av_ai') problems.push(`wrong_room:${source.source_id}`);
+    if (!(source.allowed_ai || []).includes('av_ai')) problems.push(`avai_not_allowed:${source.source_id}`);
+    if (source.validated !== true) problems.push(`unvalidated_source:${source.source_id}`);
+  }
+
+  for (const entry of seed.knowledge_documents || []) {
+    if (entry.project_id !== 'room_av_ai' || entry.ai_id !== 'av_ai') problems.push(`knowledge_boundary:${entry.knowledge_id}`);
+    if (entry.validated !== true || !entry.source_id || !entry.content_sha256) problems.push(`knowledge_validation:${entry.knowledge_id}`);
+    if (!['av_ai_technical_authority', 'ava_public_behavior'].includes(entry.knowledge_layer)) {
+      problems.push(`invalid_knowledge_layer:${entry.knowledge_id}`);
+    }
+  }
+
+  if (seed.safety?.cross_room_entries !== 0) problems.push('cross_room_entries_present');
+  if (seed.safety?.executable_code_ingested !== false) problems.push('executable_code_ingested');
+  if (seed.safety?.ava_separate_unrestricted_room !== false) problems.push('ava_unrestricted_room_present');
+
+  return {
+    ok: problems.length === 0,
+    seed_version: seed.seed_version,
+    sources: seed.sources?.length || 0,
+    knowledge_documents: seed.knowledge_documents?.length || 0,
+    av_ai_technical_documents: (seed.knowledge_documents || []).filter((x) => x.knowledge_layer === 'av_ai_technical_authority').length,
+    ava_public_behavior_documents: (seed.knowledge_documents || []).filter((x) => x.knowledge_layer === 'ava_public_behavior').length,
     runtime_modules_indexed: seed.runtime_capability_manifest?.modules?.length || 0,
     problems
   };

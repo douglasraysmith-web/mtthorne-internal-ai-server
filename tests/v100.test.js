@@ -6,7 +6,7 @@ import { existingServicesStatus, railwayEnvPlan, netlifyBridgeContract, stableSi
 
 test('v1.0.0 health exposes stable sidecar and owner approval layers', () => {
   const h = health();
-  assert.ok(['1.0.0','1.0.1','1.1.0','1.5.0','1.6.0'].includes(h.version));
+  assert.ok(['1.0.0','1.0.1','1.1.0','1.5.0','1.6.0','1.7.0'].includes(h.version));
   assert.ok(['provider_dispatch_gate_v1_0_0','provider_dispatch_gate_v1_1_0'].includes(h.provider_gate_layer));
   assert.equal(h.cost_gate_layer, 'cost_gate_v1_0_0');
   assert.equal(h.owner_approval_layer, 'owner_approval_gate_v1_0_0');

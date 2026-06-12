@@ -1,9 +1,9 @@
 {
   "name": "mtthorne-internal-ai-server",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "private": true,
   "type": "module",
-  "description": "Shared four-AI internal sidecar with PostgreSQL persistence, ArchE owner-source knowledge seeding, AVA operational governance, provider/cost gates, and authenticated ArchE bridge.",
+  "description": "Shared four-AI internal sidecar with PostgreSQL persistence, ArchE and AV.AI/AVA owner-source knowledge seeding, operational AVA governance, provider/cost gates, and authenticated ArchE bridge.",
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
@@ -18,7 +18,10 @@
     "predeploy": "npm run verify:registry && npm test",
     "seed:arche": "node scripts/seed-arche-knowledge.mjs",
     "seed:arche:no-overwrite": "node scripts/seed-arche-knowledge.mjs --no-overwrite",
-    "verify:arche-knowledge": "node scripts/verify-arche-knowledge.mjs"
+    "verify:arche-knowledge": "node scripts/verify-arche-knowledge.mjs",
+    "seed:avai": "node scripts/seed-avai-knowledge.mjs",
+    "seed:avai:no-overwrite": "node scripts/seed-avai-knowledge.mjs --no-overwrite",
+    "verify:avai-knowledge": "node scripts/verify-avai-knowledge.mjs"
   },
   "engines": {
     "node": ">=20"
