@@ -77,3 +77,36 @@ test('AVA performs one automatic repair for rejected answers', async () => {
   assert.match(source, /repairFailures/);
   assert.match(source, /You are repairing a rejected AVA answer/);
 });
+
+test('HDMI dropout is classified as troubleshooting and signal-path work', async () => {
+  const { buildAvAiPlan } = await import('../src/servers/avaAvAiPlanner.js');
+  const plan = buildAvAiPlan('The screen drops when switching into HDR.', {
+    turns: [{ role: 'visitor', text: 'EDID and HDCP black screen through an AV receiver' }],
+    facts: {}
+  });
+  assert.equal(plan.intent, 'troubleshooting');
+  assert.ok(plan.domains.includes('hdmi_signal_path'));
+});
+
+test('AVA extracts full source receiver display chain and HDR trigger', async () => {
+  const { extractAvFacts, buildDiagnosticState } = await import('../src/servers/avaDiagnostic.js');
+  const { buildAvAiPlan } = await import('../src/servers/avaAvAiPlanner.js');
+  const message = 'The receiver is a Denon AVR-X3800H, the television is an LG C3, and the source is a PlayStation 5. The screen drops when switching into HDR.';
+  const facts = extractAvFacts(message, {});
+  assert.equal(facts.equipment.receiver, 'Denon AVR-X3800H');
+  assert.equal(facts.equipment.display, 'LG C3');
+  assert.equal(facts.equipment.source, 'PlayStation 5');
+  assert.equal(facts.signal_mode, 'HDR');
+  const plan = buildAvAiPlan(message, {});
+  const state = buildDiagnosticState(plan, facts);
+  assert.equal(state.stage, 'direct_path_isolation');
+  assert.equal(state.branch, 'hdmi_signal_path');
+});
+
+test('AVA live route retrieves room-scoped AVAI knowledge', async () => {
+  const source = await readFile(new URL('../src/servers/ava.js', import.meta.url), 'utf8');
+  assert.match(source, /searchKnowledge/);
+  assert.match(source, /aiId: 'av_ai'/);
+  assert.match(source, /projectId: 'room_av_ai'/);
+  assert.match(source, /knowledge_hits/);
+});

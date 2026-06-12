@@ -67,7 +67,7 @@ const server = http.createServer(async (req, res) => {
     } : {};
     if (req.method === 'OPTIONS') return send(res, 204, {}, corsHeaders);
 
-    if (req.method === 'GET' && url.pathname === '/public/status') return send(res, 200, { ok: true, service: 'mtthorne-internal-ai-server', version: '1.7.0', ava: avaStatus(), arche_bridge: archeLiveBridgeStatus(), r2: await r2LiveStatus() }, corsHeaders);
+    if (req.method === 'GET' && url.pathname === '/public/status') return send(res, 200, { ok: true, service: 'mtthorne-internal-ai-server', version: '1.7.1', ava: avaStatus(), arche_bridge: archeLiveBridgeStatus(), r2: await r2LiveStatus() }, corsHeaders);
     if (req.method === 'GET' && url.pathname === '/api/ava/status') return send(res, 200, avaStatus(), corsHeaders);
     if (req.method === 'POST' && url.pathname === '/api/ava/chat') return send(res, 200, await avaChat(await readBody(req), { ip: req.headers['x-forwarded-for'] || req.socket.remoteAddress }), corsHeaders);
 
@@ -233,5 +233,5 @@ if (!storageStartup.ok && process.env.AI_POSTGRES_REQUIRE_CONNECTION === 'true')
 console.log(JSON.stringify({ event: 'storage_initialized', ...storageStartup }));
 
 server.listen(CONFIG.port, CONFIG.host, () => {
-  console.log(`Internal AI Server v1.7.0 listening on http://${CONFIG.host}:${CONFIG.port}`);
+  console.log(`Internal AI Server v1.7.1 listening on http://${CONFIG.host}:${CONFIG.port}`);
 });

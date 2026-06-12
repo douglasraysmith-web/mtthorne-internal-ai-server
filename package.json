@@ -1,6 +1,6 @@
 {
   "name": "mtthorne-internal-ai-server",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "private": true,
   "type": "module",
   "description": "Shared four-AI internal sidecar with PostgreSQL persistence, ArchE and AV.AI/AVA owner-source knowledge seeding, operational AVA governance, provider/cost gates, and authenticated ArchE bridge.",

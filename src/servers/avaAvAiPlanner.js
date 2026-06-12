@@ -3,107 +3,89 @@ const DRIVER_TERMS = [
   'firmware',
   'software update',
   'device manager',
-  'usb',
-  'hdmi handshake',
+  'usb'
+];
+
+const HDMI_LINK_TERMS = [
+  'hdmi',
   'edid',
-  'hdcp'
+  'hdcp',
+  'handshake',
+  'black screen',
+  'no signal',
+  'hdr',
+  'dolby vision',
+  'refresh rate',
+  'bandwidth'
 ];
 
 const AUDIO_TERMS = [
-  'audio',
-  'speaker',
-  'receiver',
-  'avr',
-  'amplifier',
-  'subwoofer',
-  'sound',
-  'dolby',
-  'dts',
-  'arc',
-  'earc'
+  'audio', 'speaker', 'receiver', 'avr', 'amplifier', 'subwoofer',
+  'sound', 'dolby', 'dts', 'arc', 'earc'
 ];
 
 const VIDEO_TERMS = [
-  'video',
-  'display',
-  'television',
-  'tv',
-  'projector',
-  'screen',
-  'picture',
-  'resolution',
-  'hdr',
-  'hdmi'
+  'video', 'display', 'television', 'tv', 'projector', 'screen',
+  'picture', 'resolution', 'hdr', 'hdmi', 'edid', 'hdcp', 'black screen'
 ];
 
 const CONTROL_TERMS = [
-  'control',
-  'remote',
-  'automation',
-  'crestron',
-  'control4',
-  'urc',
-  'savant',
-  'ir',
-  'rs-232',
-  'ip control'
+  'control', 'remote', 'automation', 'crestron', 'control4', 'urc',
+  'savant', 'rs-232', 'ip control'
+];
+
+const TROUBLE_TERMS = [
+  'not working', 'issue', 'problem', 'trouble', 'error', 'driver',
+  'black screen', 'no signal', 'drops', 'dropout', 'drops out', 'cuts out',
+  'intermittent', 'fails', 'failure', 'handshake', 'not detected',
+  'not recognized', 'flicker', 'loses', 'loss of', 'disconnects'
 ];
 
 function includesAny(text, terms) {
   return terms.some((term) => text.includes(term));
 }
 
-function classifyIntent(message = '') {
-  const text = String(message).toLowerCase();
+function classifyIntent(message = '', priorContext = '') {
+  const text = `${String(priorContext)} ${String(message)}`.toLowerCase();
 
-  if (
-    text.includes('not working') ||
-    text.includes('issue') ||
-    text.includes('problem') ||
-    text.includes('trouble') ||
-    text.includes('error') ||
-    text.includes('driver')
-  ) {
-    return 'troubleshooting';
-  }
+  if (includesAny(text, TROUBLE_TERMS)) return 'troubleshooting';
 
-  if (
-    text.includes('design') ||
-    text.includes('plan') ||
-    text.includes('build') ||
-    text.includes('home theater') ||
-    text.includes('cinema')
-  ) {
+  if (includesAny(text, ['design', 'plan', 'build', 'home theater', 'cinema'])) {
     return 'system_design';
   }
 
-  if (
-    text.includes('recommend') ||
-    text.includes('which') ||
-    text.includes('best') ||
-    text.includes('buy')
-  ) {
+  if (includesAny(text, ['recommend', 'which', 'best', 'buy'])) {
     return 'equipment_guidance';
   }
 
   return 'general_av_guidance';
 }
 
-function classifyDomain(message = '') {
-  const text = String(message).toLowerCase();
-
+function classifyDomain(message = '', priorContext = '') {
+  const text = `${String(priorContext)} ${String(message)}`.toLowerCase();
   const matches = [];
 
   if (includesAny(text, DRIVER_TERMS)) matches.push('driver_or_firmware');
+  if (includesAny(text, HDMI_LINK_TERMS)) matches.push('hdmi_signal_path');
   if (includesAny(text, AUDIO_TERMS)) matches.push('audio');
   if (includesAny(text, VIDEO_TERMS)) matches.push('video');
   if (includesAny(text, CONTROL_TERMS)) matches.push('control');
 
-  return matches.length ? matches : ['undetermined_av_domain'];
+  return [...new Set(matches.length ? matches : ['undetermined_av_domain'])];
 }
 
 function diagnosticPriority(intent, domains) {
   if (intent === 'troubleshooting') {
+    if (domains.includes('hdmi_signal_path')) {
+      return [
+        'Map the complete source-to-receiver-to-display signal path.',
+        'Identify the exact models, HDMI inputs/outputs, cable lengths, and signal mode that triggers the failure.',
+        'Separate EDID capability negotiation from HDCP authentication and raw HDMI bandwidth or cable integrity.',
+        'Reproduce the fault with the simplest direct connection, then reinsert the receiver.',
+        'Change one variable at a time: resolution, refresh rate, HDR format, chroma, deep color, HDCP mode, or cable path.'
+      ];
+    }
+
     if (domains.includes('driver_or_firmware')) {
       return [
         'Identify the exact manufacturer and model.',
@@ -142,10 +124,11 @@ function diagnosticPriority(intent, domains) {
 }
 
 function firstQuestion(intent, domains) {
-  if (
-    intent === 'troubleshooting' &&
-    domains.includes('driver_or_firmware')
-  ) {
+  if (intent === 'troubleshooting' && domains.includes('hdmi_signal_path')) {
+    return 'What are the exact source, receiver, and display models, which HDMI ports are in use, and which signal change—such as HDR, 4K/120, Dolby Vision, or a refresh-rate switch—causes the screen to drop?';
+  }
+
+  if (intent === 'troubleshooting' && domains.includes('driver_or_firmware')) {
     return 'What is the exact manufacturer and model of the affected device, and what computer, operating system, processor, receiver, or control platform is supposed to communicate with it?';
   }
 
@@ -160,13 +143,17 @@ function firstQuestion(intent, domains) {
   return 'What exact equipment is involved, and what result are you trying to achieve?';
 }
 
-export function buildAvAiPlan(message = {}) {
+export function buildAvAiPlan(message = '', context = {}) {
   const text = String(message || '').trim();
-  const intent = classifyIntent(text);
-  const domains = classifyDomain(text);
+  const priorContext = [
+    ...(context.turns || []).map((turn) => turn.text || ''),
+    JSON.stringify(context.facts || {})
+  ].join(' ');
+  const intent = classifyIntent(text, priorContext);
+  const domains = classifyDomain(text, priorContext);
 
   return {
-    planner_version: 'ava_av_ai_planner_v1_0_0',
+    planner_version: 'ava_av_ai_planner_v1_1_0',
     intent,
     domains,
     diagnostic_priority: diagnosticPriority(intent, domains),
@@ -176,8 +163,8 @@ export function buildAvAiPlan(message = {}) {
       'Do not merely ask for more context.',
       'Do not present a large intake checklist.',
       'Ask one high-value next question.',
-      'Do not assume the word driver means only a computer driver.',
-      'Distinguish software driver, firmware, loudspeaker driver, control driver, and signal-path failure.',
+      'Use prior session facts and do not ask again for equipment already provided.',
+      'For HDMI faults, separate EDID negotiation, HDCP authentication, bandwidth/cable integrity, port configuration, and firmware.',
       'Do not recommend replacement equipment until the failure domain is isolated.'
     ]
   };

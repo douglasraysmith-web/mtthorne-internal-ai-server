@@ -6,6 +6,7 @@ import { buildAvAiPlan } from './avaAvAiPlanner.js';
 import { evaluateAvaAnswer } from './avaQuality.js';
 import { getAvaSession, updateAvaSession, avaSessionStatus } from './avaSessionMemory.js';
 import { extractAvFacts, buildDiagnosticState, buildDeterministicAvCandidate } from './avaDiagnostic.js';
+import { searchKnowledge } from './knowledge.js';
 
 const buckets = new Map();
 
@@ -29,7 +30,7 @@ export function avaStatus() {
   return {
     ok: true,
     service: 'ava-page-gateway',
-    version: 'ava_gateway_v1_4_0',
+    version: 'ava_gateway_v1_4_1',
     public_chat_enabled: CONFIG.publicMode,
     av_ai_room_bound: true,
     av_ai_planning_active: true,
@@ -51,7 +52,7 @@ export function avaStatus() {
   };
 }
 
-function buildSystem(plan, diagnosticState, session) {
+function buildSystem(plan, diagnosticState, session, knowledgeContext = []) {
   return [
     'You are AVA, the premier public-facing Audio/Video Intelligence of M.T. Thorne Publishing Company.',
     'You are not a generic chatbot, generic assistant, sales bot, publishing assistant, or passive intake form.',
@@ -66,6 +67,8 @@ function buildSystem(plan, diagnosticState, session) {
     `Missing fields: ${(diagnosticState.missing_fields || []).join(', ') || 'none'}.`,
     `Preferred next question: ${diagnosticState.next_question || plan.first_question}`,
     `Recent bounded session turns: ${(session.turns || []).map((turn) => `${turn.role}: ${turn.text}`).join(' | ') || 'none'}.`,
+    `Approved AV.AI knowledge: ${knowledgeContext.map((item) => `[${item.title}] ${item.content}`).join(' | ') || 'none retrieved'}.`,
+    'Use approved AV.AI knowledge as grounded context, but do not mention internal source titles or database records to the visitor.',
     `Response rules: ${plan.response_rules.join(' ')}`,
     'For troubleshooting, distinguish software drivers, firmware, control drivers, loudspeaker drivers, cabling, handshakes, configuration, networking, and hardware faults when relevant.',
     'Do not answer a vague technical problem with only a vague request for context.',
@@ -84,7 +87,8 @@ async function requestArcheReview({
   plan,
   diagnosticState,
   session,
-  trace
+  trace,
+  knowledgeContext = []
 }) {
   const reviewRequest = [
     'Review and improve the following proposed public AVA answer.',
@@ -102,6 +106,8 @@ async function requestArcheReview({
     `Missing fields: ${(diagnosticState.missing_fields || []).join(', ') || 'none'}.`,
     `Preferred next question: ${diagnosticState.next_question || plan.first_question}`,
     `Recent bounded session turns: ${(session.turns || []).map((turn) => `${turn.role}: ${turn.text}`).join(' | ') || 'none'}.`,
+    `Approved AV.AI knowledge: ${knowledgeContext.map((item) => `[${item.title}] ${item.content}`).join(' | ') || 'none retrieved'}.`,
+    'Use approved AV.AI knowledge as grounded context, but do not mention internal source titles or database records to the visitor.',
     `Draft answer: ${draft}`
   ].join('\n');
 
@@ -152,7 +158,10 @@ export async function avaChat(input = {}, meta = {}) {
   const sessionKey = String(input.session_id || input.sessionId || meta.ip || 'anonymous').slice(0, 160);
   const session = getAvaSession(sessionKey);
   const facts = extractAvFacts(message, session.facts);
-  const plan = buildAvAiPlan(message);
+  const plan = buildAvAiPlan(message, session);
+  const knowledgeQuery = [message, ...(session.turns || []).slice(-2).map((turn) => turn.text || '')].join(' ');
+  const knowledgeSearch = searchKnowledge({ query: knowledgeQuery, aiId: 'av_ai', projectId: 'room_av_ai', limit: 6 });
+  const knowledgeContext = (knowledgeSearch.results || []).filter((item) => item.knowledge_layer === 'av_ai_technical_authority').slice(0, 4);
   const diagnosticState = buildDiagnosticState(plan, facts);
 
   const decision = decide({
@@ -180,7 +189,7 @@ export async function avaChat(input = {}, meta = {}) {
   const draftDispatch = await providerDispatch({
     provider,
     request: message,
-    system: buildSystem(plan, diagnosticState, session),
+    system: buildSystem(plan, diagnosticState, session, knowledgeContext),
     risk_tier: input.risk_tier || 'low',
     public_facing: true,
     estimated_input_tokens: input.estimated_input_tokens,
@@ -213,7 +222,8 @@ export async function avaChat(input = {}, meta = {}) {
     plan,
     diagnosticState,
     session,
-    trace: decision.trace
+    trace: decision.trace,
+    knowledgeContext
   });
 
   const archeReviewed =
@@ -278,7 +288,7 @@ export async function avaChat(input = {}, meta = {}) {
       'insufficient_av_specificity';
 
     const repairSystem = [
-      buildSystem(plan, diagnosticState, session),
+      buildSystem(plan, diagnosticState, session, knowledgeContext),
       'You are repairing a rejected AVA answer.',
       `The previous answer failed for: ${repairFailures}.`,
       'Produce one concise visitor-facing answer.',
@@ -295,7 +305,8 @@ export async function avaChat(input = {}, meta = {}) {
         `Rejected answer: ${selected?.text || draft}`,
         `Required diagnostic priorities: ${plan.diagnostic_priority.join(' ')}`,
         `Diagnostic stage: ${diagnosticState.stage}`,
-        `Known facts: ${JSON.stringify(facts)}`
+        `Known facts: ${JSON.stringify(facts)}`,
+        `Approved AV.AI knowledge: ${knowledgeContext.map((item) => item.content).join(' | ') || 'none retrieved'}`
       ].join('\n'),
       system: repairSystem,
       risk_tier: 'low',
@@ -365,7 +376,8 @@ export async function avaChat(input = {}, meta = {}) {
     av_ai_plan: {
       planner_version: plan.planner_version,
       intent: plan.intent,
-      domains: plan.domains
+      domains: plan.domains,
+      knowledge_hits: knowledgeContext.map((item) => ({ knowledge_id: item.knowledge_id, title: item.title, score: item.score }))
     },
     session: {
       session_key: updatedSession.session_key,

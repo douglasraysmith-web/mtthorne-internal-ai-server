@@ -44,7 +44,13 @@ export function evaluateAvaAnswer({
       'control driver',
       'signal-path failure',
       'software driver',
-      'affected device'
+      'affected device',
+      'edid',
+      'hdcp',
+      'hdr',
+      'directly to the television',
+      'direct path',
+      'source-to-receiver-to-display'
     ])
   ) {
     scores.av_specificity += 35;
@@ -66,7 +72,16 @@ export function evaluateAvaAnswer({
       'identify what driver means',
       'identify the exact',
       'narrow the failure',
-      'isolate the cause'
+      'isolate the cause',
+      'test the source directly',
+      'connected directly',
+      'change one variable at a time',
+      'if the dropout disappears',
+      'if it remains',
+      'reinsert the receiver',
+      'separate edid',
+      'hdcp session',
+      'bandwidth'
     ])
   ) {
     scores.diagnostic_value += 35;
