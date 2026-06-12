@@ -1,4 +1,4 @@
-import test from 'node:test';
+﻿import test from 'node:test';
 import assert from 'node:assert/strict';
 import { health } from '../src/orchestrator.js';
 import { r2StorageStatus, r2StorageCheck, r2StorageMigrationPlan } from '../src/servers/r2Storage.js';
@@ -6,7 +6,7 @@ import { deploymentReadinessStatus, deploymentReadinessCheck, deploymentReadines
 
 test('v0.8.0 health exposes R2 and deployment readiness layers', () => {
   const h = health();
-  assert.ok(['0.8.0','0.9.0','1.0.0','1.0.1','1.1.0','1.5.0','1.6.0','1.7.0'].includes(h.version));
+  assert.ok(['0.8.0','0.9.0','1.0.0','1.0.1','1.1.0','1.5.0','1.6.0','1.7.0','1.7.1'].includes(h.version));
   assert.equal(h.object_storage_layer, 'r2_adapter_v0_8_0');
   assert.equal(h.object_storage_driver, 'local_manifest');
   assert.equal(h.deployment_readiness_layer, 'deployment_readiness_v0_8_0');
@@ -57,3 +57,5 @@ test('v0.8.0 deployment plan requires no new paid services', () => {
   assert.equal(plan.no_new_paid_services_required, true);
   assert.equal(plan.stages[0].stage, 'github');
 });
+
+

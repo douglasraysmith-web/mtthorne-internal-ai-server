@@ -1,11 +1,11 @@
-import test from 'node:test';
+﻿import test from 'node:test';
 import assert from 'node:assert/strict';
 import { health } from '../src/orchestrator.js';
 import { queueAdapterStatus, queueAdapterCheck, queueAdapterMigrationPlan } from '../src/servers/queueAdapter.js';
 
 test('v0.7.0 health exposes queue adapter layer', () => {
   const h = health();
-  assert.ok(['0.7.0','0.8.0','0.9.0','1.0.0','1.0.1','1.1.0','1.5.0','1.6.0','1.7.0'].includes(h.version));
+  assert.ok(['0.7.0','0.8.0','0.9.0','1.0.0','1.0.1','1.1.0','1.5.0','1.6.0','1.7.0','1.7.1'].includes(h.version));
   assert.equal(h.queue_adapter_layer, 'queue_adapter_v0_7_0');
   assert.equal(h.queue_driver, 'json_file');
 });
@@ -36,3 +36,5 @@ test('v0.7.0 queue adapter migration plan defines redis stream gates', () => {
   assert.ok(plan.redis_stream_design.stream_names.includes('mtthorne:queue:jobs'));
   assert.ok(plan.gates_before_switch.includes('run /queue/adapter/check'));
 });
+
+

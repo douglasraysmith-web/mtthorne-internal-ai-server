@@ -1,11 +1,11 @@
-import test from 'node:test';
+﻿import test from 'node:test';
 import assert from 'node:assert/strict';
 import { health } from '../src/orchestrator.js';
 import { enqueueJob, processJob, replayJob, getJob, listRecentJobs } from '../src/servers/queue.js';
 
 test('v0.5.1 health exposes updated queue and workflow layers', () => {
   const h = health();
-  assert.ok(['0.5.1','0.6.0','0.7.0','0.8.0','0.9.0','0.9.0','0.9.0','1.0.0','1.0.1','1.1.0','1.5.0','1.6.0','1.7.0'].includes(h.version));
+  assert.ok(['0.5.1','0.6.0','0.7.0','0.8.0','0.9.0','0.9.0','0.9.0','1.0.0','1.0.1','1.1.0','1.5.0','1.6.0','1.7.0','1.7.1'].includes(h.version));
   assert.equal(h.queue_layer, 'durable_queue_lifecycle_v0_5_1');
   assert.equal(h.workflow_layer, 'replayable_workflows_v0_5_1');
 });
@@ -36,3 +36,5 @@ test('v0.5.1 replay can still be queued manually when requested', () => {
   assert.equal(replay.auto_processed, false);
   assert.equal(getJob(replay.replay_queue_id).status, 'queued');
 });
+
+

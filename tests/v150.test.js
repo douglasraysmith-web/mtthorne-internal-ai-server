@@ -1,4 +1,4 @@
-import test from 'node:test';
+﻿import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { health } from '../src/orchestrator.js';
@@ -16,7 +16,7 @@ const serverSource = await readFile(
 
 test('v1.5.0 exposes shared PostgreSQL storage capability', () => {
   const h = health();
-  assert.ok(['1.6.0','1.7.0'].includes(h.version));
+  assert.ok(['1.6.0','1.7.0','1.7.1'].includes(h.version));
   assert.equal(h.storage_layer, 'storage_adapter_v1_5_0');
   assert.ok(supportedStorageDrivers().includes('postgres'));
 });
@@ -44,3 +44,5 @@ test('JSON migration is owner protected and available by CLI', () => {
   assert.ok(plan.collections.includes('ava_sessions'));
   assert.equal(plan.postgres_table, 'ai_store_documents');
 });
+
+
