@@ -19,7 +19,7 @@ export function health() {
   return {
     ok: true,
     service: 'mtthorne-internal-ai-server',
-    version: '1.5.0',
+    version: '1.6.0',
     primary_ai_count: 4,
     round_table_lane_count: 7,
     total_operating_seats: 11,
@@ -36,6 +36,7 @@ export function health() {
     workflow_layer: 'replayable_workflows_v0_5_1',
     storage_layer: 'storage_adapter_v1_5_0',
     storage_driver: storageStatus().active_driver,
+    knowledge_layer: 'shared_ai_knowledge_v1_6_0',
     queue_adapter_layer: 'queue_adapter_v0_7_0',
     queue_driver: queueAdapterStatus().active_driver,
     object_storage_layer: 'r2_adapter_v0_8_0',

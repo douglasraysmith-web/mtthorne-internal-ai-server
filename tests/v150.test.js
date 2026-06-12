@@ -16,7 +16,7 @@ const serverSource = await readFile(
 
 test('v1.5.0 exposes shared PostgreSQL storage capability', () => {
   const h = health();
-  assert.equal(h.version, '1.5.0');
+  assert.equal(h.version, '1.6.0');
   assert.equal(h.storage_layer, 'storage_adapter_v1_5_0');
   assert.ok(supportedStorageDrivers().includes('postgres'));
 });

@@ -16,7 +16,8 @@ import {
   pingPostgres,
   flushPostgresWrites,
   migrateJsonDirectoryToPostgres,
-  seedDefaultCollectionsToPostgres
+  seedDefaultCollectionsToPostgres,
+  refreshPostgresMetadata
 } from '../utils/postgresStore.js';
 
 const manifestFile = () => path.join(resolveDataDir(), 'storage_manifest.json');
@@ -37,6 +38,8 @@ export const STORE_FILES = Object.freeze([
   'episodic_memory.json',
   'semantic_memory_manifest.json',
   'verified_sources.json',
+  'knowledge_documents.json',
+  'ai_knowledge_registry.json',
   'provider_dispatch_log.json',
   'owner_approval_log.json',
   'cost_ledger.json',
@@ -76,16 +79,19 @@ export async function initializeStorage() {
 }
 
 export function storageManifest() {
-  const fallback = {
+  const stored = readJson(manifestFile(), {});
+  return {
+    ...stored,
     storage_version: 'storage_adapter_v1_5_0',
     active_driver: storageDriver(),
     available_drivers: ['json_file', 'postgres'],
     future_drivers: ['sqlite', 'redis_streams', 'qdrant_manifest'],
     migration_rule: 'All server modules use the storage adapter boundary. PostgreSQL stores shared JSONB collections for all four AIs; local JSON remains the recovery copy unless disabled.',
-    public_activation: 'inactive',
-    provider_dispatch: 'inactive'
+    public_activation: process.env.AI_PUBLIC_MODE === 'true' ? 'enabled' : 'inactive_until_explicit_approval',
+    provider_dispatch: process.env.AI_ALLOW_PROVIDER_DISPATCH === 'true' ? 'enabled' : 'inactive',
+    customer_data: 'inactive',
+    payment_account_access: 'inactive'
   };
-  return readJson(manifestFile(), fallback);
 }
 
 export function storageStatus() {
@@ -126,6 +132,13 @@ export function storageStatus() {
     },
     rule: 'PostgreSQL is the shared persistent store when AI_STORAGE_DRIVER=postgres. Local JSON remains an atomic recovery and migration copy unless AI_DISABLE_LOCAL_STORAGE_BACKUP=true.'
   };
+}
+
+export async function storageStatusLive() {
+  if (storageDriver() === 'postgres') {
+    await refreshPostgresMetadata();
+  }
+  return storageStatus();
 }
 
 export function storageSelfCheck() {

@@ -27499,6 +27499,1256 @@
           "blocks": []
         }
       ]
+    },
+    {
+      "trace_id": "trace_mqba4s2x_m8rgm7",
+      "request_id": "req_mqba4s2x_b0aavg",
+      "created_at": "2026-06-12T18:48:17.962Z",
+      "updated_at": "2026-06-12T18:48:18.010Z",
+      "finalized_at": "2026-06-12T18:48:18.010Z",
+      "status": "blocked",
+      "terminal": true,
+      "project_id": null,
+      "risk_tier": "high",
+      "speed_mode": "round_table",
+      "events": [
+        {
+          "at": "2026-06-12T18:48:17.962Z",
+          "event": "decision_started",
+          "project_id": null,
+          "request_preview": "show provider payload"
+        },
+        {
+          "at": "2026-06-12T18:48:17.984Z",
+          "event": "contract_blocked",
+          "blocks": [
+            "missing_project_id"
+          ]
+        },
+        {
+          "at": "2026-06-12T18:48:18.010Z",
+          "event": "trace_finalized",
+          "status": "blocked",
+          "handoff": "blocked_or_needs_revision",
+          "blocks": [
+            "missing_project_id"
+          ]
+        }
+      ]
+    },
+    {
+      "trace_id": "trace_mqba4s78_zavfv6",
+      "request_id": "req_mqba4s78_72jrxi",
+      "created_at": "2026-06-12T18:48:18.116Z",
+      "updated_at": "2026-06-12T18:48:18.274Z",
+      "finalized_at": "2026-06-12T18:48:18.274Z",
+      "status": "completed",
+      "terminal": true,
+      "project_id": "room_janitor_client_reply",
+      "risk_tier": "high",
+      "speed_mode": "round_table",
+      "events": [
+        {
+          "at": "2026-06-12T18:48:18.116Z",
+          "event": "decision_started",
+          "project_id": "room_janitor_client_reply",
+          "request_preview": "A customer asks after hours about a publishing order problem and wants payment account help."
+        },
+        {
+          "at": "2026-06-12T18:48:18.139Z",
+          "event": "route_selected",
+          "selected_ai": "janitor",
+          "project_room": "room_janitor_client_reply",
+          "mode": "round_table_reviewed"
+        },
+        {
+          "at": "2026-06-12T18:48:18.159Z",
+          "event": "contamination_checked",
+          "ok": true,
+          "blocks": []
+        },
+        {
+          "at": "2026-06-12T18:48:18.181Z",
+          "event": "preflight_complete",
+          "ok": true
+        },
+        {
+          "at": "2026-06-12T18:48:18.206Z",
+          "event": "review_complete",
+          "ok": true
+        },
+        {
+          "at": "2026-06-12T18:48:18.226Z",
+          "event": "quality_scored",
+          "score": 88,
+          "status": "usable"
+        },
+        {
+          "at": "2026-06-12T18:48:18.249Z",
+          "event": "decision_finished",
+          "ok": true,
+          "handoff": "usable_internal_handoff"
+        },
+        {
+          "at": "2026-06-12T18:48:18.274Z",
+          "event": "trace_finalized",
+          "status": "completed",
+          "handoff": "usable_internal_handoff",
+          "blocks": []
+        }
+      ]
+    },
+    {
+      "trace_id": "trace_mqba4sg3_blrbpy",
+      "request_id": "req_mqba4sg3_y51gom",
+      "created_at": "2026-06-12T18:48:18.435Z",
+      "updated_at": "2026-06-12T18:48:18.598Z",
+      "finalized_at": "2026-06-12T18:48:18.598Z",
+      "status": "completed",
+      "terminal": true,
+      "project_id": "room_arche_site",
+      "risk_tier": "high",
+      "speed_mode": "round_table",
+      "events": [
+        {
+          "at": "2026-06-12T18:48:18.435Z",
+          "event": "decision_started",
+          "project_id": "room_arche_site",
+          "request_preview": "Prepare a deploy milestone without public activation."
+        },
+        {
+          "at": "2026-06-12T18:48:18.456Z",
+          "event": "route_selected",
+          "selected_ai": "arche",
+          "project_room": "room_arche_site",
+          "mode": "round_table_reviewed"
+        },
+        {
+          "at": "2026-06-12T18:48:18.478Z",
+          "event": "contamination_checked",
+          "ok": true,
+          "blocks": []
+        },
+        {
+          "at": "2026-06-12T18:48:18.501Z",
+          "event": "preflight_complete",
+          "ok": true
+        },
+        {
+          "at": "2026-06-12T18:48:18.525Z",
+          "event": "review_complete",
+          "ok": true
+        },
+        {
+          "at": "2026-06-12T18:48:18.548Z",
+          "event": "quality_scored",
+          "score": 88,
+          "status": "usable"
+        },
+        {
+          "at": "2026-06-12T18:48:18.575Z",
+          "event": "decision_finished",
+          "ok": true,
+          "handoff": "usable_internal_handoff"
+        },
+        {
+          "at": "2026-06-12T18:48:18.598Z",
+          "event": "trace_finalized",
+          "status": "completed",
+          "handoff": "usable_internal_handoff",
+          "blocks": []
+        }
+      ]
+    },
+    {
+      "trace_id": "trace_mqba4smz_fedhbk",
+      "request_id": "req_mqba4smz_fgpnm5",
+      "created_at": "2026-06-12T18:48:18.683Z",
+      "updated_at": "2026-06-12T18:48:18.822Z",
+      "finalized_at": "2026-06-12T18:48:18.822Z",
+      "status": "completed",
+      "terminal": true,
+      "project_id": "room_av_ai",
+      "risk_tier": "medium",
+      "speed_mode": "balanced",
+      "events": [
+        {
+          "at": "2026-06-12T18:48:18.683Z",
+          "event": "decision_started",
+          "project_id": "room_av_ai",
+          "request_preview": "Build AV proposal"
+        },
+        {
+          "at": "2026-06-12T18:48:18.704Z",
+          "event": "route_selected",
+          "selected_ai": "av_ai",
+          "project_room": "room_av_ai",
+          "mode": "balanced"
+        },
+        {
+          "at": "2026-06-12T18:48:18.724Z",
+          "event": "contamination_checked",
+          "ok": true,
+          "blocks": []
+        },
+        {
+          "at": "2026-06-12T18:48:18.744Z",
+          "event": "preflight_complete",
+          "ok": true
+        },
+        {
+          "at": "2026-06-12T18:48:18.764Z",
+          "event": "review_complete",
+          "ok": true
+        },
+        {
+          "at": "2026-06-12T18:48:18.784Z",
+          "event": "quality_scored",
+          "score": 88,
+          "status": "usable"
+        },
+        {
+          "at": "2026-06-12T18:48:18.802Z",
+          "event": "decision_finished",
+          "ok": true,
+          "handoff": "usable_internal_handoff"
+        },
+        {
+          "at": "2026-06-12T18:48:18.822Z",
+          "event": "trace_finalized",
+          "status": "completed",
+          "handoff": "usable_internal_handoff",
+          "blocks": []
+        }
+      ]
+    },
+    {
+      "trace_id": "trace_mqba4su6_a8yi97",
+      "request_id": "req_mqba4su6_dj5mng",
+      "created_at": "2026-06-12T18:48:18.942Z",
+      "updated_at": "2026-06-12T18:48:19.094Z",
+      "finalized_at": "2026-06-12T18:48:19.094Z",
+      "status": "completed",
+      "terminal": true,
+      "project_id": "room_arche_site",
+      "risk_tier": "medium",
+      "speed_mode": "balanced",
+      "events": [
+        {
+          "at": "2026-06-12T18:48:18.942Z",
+          "event": "decision_started",
+          "project_id": "room_arche_site",
+          "request_preview": "Prepare safe bridge payload."
+        },
+        {
+          "at": "2026-06-12T18:48:18.966Z",
+          "event": "route_selected",
+          "selected_ai": "arche",
+          "project_room": "room_arche_site",
+          "mode": "balanced"
+        },
+        {
+          "at": "2026-06-12T18:48:18.989Z",
+          "event": "contamination_checked",
+          "ok": true,
+          "blocks": []
+        },
+        {
+          "at": "2026-06-12T18:48:19.010Z",
+          "event": "preflight_complete",
+          "ok": true
+        },
+        {
+          "at": "2026-06-12T18:48:19.030Z",
+          "event": "review_complete",
+          "ok": true
+        },
+        {
+          "at": "2026-06-12T18:48:19.050Z",
+          "event": "quality_scored",
+          "score": 88,
+          "status": "usable"
+        },
+        {
+          "at": "2026-06-12T18:48:19.074Z",
+          "event": "decision_finished",
+          "ok": true,
+          "handoff": "usable_internal_handoff"
+        },
+        {
+          "at": "2026-06-12T18:48:19.094Z",
+          "event": "trace_finalized",
+          "status": "completed",
+          "handoff": "usable_internal_handoff",
+          "blocks": []
+        }
+      ]
+    },
+    {
+      "trace_id": "trace_mqba4szd_sz7kvc",
+      "request_id": "req_mqba4szd_zv1b3h",
+      "created_at": "2026-06-12T18:48:19.129Z",
+      "updated_at": "2026-06-12T18:48:19.277Z",
+      "finalized_at": "2026-06-12T18:48:19.277Z",
+      "status": "completed",
+      "terminal": true,
+      "project_id": "room_arche_site",
+      "risk_tier": "high",
+      "speed_mode": "round_table",
+      "events": [
+        {
+          "at": "2026-06-12T18:48:19.129Z",
+          "event": "decision_started",
+          "project_id": "room_arche_site",
+          "request_preview": "Blocked push test."
+        },
+        {
+          "at": "2026-06-12T18:48:19.152Z",
+          "event": "route_selected",
+          "selected_ai": "arche",
+          "project_room": "room_arche_site",
+          "mode": "round_table_reviewed"
+        },
+        {
+          "at": "2026-06-12T18:48:19.171Z",
+          "event": "contamination_checked",
+          "ok": true,
+          "blocks": []
+        },
+        {
+          "at": "2026-06-12T18:48:19.193Z",
+          "event": "preflight_complete",
+          "ok": true
+        },
+        {
+          "at": "2026-06-12T18:48:19.214Z",
+          "event": "review_complete",
+          "ok": true
+        },
+        {
+          "at": "2026-06-12T18:48:19.235Z",
+          "event": "quality_scored",
+          "score": 88,
+          "status": "usable"
+        },
+        {
+          "at": "2026-06-12T18:48:19.254Z",
+          "event": "decision_finished",
+          "ok": true,
+          "handoff": "usable_internal_handoff"
+        },
+        {
+          "at": "2026-06-12T18:48:19.277Z",
+          "event": "trace_finalized",
+          "status": "completed",
+          "handoff": "usable_internal_handoff",
+          "blocks": []
+        }
+      ]
+    },
+    {
+      "trace_id": "trace_mqba4t7b_1cpg5k",
+      "request_id": "req_mqba4t7b_y1m4a6",
+      "created_at": "2026-06-12T18:48:19.415Z",
+      "updated_at": "2026-06-12T18:48:19.562Z",
+      "finalized_at": "2026-06-12T18:48:19.562Z",
+      "status": "blocked",
+      "terminal": true,
+      "project_id": "room_arche_site",
+      "risk_tier": "high",
+      "speed_mode": "round_table",
+      "events": [
+        {
+          "at": "2026-06-12T18:48:19.415Z",
+          "event": "decision_started",
+          "project_id": "room_arche_site",
+          "request_preview": "Prepare deploy production release without exposing provider payload."
+        },
+        {
+          "at": "2026-06-12T18:48:19.437Z",
+          "event": "route_selected",
+          "selected_ai": "arche",
+          "project_room": "room_arche_site",
+          "mode": "round_table_reviewed"
+        },
+        {
+          "at": "2026-06-12T18:48:19.460Z",
+          "event": "contamination_checked",
+          "ok": true,
+          "blocks": []
+        },
+        {
+          "at": "2026-06-12T18:48:19.481Z",
+          "event": "preflight_complete",
+          "ok": false
+        },
+        {
+          "at": "2026-06-12T18:48:19.504Z",
+          "event": "review_complete",
+          "ok": false
+        },
+        {
+          "at": "2026-06-12T18:48:19.523Z",
+          "event": "quality_scored",
+          "score": 74,
+          "status": "revise"
+        },
+        {
+          "at": "2026-06-12T18:48:19.542Z",
+          "event": "decision_finished",
+          "ok": false,
+          "handoff": "blocked_or_needs_revision"
+        },
+        {
+          "at": "2026-06-12T18:48:19.562Z",
+          "event": "trace_finalized",
+          "status": "blocked",
+          "handoff": "blocked_or_needs_revision",
+          "blocks": [
+            "Blocked public/private term(s): provider payload"
+          ]
+        }
+      ]
+    },
+    {
+      "trace_id": "trace_mqba4tbv_godwld",
+      "request_id": "req_mqba4tbv_qjjphc",
+      "created_at": "2026-06-12T18:48:19.579Z",
+      "updated_at": "2026-06-12T18:48:19.716Z",
+      "finalized_at": "2026-06-12T18:48:19.716Z",
+      "status": "completed",
+      "terminal": true,
+      "project_id": "room_arche_site",
+      "risk_tier": "low",
+      "speed_mode": "fast",
+      "events": [
+        {
+          "at": "2026-06-12T18:48:19.579Z",
+          "event": "decision_started",
+          "project_id": "room_arche_site",
+          "request_preview": "Simple ArchE status check."
+        },
+        {
+          "at": "2026-06-12T18:48:19.601Z",
+          "event": "route_selected",
+          "selected_ai": "arche",
+          "project_room": "room_arche_site",
+          "mode": "fast"
+        },
+        {
+          "at": "2026-06-12T18:48:19.620Z",
+          "event": "contamination_checked",
+          "ok": true,
+          "blocks": []
+        },
+        {
+          "at": "2026-06-12T18:48:19.639Z",
+          "event": "preflight_complete",
+          "ok": true
+        },
+        {
+          "at": "2026-06-12T18:48:19.659Z",
+          "event": "review_complete",
+          "ok": true
+        },
+        {
+          "at": "2026-06-12T18:48:19.679Z",
+          "event": "quality_scored",
+          "score": 90,
+          "status": "usable"
+        },
+        {
+          "at": "2026-06-12T18:48:19.698Z",
+          "event": "decision_finished",
+          "ok": true,
+          "handoff": "usable_internal_handoff"
+        },
+        {
+          "at": "2026-06-12T18:48:19.716Z",
+          "event": "trace_finalized",
+          "status": "completed",
+          "handoff": "usable_internal_handoff",
+          "blocks": []
+        }
+      ]
+    },
+    {
+      "trace_id": "trace_mqba4tgg_qampv3",
+      "request_id": "req_mqba4tgg_eed6m4",
+      "created_at": "2026-06-12T18:48:19.744Z",
+      "updated_at": "2026-06-12T18:48:19.882Z",
+      "finalized_at": "2026-06-12T18:48:19.882Z",
+      "status": "completed",
+      "terminal": true,
+      "project_id": "room_arche_site",
+      "risk_tier": "release",
+      "speed_mode": "round_table",
+      "events": [
+        {
+          "at": "2026-06-12T18:48:19.744Z",
+          "event": "decision_started",
+          "project_id": "room_arche_site",
+          "request_preview": "Prepare release check for internal bridge only."
+        },
+        {
+          "at": "2026-06-12T18:48:19.766Z",
+          "event": "route_selected",
+          "selected_ai": "arche",
+          "project_room": "room_arche_site",
+          "mode": "round_table_reviewed"
+        },
+        {
+          "at": "2026-06-12T18:48:19.785Z",
+          "event": "contamination_checked",
+          "ok": true,
+          "blocks": []
+        },
+        {
+          "at": "2026-06-12T18:48:19.805Z",
+          "event": "preflight_complete",
+          "ok": true
+        },
+        {
+          "at": "2026-06-12T18:48:19.824Z",
+          "event": "review_complete",
+          "ok": true
+        },
+        {
+          "at": "2026-06-12T18:48:19.842Z",
+          "event": "quality_scored",
+          "score": 88,
+          "status": "usable"
+        },
+        {
+          "at": "2026-06-12T18:48:19.863Z",
+          "event": "decision_finished",
+          "ok": true,
+          "handoff": "usable_internal_handoff"
+        },
+        {
+          "at": "2026-06-12T18:48:19.882Z",
+          "event": "trace_finalized",
+          "status": "completed",
+          "handoff": "usable_internal_handoff",
+          "blocks": []
+        }
+      ]
+    },
+    {
+      "trace_id": "trace_mqba4tng_z86ln6",
+      "request_id": "req_mqba4tng_eqlrtp",
+      "created_at": "2026-06-12T18:48:19.996Z",
+      "updated_at": "2026-06-12T18:48:20.140Z",
+      "finalized_at": "2026-06-12T18:48:20.140Z",
+      "status": "completed",
+      "terminal": true,
+      "project_id": "room_av_ai",
+      "risk_tier": "medium",
+      "speed_mode": "balanced",
+      "events": [
+        {
+          "at": "2026-06-12T18:48:19.996Z",
+          "event": "decision_started",
+          "project_id": "room_av_ai",
+          "request_preview": "Build AV proposal"
+        },
+        {
+          "at": "2026-06-12T18:48:20.019Z",
+          "event": "route_selected",
+          "selected_ai": "av_ai",
+          "project_room": "room_av_ai",
+          "mode": "balanced"
+        },
+        {
+          "at": "2026-06-12T18:48:20.039Z",
+          "event": "contamination_checked",
+          "ok": true,
+          "blocks": []
+        },
+        {
+          "at": "2026-06-12T18:48:20.059Z",
+          "event": "preflight_complete",
+          "ok": true
+        },
+        {
+          "at": "2026-06-12T18:48:20.081Z",
+          "event": "review_complete",
+          "ok": true
+        },
+        {
+          "at": "2026-06-12T18:48:20.100Z",
+          "event": "quality_scored",
+          "score": 88,
+          "status": "usable"
+        },
+        {
+          "at": "2026-06-12T18:48:20.120Z",
+          "event": "decision_finished",
+          "ok": true,
+          "handoff": "usable_internal_handoff"
+        },
+        {
+          "at": "2026-06-12T18:48:20.140Z",
+          "event": "trace_finalized",
+          "status": "completed",
+          "handoff": "usable_internal_handoff",
+          "blocks": []
+        }
+      ]
+    },
+    {
+      "trace_id": "trace_mqba4tvx_edvfiy",
+      "request_id": "req_mqba4tvx_z4s77a",
+      "created_at": "2026-06-12T18:48:20.301Z",
+      "updated_at": "2026-06-12T18:48:20.457Z",
+      "finalized_at": "2026-06-12T18:48:20.457Z",
+      "status": "completed",
+      "terminal": true,
+      "project_id": "room_janitor_client_reply",
+      "risk_tier": "low",
+      "speed_mode": "fast",
+      "events": [
+        {
+          "at": "2026-06-12T18:48:20.301Z",
+          "event": "decision_started",
+          "project_id": "room_janitor_client_reply",
+          "request_preview": "Build a safe client reply."
+        },
+        {
+          "at": "2026-06-12T18:48:20.330Z",
+          "event": "route_selected",
+          "selected_ai": "janitor",
+          "project_room": "room_janitor_client_reply",
+          "mode": "fast"
+        },
+        {
+          "at": "2026-06-12T18:48:20.354Z",
+          "event": "contamination_checked",
+          "ok": true,
+          "blocks": []
+        },
+        {
+          "at": "2026-06-12T18:48:20.374Z",
+          "event": "preflight_complete",
+          "ok": true
+        },
+        {
+          "at": "2026-06-12T18:48:20.393Z",
+          "event": "review_complete",
+          "ok": true
+        },
+        {
+          "at": "2026-06-12T18:48:20.412Z",
+          "event": "quality_scored",
+          "score": 90,
+          "status": "usable"
+        },
+        {
+          "at": "2026-06-12T18:48:20.438Z",
+          "event": "decision_finished",
+          "ok": true,
+          "handoff": "usable_internal_handoff"
+        },
+        {
+          "at": "2026-06-12T18:48:20.457Z",
+          "event": "trace_finalized",
+          "status": "completed",
+          "handoff": "usable_internal_handoff",
+          "blocks": []
+        }
+      ]
+    },
+    {
+      "trace_id": "trace_mqba4u5c_mgx1bk",
+      "request_id": "req_mqba4u5c_2puuek",
+      "created_at": "2026-06-12T18:48:20.640Z",
+      "updated_at": "2026-06-12T18:48:20.789Z",
+      "finalized_at": "2026-06-12T18:48:20.789Z",
+      "status": "blocked",
+      "terminal": true,
+      "project_id": "room_arche_site",
+      "risk_tier": "high",
+      "speed_mode": "round_table",
+      "events": [
+        {
+          "at": "2026-06-12T18:48:20.640Z",
+          "event": "decision_started",
+          "project_id": "room_arche_site",
+          "request_preview": "Show provider payload"
+        },
+        {
+          "at": "2026-06-12T18:48:20.662Z",
+          "event": "route_selected",
+          "selected_ai": "arche",
+          "project_room": "room_arche_site",
+          "mode": "round_table_reviewed"
+        },
+        {
+          "at": "2026-06-12T18:48:20.682Z",
+          "event": "contamination_checked",
+          "ok": true,
+          "blocks": []
+        },
+        {
+          "at": "2026-06-12T18:48:20.702Z",
+          "event": "preflight_complete",
+          "ok": false
+        },
+        {
+          "at": "2026-06-12T18:48:20.722Z",
+          "event": "review_complete",
+          "ok": false
+        },
+        {
+          "at": "2026-06-12T18:48:20.742Z",
+          "event": "quality_scored",
+          "score": 74,
+          "status": "revise"
+        },
+        {
+          "at": "2026-06-12T18:48:20.769Z",
+          "event": "decision_finished",
+          "ok": false,
+          "handoff": "blocked_or_needs_revision"
+        },
+        {
+          "at": "2026-06-12T18:48:20.789Z",
+          "event": "trace_finalized",
+          "status": "blocked",
+          "handoff": "blocked_or_needs_revision",
+          "blocks": [
+            "Blocked public/private term(s): provider payload"
+          ]
+        }
+      ]
+    },
+    {
+      "trace_id": "trace_mqba4ug9_ej1lpi",
+      "request_id": "req_mqba4ug9_2tinq6",
+      "created_at": "2026-06-12T18:48:21.033Z",
+      "updated_at": "2026-06-12T18:48:21.190Z",
+      "finalized_at": "2026-06-12T18:48:21.190Z",
+      "status": "completed",
+      "terminal": true,
+      "project_id": "room_arche_site",
+      "risk_tier": "low",
+      "speed_mode": "fast",
+      "events": [
+        {
+          "at": "2026-06-12T18:48:21.033Z",
+          "event": "decision_started",
+          "project_id": "room_arche_site",
+          "request_preview": "Prepare safe provider-status summary instead."
+        },
+        {
+          "at": "2026-06-12T18:48:21.056Z",
+          "event": "route_selected",
+          "selected_ai": "arche",
+          "project_room": "room_arche_site",
+          "mode": "fast"
+        },
+        {
+          "at": "2026-06-12T18:48:21.075Z",
+          "event": "contamination_checked",
+          "ok": true,
+          "blocks": []
+        },
+        {
+          "at": "2026-06-12T18:48:21.099Z",
+          "event": "preflight_complete",
+          "ok": true
+        },
+        {
+          "at": "2026-06-12T18:48:21.119Z",
+          "event": "review_complete",
+          "ok": true
+        },
+        {
+          "at": "2026-06-12T18:48:21.138Z",
+          "event": "quality_scored",
+          "score": 90,
+          "status": "usable"
+        },
+        {
+          "at": "2026-06-12T18:48:21.171Z",
+          "event": "decision_finished",
+          "ok": true,
+          "handoff": "usable_internal_handoff"
+        },
+        {
+          "at": "2026-06-12T18:48:21.190Z",
+          "event": "trace_finalized",
+          "status": "completed",
+          "handoff": "usable_internal_handoff",
+          "blocks": []
+        }
+      ]
+    },
+    {
+      "trace_id": "trace_mqba4umy_nrl4wn",
+      "request_id": "req_mqba4umy_7hh6ck",
+      "created_at": "2026-06-12T18:48:21.274Z",
+      "updated_at": "2026-06-12T18:48:21.298Z",
+      "finalized_at": "2026-06-12T18:48:21.298Z",
+      "status": "expired",
+      "terminal": true,
+      "project_id": "room_arche_site",
+      "risk_tier": null,
+      "speed_mode": null,
+      "events": [
+        {
+          "at": "2026-06-12T18:48:21.274Z",
+          "event": "decision_started",
+          "project_id": "room_arche_site",
+          "request_preview": "left open for repair test"
+        },
+        {
+          "at": "2026-06-12T18:48:21.298Z",
+          "event": "trace_repaired",
+          "status": "expired",
+          "reason": "test_repair"
+        },
+        {
+          "at": "2026-06-12T18:48:21.298Z",
+          "event": "trace_finalized",
+          "status": "expired",
+          "reason": "test_repair"
+        }
+      ]
+    },
+    {
+      "trace_id": "trace_mqba4uw6_uax6t8",
+      "request_id": "req_mqba4uw6_bl1bh2",
+      "created_at": "2026-06-12T18:48:21.606Z",
+      "updated_at": "2026-06-12T18:48:21.757Z",
+      "finalized_at": "2026-06-12T18:48:21.757Z",
+      "status": "completed",
+      "terminal": true,
+      "project_id": "room_janitor_client_reply",
+      "risk_tier": "low",
+      "speed_mode": "fast",
+      "events": [
+        {
+          "at": "2026-06-12T18:48:21.606Z",
+          "event": "decision_started",
+          "project_id": "room_janitor_client_reply",
+          "request_preview": "Replay auto process test."
+        },
+        {
+          "at": "2026-06-12T18:48:21.631Z",
+          "event": "route_selected",
+          "selected_ai": "janitor",
+          "project_room": "room_janitor_client_reply",
+          "mode": "fast"
+        },
+        {
+          "at": "2026-06-12T18:48:21.651Z",
+          "event": "contamination_checked",
+          "ok": true,
+          "blocks": []
+        },
+        {
+          "at": "2026-06-12T18:48:21.671Z",
+          "event": "preflight_complete",
+          "ok": true
+        },
+        {
+          "at": "2026-06-12T18:48:21.691Z",
+          "event": "review_complete",
+          "ok": true
+        },
+        {
+          "at": "2026-06-12T18:48:21.710Z",
+          "event": "quality_scored",
+          "score": 90,
+          "status": "usable"
+        },
+        {
+          "at": "2026-06-12T18:48:21.737Z",
+          "event": "decision_finished",
+          "ok": true,
+          "handoff": "usable_internal_handoff"
+        },
+        {
+          "at": "2026-06-12T18:48:21.757Z",
+          "event": "trace_finalized",
+          "status": "completed",
+          "handoff": "usable_internal_handoff",
+          "blocks": []
+        }
+      ]
+    },
+    {
+      "trace_id": "trace_mqba4v7d_r59fhl",
+      "request_id": "req_mqba4v7d_ydms1l",
+      "created_at": "2026-06-12T18:48:22.009Z",
+      "updated_at": "2026-06-12T18:48:22.161Z",
+      "finalized_at": "2026-06-12T18:48:22.161Z",
+      "status": "completed",
+      "terminal": true,
+      "project_id": "room_janitor_client_reply",
+      "risk_tier": "low",
+      "speed_mode": "fast",
+      "events": [
+        {
+          "at": "2026-06-12T18:48:22.009Z",
+          "event": "decision_started",
+          "project_id": "room_janitor_client_reply",
+          "request_preview": "Replay auto process test."
+        },
+        {
+          "at": "2026-06-12T18:48:22.032Z",
+          "event": "route_selected",
+          "selected_ai": "janitor",
+          "project_room": "room_janitor_client_reply",
+          "mode": "fast"
+        },
+        {
+          "at": "2026-06-12T18:48:22.052Z",
+          "event": "contamination_checked",
+          "ok": true,
+          "blocks": []
+        },
+        {
+          "at": "2026-06-12T18:48:22.073Z",
+          "event": "preflight_complete",
+          "ok": true
+        },
+        {
+          "at": "2026-06-12T18:48:22.094Z",
+          "event": "review_complete",
+          "ok": true
+        },
+        {
+          "at": "2026-06-12T18:48:22.114Z",
+          "event": "quality_scored",
+          "score": 90,
+          "status": "usable"
+        },
+        {
+          "at": "2026-06-12T18:48:22.141Z",
+          "event": "decision_finished",
+          "ok": true,
+          "handoff": "usable_internal_handoff"
+        },
+        {
+          "at": "2026-06-12T18:48:22.161Z",
+          "event": "trace_finalized",
+          "status": "completed",
+          "handoff": "usable_internal_handoff",
+          "blocks": []
+        }
+      ]
+    },
+    {
+      "trace_id": "trace_mqba4vgv_vr9cbz",
+      "request_id": "req_mqba4vgv_ljmky2",
+      "created_at": "2026-06-12T18:48:22.351Z",
+      "updated_at": "2026-06-12T18:48:22.500Z",
+      "finalized_at": "2026-06-12T18:48:22.500Z",
+      "status": "completed",
+      "terminal": true,
+      "project_id": "room_janitor_client_reply",
+      "risk_tier": "low",
+      "speed_mode": "fast",
+      "events": [
+        {
+          "at": "2026-06-12T18:48:22.351Z",
+          "event": "decision_started",
+          "project_id": "room_janitor_client_reply",
+          "request_preview": "Manual replay queue test."
+        },
+        {
+          "at": "2026-06-12T18:48:22.374Z",
+          "event": "route_selected",
+          "selected_ai": "janitor",
+          "project_room": "room_janitor_client_reply",
+          "mode": "fast"
+        },
+        {
+          "at": "2026-06-12T18:48:22.393Z",
+          "event": "contamination_checked",
+          "ok": true,
+          "blocks": []
+        },
+        {
+          "at": "2026-06-12T18:48:22.413Z",
+          "event": "preflight_complete",
+          "ok": true
+        },
+        {
+          "at": "2026-06-12T18:48:22.435Z",
+          "event": "review_complete",
+          "ok": true
+        },
+        {
+          "at": "2026-06-12T18:48:22.455Z",
+          "event": "quality_scored",
+          "score": 90,
+          "status": "usable"
+        },
+        {
+          "at": "2026-06-12T18:48:22.482Z",
+          "event": "decision_finished",
+          "ok": true,
+          "handoff": "usable_internal_handoff"
+        },
+        {
+          "at": "2026-06-12T18:48:22.500Z",
+          "event": "trace_finalized",
+          "status": "completed",
+          "handoff": "usable_internal_handoff",
+          "blocks": []
+        }
+      ]
+    },
+    {
+      "trace_id": "trace_mqba4vwr_83i489",
+      "request_id": "req_mqba4vwr_0dvleg",
+      "created_at": "2026-06-12T18:48:22.923Z",
+      "updated_at": "2026-06-12T18:48:23.072Z",
+      "finalized_at": "2026-06-12T18:48:23.072Z",
+      "status": "completed",
+      "terminal": true,
+      "project_id": "room_janitor_client_reply",
+      "risk_tier": "medium",
+      "speed_mode": "balanced",
+      "events": [
+        {
+          "at": "2026-06-12T18:48:22.923Z",
+          "event": "decision_started",
+          "project_id": "room_janitor_client_reply",
+          "request_preview": "Storage adapter queue replay test."
+        },
+        {
+          "at": "2026-06-12T18:48:22.945Z",
+          "event": "route_selected",
+          "selected_ai": "janitor",
+          "project_room": "room_janitor_client_reply",
+          "mode": "balanced"
+        },
+        {
+          "at": "2026-06-12T18:48:22.965Z",
+          "event": "contamination_checked",
+          "ok": true,
+          "blocks": []
+        },
+        {
+          "at": "2026-06-12T18:48:22.986Z",
+          "event": "preflight_complete",
+          "ok": true
+        },
+        {
+          "at": "2026-06-12T18:48:23.006Z",
+          "event": "review_complete",
+          "ok": true
+        },
+        {
+          "at": "2026-06-12T18:48:23.025Z",
+          "event": "quality_scored",
+          "score": 88,
+          "status": "usable"
+        },
+        {
+          "at": "2026-06-12T18:48:23.053Z",
+          "event": "decision_finished",
+          "ok": true,
+          "handoff": "usable_internal_handoff"
+        },
+        {
+          "at": "2026-06-12T18:48:23.072Z",
+          "event": "trace_finalized",
+          "status": "completed",
+          "handoff": "usable_internal_handoff",
+          "blocks": []
+        }
+      ]
+    },
+    {
+      "trace_id": "trace_mqba4w7y_0u4lg1",
+      "request_id": "req_mqba4w7y_2bh3wx",
+      "created_at": "2026-06-12T18:48:23.326Z",
+      "updated_at": "2026-06-12T18:48:23.472Z",
+      "finalized_at": "2026-06-12T18:48:23.472Z",
+      "status": "completed",
+      "terminal": true,
+      "project_id": "room_janitor_client_reply",
+      "risk_tier": "medium",
+      "speed_mode": "balanced",
+      "events": [
+        {
+          "at": "2026-06-12T18:48:23.326Z",
+          "event": "decision_started",
+          "project_id": "room_janitor_client_reply",
+          "request_preview": "Storage adapter queue replay test."
+        },
+        {
+          "at": "2026-06-12T18:48:23.348Z",
+          "event": "route_selected",
+          "selected_ai": "janitor",
+          "project_room": "room_janitor_client_reply",
+          "mode": "balanced"
+        },
+        {
+          "at": "2026-06-12T18:48:23.367Z",
+          "event": "contamination_checked",
+          "ok": true,
+          "blocks": []
+        },
+        {
+          "at": "2026-06-12T18:48:23.387Z",
+          "event": "preflight_complete",
+          "ok": true
+        },
+        {
+          "at": "2026-06-12T18:48:23.406Z",
+          "event": "review_complete",
+          "ok": true
+        },
+        {
+          "at": "2026-06-12T18:48:23.425Z",
+          "event": "quality_scored",
+          "score": 88,
+          "status": "usable"
+        },
+        {
+          "at": "2026-06-12T18:48:23.452Z",
+          "event": "decision_finished",
+          "ok": true,
+          "handoff": "usable_internal_handoff"
+        },
+        {
+          "at": "2026-06-12T18:48:23.472Z",
+          "event": "trace_finalized",
+          "status": "completed",
+          "handoff": "usable_internal_handoff",
+          "blocks": []
+        }
+      ]
+    },
+    {
+      "trace_id": "trace_mqba4wke_2kdp2o",
+      "request_id": "req_mqba4wke_tto15x",
+      "created_at": "2026-06-12T18:48:23.774Z",
+      "updated_at": "2026-06-12T18:48:23.930Z",
+      "finalized_at": "2026-06-12T18:48:23.930Z",
+      "status": "completed",
+      "terminal": true,
+      "project_id": "room_janitor_client_reply",
+      "risk_tier": "medium",
+      "speed_mode": "balanced",
+      "events": [
+        {
+          "at": "2026-06-12T18:48:23.774Z",
+          "event": "decision_started",
+          "project_id": "room_janitor_client_reply",
+          "request_preview": "Queue adapter self-check Janitor workflow."
+        },
+        {
+          "at": "2026-06-12T18:48:23.796Z",
+          "event": "route_selected",
+          "selected_ai": "janitor",
+          "project_room": "room_janitor_client_reply",
+          "mode": "balanced"
+        },
+        {
+          "at": "2026-06-12T18:48:23.816Z",
+          "event": "contamination_checked",
+          "ok": true,
+          "blocks": []
+        },
+        {
+          "at": "2026-06-12T18:48:23.842Z",
+          "event": "preflight_complete",
+          "ok": true
+        },
+        {
+          "at": "2026-06-12T18:48:23.863Z",
+          "event": "review_complete",
+          "ok": true
+        },
+        {
+          "at": "2026-06-12T18:48:23.882Z",
+          "event": "quality_scored",
+          "score": 88,
+          "status": "usable"
+        },
+        {
+          "at": "2026-06-12T18:48:23.909Z",
+          "event": "decision_finished",
+          "ok": true,
+          "handoff": "usable_internal_handoff"
+        },
+        {
+          "at": "2026-06-12T18:48:23.930Z",
+          "event": "trace_finalized",
+          "status": "completed",
+          "handoff": "usable_internal_handoff",
+          "blocks": []
+        }
+      ]
+    },
+    {
+      "trace_id": "trace_mqba4ww1_btfduj",
+      "request_id": "req_mqba4ww1_xuva7p",
+      "created_at": "2026-06-12T18:48:24.193Z",
+      "updated_at": "2026-06-12T18:48:24.341Z",
+      "finalized_at": "2026-06-12T18:48:24.341Z",
+      "status": "completed",
+      "terminal": true,
+      "project_id": "room_janitor_client_reply",
+      "risk_tier": "medium",
+      "speed_mode": "balanced",
+      "events": [
+        {
+          "at": "2026-06-12T18:48:24.193Z",
+          "event": "decision_started",
+          "project_id": "room_janitor_client_reply",
+          "request_preview": "Queue adapter self-check Janitor workflow."
+        },
+        {
+          "at": "2026-06-12T18:48:24.215Z",
+          "event": "route_selected",
+          "selected_ai": "janitor",
+          "project_room": "room_janitor_client_reply",
+          "mode": "balanced"
+        },
+        {
+          "at": "2026-06-12T18:48:24.235Z",
+          "event": "contamination_checked",
+          "ok": true,
+          "blocks": []
+        },
+        {
+          "at": "2026-06-12T18:48:24.255Z",
+          "event": "preflight_complete",
+          "ok": true
+        },
+        {
+          "at": "2026-06-12T18:48:24.276Z",
+          "event": "review_complete",
+          "ok": true
+        },
+        {
+          "at": "2026-06-12T18:48:24.294Z",
+          "event": "quality_scored",
+          "score": 88,
+          "status": "usable"
+        },
+        {
+          "at": "2026-06-12T18:48:24.321Z",
+          "event": "decision_finished",
+          "ok": true,
+          "handoff": "usable_internal_handoff"
+        },
+        {
+          "at": "2026-06-12T18:48:24.341Z",
+          "event": "trace_finalized",
+          "status": "completed",
+          "handoff": "usable_internal_handoff",
+          "blocks": []
+        }
+      ]
     }
   ]
 }

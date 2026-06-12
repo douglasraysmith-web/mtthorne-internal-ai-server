@@ -6,7 +6,7 @@ import { enqueueJob, processJob, replayJob } from '../src/servers/queue.js';
 
 test('v0.6.0 health exposes storage adapter layer', () => {
   const h = health();
-  assert.ok(['0.6.0','0.7.0','0.8.0','0.9.0','1.0.0','1.0.1','1.1.0','1.5.0'].includes(h.version));
+  assert.ok(['0.6.0','0.7.0','0.8.0','0.9.0','1.0.0','1.0.1','1.1.0','1.5.0','1.6.0'].includes(h.version));
   assert.ok(['storage_adapter_v0_6_0','storage_adapter_v1_5_0'].includes(h.storage_layer));
   assert.equal(h.storage_driver, 'json_file');
 });

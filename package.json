@@ -1,9 +1,9 @@
 {
   "name": "mtthorne-internal-ai-server",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "private": true,
   "type": "module",
-  "description": "Shared four-AI internal sidecar with PostgreSQL JSONB persistence, local recovery copies, AVA operational governance, provider/cost gates, and ArchE bridge.",
+  "description": "Shared four-AI internal sidecar with PostgreSQL persistence, ArchE owner-source knowledge seeding, AVA operational governance, provider/cost gates, and authenticated ArchE bridge.",
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
@@ -15,7 +15,10 @@
     "storage:migrate": "node scripts/migrate-json-to-postgres.mjs",
     "storage:migrate:overwrite": "node scripts/migrate-json-to-postgres.mjs --overwrite",
     "verify:registry": "node scripts/verify-public-registry.mjs",
-    "predeploy": "npm run verify:registry && npm test"
+    "predeploy": "npm run verify:registry && npm test",
+    "seed:arche": "node scripts/seed-arche-knowledge.mjs",
+    "seed:arche:no-overwrite": "node scripts/seed-arche-knowledge.mjs --no-overwrite",
+    "verify:arche-knowledge": "node scripts/verify-arche-knowledge.mjs"
   },
   "engines": {
     "node": ">=20"

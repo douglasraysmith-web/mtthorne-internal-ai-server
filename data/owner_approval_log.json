@@ -8,6 +8,56 @@
       "reason": "owner_approval_required",
       "provider": "openai",
       "estimated_cost_usd": 0.000001,
+      "at": "2026-06-12T18:48:24.967Z"
+    },
+    {
+      "type": "approval_check",
+      "ok": true,
+      "required": true,
+      "approved": true,
+      "reason": "approval_gate_passed",
+      "provider": "openai",
+      "estimated_cost_usd": 0.000075,
+      "at": "2026-06-12T18:48:24.786Z"
+    },
+    {
+      "type": "approval_check",
+      "ok": true,
+      "required": true,
+      "approved": true,
+      "reason": "approval_gate_passed",
+      "provider": "openai",
+      "estimated_cost_usd": 0.000075,
+      "at": "2026-06-12T18:48:24.780Z"
+    },
+    {
+      "type": "approval_check",
+      "ok": false,
+      "required": true,
+      "approved": false,
+      "reason": "owner_approval_required",
+      "provider": "openai",
+      "estimated_cost_usd": 0.000075,
+      "at": "2026-06-12T18:48:24.774Z"
+    },
+    {
+      "type": "approval_check",
+      "ok": false,
+      "required": true,
+      "approved": false,
+      "reason": "owner_approval_required",
+      "provider": "openai",
+      "estimated_cost_usd": 0.000075,
+      "at": "2026-06-12T18:48:24.642Z"
+    },
+    {
+      "type": "approval_check",
+      "ok": false,
+      "required": true,
+      "approved": false,
+      "reason": "owner_approval_required",
+      "provider": "openai",
+      "estimated_cost_usd": 0.000001,
       "at": "2026-06-12T18:31:59.726Z"
     },
     {

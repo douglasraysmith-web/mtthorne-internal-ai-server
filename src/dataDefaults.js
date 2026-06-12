@@ -107,6 +107,8 @@ const DEFAULTS = Object.freeze({
   episodic_memory: { entries: [] },
   semantic_memory_manifest: { entries: [] },
   verified_sources: { entries: [] },
+  knowledge_documents: { entries: [] },
+  ai_knowledge_registry: { ais: {} },
   provider_dispatch_log: { entries: [] },
   owner_approval_log: { entries: [] },
   ava_sessions: { sessions: [] }

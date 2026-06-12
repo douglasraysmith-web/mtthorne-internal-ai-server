@@ -63,6 +63,13 @@ async function ensureSchema(pool) {
     CREATE INDEX IF NOT EXISTS ai_store_documents_updated_at_idx
     ON ai_store_documents (updated_at DESC)
   `);
+  await pool.query(`
+    CREATE TABLE IF NOT EXISTS ai_store_metadata (
+      metadata_key TEXT PRIMARY KEY,
+      value JSONB NOT NULL,
+      updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+    )
+  `);
 }
 
 async function loadCache(pool) {
@@ -73,6 +80,25 @@ async function loadCache(pool) {
   for (const row of result.rows) {
     state.cache.set(row.collection_key, row.document);
   }
+}
+
+async function loadMigrationMetadata(pool) {
+  const result = await pool.query(
+    "SELECT value FROM ai_store_metadata WHERE metadata_key = 'last_migration'"
+  );
+  state.lastMigration = result.rows[0]?.value || null;
+  return state.lastMigration;
+}
+
+async function persistMigrationMetadata(pool, value) {
+  await pool.query(
+    `INSERT INTO ai_store_metadata (metadata_key, value, updated_at)
+     VALUES ('last_migration', $1::jsonb, NOW())
+     ON CONFLICT (metadata_key)
+     DO UPDATE SET value = EXCLUDED.value, updated_at = NOW()`,
+    [JSON.stringify(value)]
+  );
+  state.lastMigration = value;
 }
 
 export async function initializePostgresStore() {
@@ -98,6 +124,7 @@ export async function initializePostgresStore() {
     });
     await ensureSchema(state.pool);
     await loadCache(state.pool);
+    await loadMigrationMetadata(state.pool);
     state.connected = true;
     state.lastError = null;
     state.lastConnectedAt = new Date().toISOString();
@@ -146,6 +173,17 @@ export function writePostgresDocument(filePath, value) {
 
 export async function flushPostgresWrites() {
   await state.writeChain;
+  return postgresState();
+}
+
+export async function refreshPostgresMetadata() {
+  if (!state.pool || !state.connected) return postgresState();
+  try {
+    await loadMigrationMetadata(state.pool);
+    state.lastError = null;
+  } catch (error) {
+    state.lastError = String(error?.message || error);
+  }
   return postgresState();
 }
 
@@ -235,12 +273,14 @@ export async function migrateJsonDirectoryToPostgres(dataDir, options = {}) {
     }
   }
 
-  state.lastMigration = {
+  const migrationRecord = {
     at: new Date().toISOString(),
     imported: imported.length,
     skipped: skipped.length,
-    failed: failed.length
+    failed: failed.length,
+    overwrite
   };
+  await persistMigrationMetadata(state.pool, migrationRecord);
   return {
     ok: failed.length === 0,
     migration_version: 'postgres_json_migration_v1_0_0',

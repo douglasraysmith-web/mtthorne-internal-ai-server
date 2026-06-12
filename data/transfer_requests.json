@@ -285,6 +285,19 @@
       "status": "pending_owner_approval",
       "blocks": [],
       "rule": "Transfer is metadata-only and inactive until owner approval is explicitly recorded."
+    },
+    {
+      "transfer_id": "transfer_mqba4smt_svn6iu",
+      "created_at": "2026-06-12T18:48:18.677Z",
+      "from_project_id": "room_arche_site",
+      "to_project_id": "room_av_ai",
+      "requested_sources": [
+        "arche_master_source_v1_3"
+      ],
+      "reason": "test only",
+      "status": "pending_owner_approval",
+      "blocks": [],
+      "rule": "Transfer is metadata-only and inactive until owner approval is explicitly recorded."
     }
   ]
 }

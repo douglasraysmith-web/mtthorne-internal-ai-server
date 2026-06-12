@@ -14,7 +14,8 @@ import { buildContract } from './servers/contracts.js';
 import { listTraces, listOpenTraces, getTrace, repairStuckTraces } from './servers/trace.js';
 import { memoryStatus, listMemory, addMemory } from './servers/memory.js';
 import { releaseCheck } from './servers/releaseGate.js';
-import { initializeStorage, storageStatus, storageSelfCheck, storageConnectionCheck, migrateStorageFromJson, storageMigrationPlan } from './servers/storage.js';
+import { initializeStorage, storageStatus, storageStatusLive, storageSelfCheck, storageConnectionCheck, migrateStorageFromJson, storageMigrationPlan } from './servers/storage.js';
+import { knowledgeStatus, searchKnowledge, seedArcheKnowledge, loadArcheSeed, verifyArcheKnowledge } from './servers/knowledge.js';
 import { queueAdapterStatus, queueAdapterCheck, queueAdapterMigrationPlan } from './servers/queueAdapter.js';
 import { r2StorageStatus, r2StorageCheck, r2StorageMigrationPlan } from './servers/r2Storage.js';
 import { deploymentReadinessStatus, deploymentReadinessCheck, deploymentReadinessPlan } from './servers/deploymentReadiness.js';
@@ -66,7 +67,7 @@ const server = http.createServer(async (req, res) => {
     } : {};
     if (req.method === 'OPTIONS') return send(res, 204, {}, corsHeaders);
 
-    if (req.method === 'GET' && url.pathname === '/public/status') return send(res, 200, { ok: true, service: 'mtthorne-internal-ai-server', version: '1.5.0', ava: avaStatus(), arche_bridge: archeLiveBridgeStatus(), r2: await r2LiveStatus() }, corsHeaders);
+    if (req.method === 'GET' && url.pathname === '/public/status') return send(res, 200, { ok: true, service: 'mtthorne-internal-ai-server', version: '1.6.0', ava: avaStatus(), arche_bridge: archeLiveBridgeStatus(), r2: await r2LiveStatus() }, corsHeaders);
     if (req.method === 'GET' && url.pathname === '/api/ava/status') return send(res, 200, avaStatus(), corsHeaders);
     if (req.method === 'POST' && url.pathname === '/api/ava/chat') return send(res, 200, await avaChat(await readBody(req), { ip: req.headers['x-forwarded-for'] || req.socket.remoteAddress }), corsHeaders);
 
@@ -92,7 +93,7 @@ const server = http.createServer(async (req, res) => {
 
     if (req.method === 'POST' && url.pathname === '/release/check') return send(res, 200, releaseCheck(await readBody(req)));
 
-    if (req.method === 'GET' && url.pathname === '/storage/status') return send(res, 200, storageStatus());
+    if (req.method === 'GET' && url.pathname === '/storage/status') return send(res, 200, await storageStatusLive());
     if (req.method === 'GET' && url.pathname === '/storage/check') return send(res, 200, storageSelfCheck());
     if (req.method === 'GET' && url.pathname === '/storage/database-check') return send(res, 200, await storageConnectionCheck());
     if (req.method === 'POST' && url.pathname === '/storage/migrate-json') {
@@ -101,6 +102,19 @@ const server = http.createServer(async (req, res) => {
       return send(res, 200, await migrateStorageFromJson(body));
     }
     if (req.method === 'GET' && url.pathname === '/storage/migration-plan') return send(res, 200, storageMigrationPlan());
+    if (req.method === 'GET' && url.pathname === '/knowledge/status') return send(res, 200, knowledgeStatus());
+    if (req.method === 'GET' && url.pathname === '/knowledge/search') {
+      if (!ownerAuthorized(req)) return send(res, 401, { ok: false, error: 'owner_approval_required' });
+      return send(res, 200, searchKnowledge({ query: url.searchParams.get('q') || '', aiId: url.searchParams.get('ai_id'), projectId: url.searchParams.get('project_id'), limit: url.searchParams.get('limit') || 10 }));
+    }
+    if (req.method === 'POST' && url.pathname === '/knowledge/seed/arche') {
+      const body = await readBody(req);
+      if (!ownerAuthorized(req, body)) return send(res, 401, { ok: false, error: 'owner_approval_required' });
+      const seed = loadArcheSeed();
+      const verification = verifyArcheKnowledge(seed);
+      if (!verification.ok) return send(res, 400, { ok: false, error: 'arche_seed_verification_failed', verification });
+      return send(res, 200, await seedArcheKnowledge(seed, { overwrite: body.overwrite !== false }));
+    }
 
     if (req.method === 'GET' && url.pathname === '/queue/adapter/status') return send(res, 200, queueAdapterStatus());
     if (req.method === 'GET' && url.pathname === '/queue/adapter/check') return send(res, 200, queueAdapterCheck());
@@ -210,5 +224,5 @@ if (!storageStartup.ok && process.env.AI_POSTGRES_REQUIRE_CONNECTION === 'true')
 console.log(JSON.stringify({ event: 'storage_initialized', ...storageStartup }));
 
 server.listen(CONFIG.port, CONFIG.host, () => {
-  console.log(`Internal AI Server v1.5.0 listening on http://${CONFIG.host}:${CONFIG.port}`);
+  console.log(`Internal AI Server v1.6.0 listening on http://${CONFIG.host}:${CONFIG.port}`);
 });
