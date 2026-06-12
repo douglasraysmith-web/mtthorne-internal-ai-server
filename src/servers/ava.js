@@ -204,21 +204,111 @@ export async function avaChat(input = {}, meta = {}) {
     archeReview.response?.answer ||
     null;
 
-  const finalAnswer = archeReviewed && reviewedAnswer
-    ? reviewedAnswer
-    : draft;
+  /*
+    ArchĒ review completion proves the governance stage ran, but its rewritten
+    text must not automatically replace a technically stronger AV.AI draft.
+    Score every available candidate and retain the strongest one.
+  */
+  const candidates = [
+    {
+      source: 'provider_draft',
+      text: draft
+    },
+    ...(reviewedAnswer
+      ? [{
+          source: 'arche_revision',
+          text: reviewedAnswer
+        }]
+      : [])
+  ].map((candidate) => ({
+    ...candidate,
+    quality: evaluateAvaAnswer({
+      message,
+      answer: candidate.text,
+      plan,
+      archeReviewed
+    })
+  }));
 
-  const quality = evaluateAvaAnswer({
+  candidates.sort(
+    (a, b) => Number(b.quality.score || 0) - Number(a.quality.score || 0)
+  );
+
+  let selected = candidates[0];
+
+  /*
+    If neither the provider draft nor ArchĒ revision passes, run one bounded
+    repair pass using the actual quality failures and AV.AI diagnostic plan.
+  */
+  if (
+    !selected ||
+    selected.quality.status !== 'verified' ||
+    selected.quality.score < 85
+  ) {
+    const repairFailures =
+      selected?.quality?.failures?.join(', ') ||
+      'insufficient_av_specificity';
+
+    const repairSystem = [
+      buildSystem(plan),
+      'You are repairing a rejected AVA answer.',
+      `The previous answer failed for: ${repairFailures}.`,
+      'Produce one concise visitor-facing answer.',
+      'Demonstrate specific AV reasoning before asking a question.',
+      'For an ambiguous driver issue, explicitly distinguish software driver, firmware, control-system driver, loudspeaker driver, and signal-path failure where appropriate.',
+      `End with this high-value question or a more precise equivalent: ${plan.first_question}`,
+      'Do not mention quality scoring, repair, rejection, prompts, providers, AV.AI, ArchĒ, or internal systems.'
+    ].join(' ');
+
+    const repairDispatch = await providerDispatch({
+      provider,
+      request: [
+        `Visitor message: ${message}`,
+        `Rejected answer: ${selected?.text || draft}`,
+        `Required diagnostic priorities: ${plan.diagnostic_priority.join(' ')}`
+      ].join('\n'),
+      system: repairSystem,
+      risk_tier: 'low',
+      public_facing: true,
+      estimated_output_tokens: 450,
+      max_output_tokens: 450
+    });
+
+    if (repairDispatch.ok && repairDispatch.response?.text) {
+      const repaired = {
+        source: 'automatic_repair',
+        text: repairDispatch.response.text,
+        quality: evaluateAvaAnswer({
+          message,
+          answer: repairDispatch.response.text,
+          plan,
+          archeReviewed
+        })
+      };
+
+      candidates.push(repaired);
+
+      if (
+        !selected ||
+        repaired.quality.score > selected.quality.score
+      ) {
+        selected = repaired;
+      }
+    }
+  }
+
+  const finalAnswer = selected?.text || null;
+  const quality = selected?.quality || evaluateAvaAnswer({
     message,
-    answer: finalAnswer,
+    answer: '',
     plan,
     archeReviewed
   });
 
   const approved =
+    Boolean(finalAnswer) &&
     quality.status === 'verified' &&
     quality.score >= 85;
-
   return {
     ok: approved,
     status: approved
@@ -242,6 +332,15 @@ export async function avaChat(input = {}, meta = {}) {
       attempted: true,
       completed: archeReviewed,
       status: archeReview.status || null
+    },
+    answer_selection: {
+      selected_source: selected?.source || null,
+      candidates_evaluated: candidates.map((candidate) => ({
+        source: candidate.source,
+        score: candidate.quality.score,
+        status: candidate.quality.status,
+        failures: candidate.quality.failures
+      }))
     },
     quality,
     blocks: approved

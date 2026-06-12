@@ -38,7 +38,13 @@ export function evaluateAvaAnswer({
       'processor',
       'control platform',
       'hdmi',
-      'speaker driver'
+      'speaker driver',
+      'loudspeaker driver',
+      'control-system driver',
+      'control driver',
+      'signal-path failure',
+      'software driver',
+      'affected device'
     ])
   ) {
     scores.av_specificity += 35;
@@ -54,7 +60,13 @@ export function evaluateAvaAnswer({
       'distinguish',
       'exact model',
       'exact manufacturer and model',
-      'what changed'
+      'what changed',
+      'before we change',
+      'before changing hardware',
+      'identify what driver means',
+      'identify the exact',
+      'narrow the failure',
+      'isolate the cause'
     ])
   ) {
     scores.diagnostic_value += 35;

@@ -54,3 +54,26 @@ test('AVA route contains operational AV.AI and ArchE stages', async () => {
   assert.match(source, /evaluateAvaAnswer/);
   assert.match(source, /draft_withheld/);
 });
+
+test('AVA scores provider and ArchE candidates instead of blindly preferring revision', async () => {
+  const source = await readFile(
+    new URL('../src/servers/ava.js', import.meta.url),
+    'utf8'
+  );
+
+  assert.match(source, /provider_draft/);
+  assert.match(source, /arche_revision/);
+  assert.match(source, /candidates\.sort/);
+  assert.match(source, /selected_source/);
+});
+
+test('AVA performs one automatic repair for rejected answers', async () => {
+  const source = await readFile(
+    new URL('../src/servers/ava.js', import.meta.url),
+    'utf8'
+  );
+
+  assert.match(source, /automatic_repair/);
+  assert.match(source, /repairFailures/);
+  assert.match(source, /You are repairing a rejected AVA answer/);
+});
