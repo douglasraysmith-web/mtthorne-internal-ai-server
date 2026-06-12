@@ -4,11 +4,151 @@
   "daily_limit_usd": 0,
   "spent_today_usd": 0,
   "currency": "USD",
-  "current_day": "2026-06-07",
+  "current_day": "2026-06-12",
   "owner_approval_required": true,
   "low_risk_auto_limit_usd": 0,
-  "updated_at": "2026-06-07T00:55:57.052Z",
+  "updated_at": "2026-06-12T04:34:36.389Z",
   "events": [
+    {
+      "at": "2026-06-12T04:34:36.389Z",
+      "event": "emergency_stop_enabled"
+    },
+    {
+      "at": "2026-06-12T04:34:36.384Z",
+      "event": "daily_limit_updated",
+      "daily_limit_usd": 0,
+      "low_risk_auto_limit_usd": 0
+    },
+    {
+      "at": "2026-06-12T04:34:36.308Z",
+      "event": "emergency_stop_enabled"
+    },
+    {
+      "at": "2026-06-12T04:34:36.303Z",
+      "event": "daily_limit_updated",
+      "daily_limit_usd": 1.25,
+      "low_risk_auto_limit_usd": 0
+    },
+    {
+      "at": "2026-06-12T04:02:57.716Z",
+      "event": "emergency_stop_enabled"
+    },
+    {
+      "at": "2026-06-12T04:02:57.710Z",
+      "event": "daily_limit_updated",
+      "daily_limit_usd": 0,
+      "low_risk_auto_limit_usd": 0
+    },
+    {
+      "at": "2026-06-12T04:02:57.635Z",
+      "event": "emergency_stop_enabled"
+    },
+    {
+      "at": "2026-06-12T04:02:57.630Z",
+      "event": "daily_limit_updated",
+      "daily_limit_usd": 1.25,
+      "low_risk_auto_limit_usd": 0
+    },
+    {
+      "at": "2026-06-12T03:56:16.282Z",
+      "event": "emergency_stop_enabled"
+    },
+    {
+      "at": "2026-06-12T03:56:16.276Z",
+      "event": "daily_limit_updated",
+      "daily_limit_usd": 0,
+      "low_risk_auto_limit_usd": 0
+    },
+    {
+      "at": "2026-06-12T03:56:16.200Z",
+      "event": "emergency_stop_enabled"
+    },
+    {
+      "at": "2026-06-12T03:56:16.195Z",
+      "event": "daily_limit_updated",
+      "daily_limit_usd": 1.25,
+      "low_risk_auto_limit_usd": 0
+    },
+    {
+      "at": "2026-06-12T03:51:11.813Z",
+      "event": "emergency_stop_enabled"
+    },
+    {
+      "at": "2026-06-12T03:51:11.807Z",
+      "event": "daily_limit_updated",
+      "daily_limit_usd": 0,
+      "low_risk_auto_limit_usd": 0
+    },
+    {
+      "at": "2026-06-12T03:51:11.731Z",
+      "event": "emergency_stop_enabled"
+    },
+    {
+      "at": "2026-06-12T03:51:11.726Z",
+      "event": "daily_limit_updated",
+      "daily_limit_usd": 1.25,
+      "low_risk_auto_limit_usd": 0
+    },
+    {
+      "at": "2026-06-12T03:36:40.937Z",
+      "event": "emergency_stop_enabled"
+    },
+    {
+      "at": "2026-06-12T03:36:40.931Z",
+      "event": "daily_limit_updated",
+      "daily_limit_usd": 0,
+      "low_risk_auto_limit_usd": 0
+    },
+    {
+      "at": "2026-06-12T03:36:40.856Z",
+      "event": "emergency_stop_enabled"
+    },
+    {
+      "at": "2026-06-12T03:36:40.851Z",
+      "event": "daily_limit_updated",
+      "daily_limit_usd": 1.25,
+      "low_risk_auto_limit_usd": 0
+    },
+    {
+      "at": "2026-06-12T01:20:32.348Z",
+      "event": "emergency_stop_enabled"
+    },
+    {
+      "at": "2026-06-12T01:20:32.343Z",
+      "event": "daily_limit_updated",
+      "daily_limit_usd": 0,
+      "low_risk_auto_limit_usd": 0
+    },
+    {
+      "at": "2026-06-12T01:20:32.271Z",
+      "event": "emergency_stop_enabled"
+    },
+    {
+      "at": "2026-06-12T01:20:32.266Z",
+      "event": "daily_limit_updated",
+      "daily_limit_usd": 1.25,
+      "low_risk_auto_limit_usd": 0
+    },
+    {
+      "at": "2026-06-12T00:02:16.653Z",
+      "event": "emergency_stop_enabled"
+    },
+    {
+      "at": "2026-06-12T00:02:16.648Z",
+      "event": "daily_limit_updated",
+      "daily_limit_usd": 0,
+      "low_risk_auto_limit_usd": 0
+    },
+    {
+      "at": "2026-06-12T00:02:16.576Z",
+      "event": "emergency_stop_enabled"
+    },
+    {
+      "at": "2026-06-12T00:02:16.572Z",
+      "event": "daily_limit_updated",
+      "daily_limit_usd": 1.25,
+      "low_risk_auto_limit_usd": 0
+    },
     {
       "at": "2026-06-07T00:55:57.052Z",
       "event": "emergency_stop_enabled"
@@ -68,6 +208,10 @@
       "event": "daily_limit_updated",
       "daily_limit_usd": 1.25,
       "low_risk_auto_limit_usd": 0
+    },
+    {
+      "at": "2026-06-12T00:02:12.619Z",
+      "event": "daily_cost_counter_reset"
     }
   ]
 }
