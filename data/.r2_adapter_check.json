@@ -1,6 +1,6 @@
 {
-  "check_id": "r2_adapter_check_mqba4x5l_hktn7p",
-  "created_at": "2026-06-12T18:48:24.537Z",
+  "check_id": "r2_adapter_check_mqbaequs_ozytu8",
+  "created_at": "2026-06-12T18:56:02.932Z",
   "driver": "local_manifest",
   "purpose": "Verify object-storage adapter boundary without sending data to R2."
 }
