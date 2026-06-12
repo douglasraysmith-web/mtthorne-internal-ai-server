@@ -14,7 +14,7 @@ import { buildContract } from './servers/contracts.js';
 import { listTraces, listOpenTraces, getTrace, repairStuckTraces } from './servers/trace.js';
 import { memoryStatus, listMemory, addMemory } from './servers/memory.js';
 import { releaseCheck } from './servers/releaseGate.js';
-import { storageStatus, storageSelfCheck, storageMigrationPlan } from './servers/storage.js';
+import { initializeStorage, storageStatus, storageSelfCheck, storageConnectionCheck, migrateStorageFromJson, storageMigrationPlan } from './servers/storage.js';
 import { queueAdapterStatus, queueAdapterCheck, queueAdapterMigrationPlan } from './servers/queueAdapter.js';
 import { r2StorageStatus, r2StorageCheck, r2StorageMigrationPlan } from './servers/r2Storage.js';
 import { deploymentReadinessStatus, deploymentReadinessCheck, deploymentReadinessPlan } from './servers/deploymentReadiness.js';
@@ -42,6 +42,17 @@ function notFound(res) {
   return send(res, 404, { ok: false, error: 'not_found' });
 }
 
+function ownerAuthorized(req, body = {}) {
+  const configured = String(CONFIG.ownerApprovalToken || '');
+  if (!configured) return false;
+  const authorization = String(req.headers.authorization || '');
+  const bearer = authorization.replace(/^Bearer\s+/i, '').trim();
+  const headerToken = String(req.headers['x-owner-approval-token'] || '');
+  const bodyToken = String(body.owner_approval_token || body.owner_token || '');
+  return [bearer, headerToken, bodyToken].some((value) => value && value === configured);
+}
+
+
 const server = http.createServer(async (req, res) => {
   try {
     const url = new URL(req.url, `http://${req.headers.host}`);
@@ -55,7 +66,7 @@ const server = http.createServer(async (req, res) => {
     } : {};
     if (req.method === 'OPTIONS') return send(res, 204, {}, corsHeaders);
 
-    if (req.method === 'GET' && url.pathname === '/public/status') return send(res, 200, { ok: true, service: 'mtthorne-internal-ai-server', version: '1.1.0', ava: avaStatus(), arche_bridge: archeLiveBridgeStatus(), r2: await r2LiveStatus() }, corsHeaders);
+    if (req.method === 'GET' && url.pathname === '/public/status') return send(res, 200, { ok: true, service: 'mtthorne-internal-ai-server', version: '1.5.0', ava: avaStatus(), arche_bridge: archeLiveBridgeStatus(), r2: await r2LiveStatus() }, corsHeaders);
     if (req.method === 'GET' && url.pathname === '/api/ava/status') return send(res, 200, avaStatus(), corsHeaders);
     if (req.method === 'POST' && url.pathname === '/api/ava/chat') return send(res, 200, await avaChat(await readBody(req), { ip: req.headers['x-forwarded-for'] || req.socket.remoteAddress }), corsHeaders);
 
@@ -83,6 +94,12 @@ const server = http.createServer(async (req, res) => {
 
     if (req.method === 'GET' && url.pathname === '/storage/status') return send(res, 200, storageStatus());
     if (req.method === 'GET' && url.pathname === '/storage/check') return send(res, 200, storageSelfCheck());
+    if (req.method === 'GET' && url.pathname === '/storage/database-check') return send(res, 200, await storageConnectionCheck());
+    if (req.method === 'POST' && url.pathname === '/storage/migrate-json') {
+      const body = await readBody(req);
+      if (!ownerAuthorized(req, body)) return send(res, 401, { ok: false, error: 'owner_approval_required' });
+      return send(res, 200, await migrateStorageFromJson(body));
+    }
     if (req.method === 'GET' && url.pathname === '/storage/migration-plan') return send(res, 200, storageMigrationPlan());
 
     if (req.method === 'GET' && url.pathname === '/queue/adapter/status') return send(res, 200, queueAdapterStatus());
@@ -186,6 +203,12 @@ const server = http.createServer(async (req, res) => {
   }
 });
 
+const storageStartup = await initializeStorage();
+if (!storageStartup.ok && process.env.AI_POSTGRES_REQUIRE_CONNECTION === 'true') {
+  throw new Error(`Required storage failed to initialize: ${storageStartup.last_error || storageStartup.error || 'unknown_error'}`);
+}
+console.log(JSON.stringify({ event: 'storage_initialized', ...storageStartup }));
+
 server.listen(CONFIG.port, CONFIG.host, () => {
-  console.log(`Internal AI Server v1.1.0 listening on http://${CONFIG.host}:${CONFIG.port}`);
+  console.log(`Internal AI Server v1.5.0 listening on http://${CONFIG.host}:${CONFIG.port}`);
 });

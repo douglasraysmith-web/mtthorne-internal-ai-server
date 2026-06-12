@@ -5,7 +5,7 @@ import { providerStatus, providerCheck, providerEstimate, providerDispatch, cost
 
 test('v0.9.0 health exposes provider and cost gate layers', () => {
   const h = health();
-  assert.ok(['1.0.0','1.0.1','1.1.0'].includes(h.version));
+  assert.ok(['1.0.0','1.0.1','1.1.0','1.5.0'].includes(h.version));
   assert.ok(['provider_dispatch_gate_v1_0_0','provider_dispatch_gate_v1_1_0'].includes(h.provider_gate_layer));
   assert.equal(h.cost_gate_layer, 'cost_gate_v1_0_0');
 });

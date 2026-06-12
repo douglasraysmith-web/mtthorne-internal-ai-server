@@ -1,0 +1,20 @@
+{
+  "sessions": [
+    {
+      "session_key": "test-session-memory",
+      "turns": [
+        {
+          "role": "visitor",
+          "text": "My receiver is a Denon AVR-X3800H."
+        }
+      ],
+      "facts": {
+        "manufacturer": "Denon",
+        "model": "AVR-X3800H"
+      },
+      "diagnostic_state": null,
+      "created_at_ms": 1781240073936,
+      "updated_at_ms": 1781240073936
+    }
+  ]
+}

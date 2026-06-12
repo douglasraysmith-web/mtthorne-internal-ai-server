@@ -7,8 +7,48 @@
   "current_day": "2026-06-12",
   "owner_approval_required": true,
   "low_risk_auto_limit_usd": 0,
-  "updated_at": "2026-06-12T04:41:00.927Z",
+  "updated_at": "2026-06-12T04:54:40.112Z",
   "events": [
+    {
+      "at": "2026-06-12T04:54:40.112Z",
+      "event": "emergency_stop_enabled"
+    },
+    {
+      "at": "2026-06-12T04:54:40.107Z",
+      "event": "daily_limit_updated",
+      "daily_limit_usd": 0,
+      "low_risk_auto_limit_usd": 0
+    },
+    {
+      "at": "2026-06-12T04:54:40.006Z",
+      "event": "emergency_stop_enabled"
+    },
+    {
+      "at": "2026-06-12T04:54:40.001Z",
+      "event": "daily_limit_updated",
+      "daily_limit_usd": 1.25,
+      "low_risk_auto_limit_usd": 0
+    },
+    {
+      "at": "2026-06-12T04:53:20.698Z",
+      "event": "emergency_stop_enabled"
+    },
+    {
+      "at": "2026-06-12T04:53:20.692Z",
+      "event": "daily_limit_updated",
+      "daily_limit_usd": 0,
+      "low_risk_auto_limit_usd": 0
+    },
+    {
+      "at": "2026-06-12T04:53:20.591Z",
+      "event": "emergency_stop_enabled"
+    },
+    {
+      "at": "2026-06-12T04:53:20.585Z",
+      "event": "daily_limit_updated",
+      "daily_limit_usd": 1.25,
+      "low_risk_auto_limit_usd": 0
+    },
     {
       "at": "2026-06-12T04:41:00.927Z",
       "event": "emergency_stop_enabled"

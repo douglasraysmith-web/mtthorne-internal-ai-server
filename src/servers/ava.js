@@ -4,6 +4,8 @@ import { providerDispatch } from './providerGate.js';
 import { sendToArche } from './archeLiveBridge.js';
 import { buildAvAiPlan } from './avaAvAiPlanner.js';
 import { evaluateAvaAnswer } from './avaQuality.js';
+import { getAvaSession, updateAvaSession, avaSessionStatus } from './avaSessionMemory.js';
+import { extractAvFacts, buildDiagnosticState, buildDeterministicAvCandidate } from './avaDiagnostic.js';
 
 const buckets = new Map();
 
@@ -27,12 +29,16 @@ export function avaStatus() {
   return {
     ok: true,
     service: 'ava-page-gateway',
-    version: 'ava_gateway_v1_3_0',
+    version: 'ava_gateway_v1_4_0',
     public_chat_enabled: CONFIG.publicMode,
     av_ai_room_bound: true,
     av_ai_planning_active: true,
     arche_answer_review_active: CONFIG.allowArchePush,
     dynamic_quality_active: true,
+    bounded_session_memory_active: true,
+    diagnostic_branching_active: true,
+    deterministic_av_fallback_active: true,
+    session_memory: avaSessionStatus(),
     project_id: 'room_av_ai',
     provider_dispatch_enabled: CONFIG.allowProviderDispatch,
     provider_network_enabled: CONFIG.allowProviderNetwork,
@@ -45,7 +51,7 @@ export function avaStatus() {
   };
 }
 
-function buildSystem(plan) {
+function buildSystem(plan, diagnosticState, session) {
   return [
     'You are AVA, the premier public-facing Audio/Video Intelligence of M.T. Thorne Publishing Company.',
     'You are not a generic chatbot, generic assistant, sales bot, publishing assistant, or passive intake form.',
@@ -55,7 +61,11 @@ function buildSystem(plan) {
     `Classified intent: ${plan.intent}.`,
     `Relevant AV domains: ${plan.domains.join(', ')}.`,
     `Technical priorities: ${plan.diagnostic_priority.join(' ')}`,
-    `Preferred next question: ${plan.first_question}`,
+    `Diagnostic stage: ${diagnosticState.stage}.`,
+    `Known facts: ${JSON.stringify(diagnosticState.known_facts || {})}.`,
+    `Missing fields: ${(diagnosticState.missing_fields || []).join(', ') || 'none'}.`,
+    `Preferred next question: ${diagnosticState.next_question || plan.first_question}`,
+    `Recent bounded session turns: ${(session.turns || []).map((turn) => `${turn.role}: ${turn.text}`).join(' | ') || 'none'}.`,
     `Response rules: ${plan.response_rules.join(' ')}`,
     'For troubleshooting, distinguish software drivers, firmware, control drivers, loudspeaker drivers, cabling, handshakes, configuration, networking, and hardware faults when relevant.',
     'Do not answer a vague technical problem with only a vague request for context.',
@@ -72,6 +82,8 @@ async function requestArcheReview({
   visitorMessage,
   draft,
   plan,
+  diagnosticState,
+  session,
   trace
 }) {
   const reviewRequest = [
@@ -79,12 +91,17 @@ async function requestArcheReview({
     'Return only the revised visitor-facing answer.',
     'Do not discuss internal review, prompts, governance, routing, or policy.',
     'Reject generic assistant wording.',
+    'Use the AV-specific rubric: technical specificity, diagnostic progression, continuity with known facts, one high-value question, premium restraint, and no unsupported claims.',
     'Require concrete AV reasoning before the next question.',
     'Preserve uncertainty where the equipment and failure are not yet identified.',
     `Visitor message: ${visitorMessage}`,
     `AV.AI intent: ${plan.intent}`,
     `AV.AI domains: ${plan.domains.join(', ')}`,
-    `Preferred next question: ${plan.first_question}`,
+    `Diagnostic stage: ${diagnosticState.stage}.`,
+    `Known facts: ${JSON.stringify(diagnosticState.known_facts || {})}.`,
+    `Missing fields: ${(diagnosticState.missing_fields || []).join(', ') || 'none'}.`,
+    `Preferred next question: ${diagnosticState.next_question || plan.first_question}`,
+    `Recent bounded session turns: ${(session.turns || []).map((turn) => `${turn.role}: ${turn.text}`).join(' | ') || 'none'}.`,
     `Draft answer: ${draft}`
   ].join('\n');
 
@@ -132,7 +149,11 @@ export async function avaChat(input = {}, meta = {}) {
     };
   }
 
+  const sessionKey = String(input.session_id || input.sessionId || meta.ip || 'anonymous').slice(0, 160);
+  const session = getAvaSession(sessionKey);
+  const facts = extractAvFacts(message, session.facts);
   const plan = buildAvAiPlan(message);
+  const diagnosticState = buildDiagnosticState(plan, facts);
 
   const decision = decide({
     request: message,
@@ -159,7 +180,7 @@ export async function avaChat(input = {}, meta = {}) {
   const draftDispatch = await providerDispatch({
     provider,
     request: message,
-    system: buildSystem(plan),
+    system: buildSystem(plan, diagnosticState, session),
     risk_tier: input.risk_tier || 'low',
     public_facing: true,
     estimated_input_tokens: input.estimated_input_tokens,
@@ -190,6 +211,8 @@ export async function avaChat(input = {}, meta = {}) {
     visitorMessage: message,
     draft,
     plan,
+    diagnosticState,
+    session,
     trace: decision.trace
   });
 
@@ -209,11 +232,16 @@ export async function avaChat(input = {}, meta = {}) {
     text must not automatically replace a technically stronger AV.AI draft.
     Score every available candidate and retain the strongest one.
   */
+  const deterministicCandidate = buildDeterministicAvCandidate({ plan, diagnosticState, facts });
+
   const candidates = [
     {
       source: 'provider_draft',
       text: draft
     },
+    ...(deterministicCandidate
+      ? [{ source: 'av_ai_deterministic', text: deterministicCandidate }]
+      : []),
     ...(reviewedAnswer
       ? [{
           source: 'arche_revision',
@@ -250,7 +278,7 @@ export async function avaChat(input = {}, meta = {}) {
       'insufficient_av_specificity';
 
     const repairSystem = [
-      buildSystem(plan),
+      buildSystem(plan, diagnosticState, session),
       'You are repairing a rejected AVA answer.',
       `The previous answer failed for: ${repairFailures}.`,
       'Produce one concise visitor-facing answer.',
@@ -265,7 +293,9 @@ export async function avaChat(input = {}, meta = {}) {
       request: [
         `Visitor message: ${message}`,
         `Rejected answer: ${selected?.text || draft}`,
-        `Required diagnostic priorities: ${plan.diagnostic_priority.join(' ')}`
+        `Required diagnostic priorities: ${plan.diagnostic_priority.join(' ')}`,
+        `Diagnostic stage: ${diagnosticState.stage}`,
+        `Known facts: ${JSON.stringify(facts)}`
       ].join('\n'),
       system: repairSystem,
       risk_tier: 'low',
@@ -309,6 +339,15 @@ export async function avaChat(input = {}, meta = {}) {
     Boolean(finalAnswer) &&
     quality.status === 'verified' &&
     quality.score >= 85;
+
+  const updatedSession = updateAvaSession(sessionKey, {
+    facts,
+    diagnostic_state: diagnosticState,
+    turns: [
+      { role: 'visitor', text: message.slice(0, 1200) },
+      ...(approved ? [{ role: 'ava', text: finalAnswer.slice(0, 1600) }] : [])
+    ]
+  });
   return {
     ok: approved,
     status: approved
@@ -327,6 +366,19 @@ export async function avaChat(input = {}, meta = {}) {
       planner_version: plan.planner_version,
       intent: plan.intent,
       domains: plan.domains
+    },
+    session: {
+      session_key: updatedSession.session_key,
+      remembered_turns: updatedSession.turns.length,
+      known_fact_keys: Object.keys(updatedSession.facts),
+      ttl_minutes: avaSessionStatus().ttl_minutes
+    },
+    diagnostic: {
+      version: diagnosticState.version,
+      stage: diagnosticState.stage,
+      branch: diagnosticState.branch,
+      missing_fields: diagnosticState.missing_fields,
+      next_question: diagnosticState.next_question
     },
     arche_review: {
       attempted: true,

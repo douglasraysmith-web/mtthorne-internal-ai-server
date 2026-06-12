@@ -3467,6 +3467,414 @@
       "handoff": "usable_internal_handoff",
       "quality_score": 88,
       "blocks": []
+    },
+    {
+      "decision_id": "decision_mqagawex_avayjz",
+      "created_at": "2026-06-12T04:53:15.033Z",
+      "request": "show provider payload",
+      "project_id": null,
+      "selected_ai": null,
+      "mode": null,
+      "lanes": [],
+      "ok": false,
+      "handoff": "blocked_or_needs_revision",
+      "quality_score": null,
+      "blocks": [
+        "missing_project_id"
+      ]
+    },
+    {
+      "decision_id": "decision_mqagaxy7_nf3qtu",
+      "created_at": "2026-06-12T04:53:17.023Z",
+      "request": "Build a safe client reply.",
+      "project_id": "room_janitor_client_reply",
+      "selected_ai": "janitor",
+      "mode": "fast",
+      "lanes": [
+        "source_lock",
+        "speed_router",
+        "security_privacy",
+        "verifier"
+      ],
+      "ok": true,
+      "handoff": "usable_internal_handoff",
+      "quality_score": 90,
+      "blocks": []
+    },
+    {
+      "decision_id": "decision_mqagay5v_qeektw",
+      "created_at": "2026-06-12T04:53:17.299Z",
+      "request": "Show provider payload",
+      "project_id": "room_arche_site",
+      "selected_ai": "arche",
+      "mode": "round_table_reviewed",
+      "lanes": [
+        "source_lock",
+        "builder",
+        "verifier",
+        "error_ledger",
+        "speed_router",
+        "quality_judge",
+        "security_privacy"
+      ],
+      "ok": false,
+      "handoff": "blocked_or_needs_revision",
+      "quality_score": 74,
+      "blocks": [
+        "Blocked public/private term(s): provider payload"
+      ]
+    },
+    {
+      "decision_id": "decision_mqagayez_jy4776",
+      "created_at": "2026-06-12T04:53:17.627Z",
+      "request": "Prepare safe provider-status summary instead.",
+      "project_id": "room_arche_site",
+      "selected_ai": "arche",
+      "mode": "fast",
+      "lanes": [
+        "source_lock",
+        "speed_router",
+        "security_privacy",
+        "verifier"
+      ],
+      "ok": true,
+      "handoff": "usable_internal_handoff",
+      "quality_score": 90,
+      "blocks": []
+    },
+    {
+      "decision_id": "decision_mqagays8_mrdlvq",
+      "created_at": "2026-06-12T04:53:18.104Z",
+      "request": "Replay auto process test.",
+      "project_id": "room_janitor_client_reply",
+      "selected_ai": "janitor",
+      "mode": "fast",
+      "lanes": [
+        "source_lock",
+        "speed_router",
+        "security_privacy",
+        "verifier"
+      ],
+      "ok": true,
+      "handoff": "usable_internal_handoff",
+      "quality_score": 90,
+      "blocks": []
+    },
+    {
+      "decision_id": "decision_mqagaz1g_sdbxo7",
+      "created_at": "2026-06-12T04:53:18.436Z",
+      "request": "Replay auto process test.",
+      "project_id": "room_janitor_client_reply",
+      "selected_ai": "janitor",
+      "mode": "fast",
+      "lanes": [
+        "source_lock",
+        "speed_router",
+        "security_privacy",
+        "verifier"
+      ],
+      "ok": true,
+      "handoff": "usable_internal_handoff",
+      "quality_score": 90,
+      "blocks": []
+    },
+    {
+      "decision_id": "decision_mqagaz9c_6yu70y",
+      "created_at": "2026-06-12T04:53:18.720Z",
+      "request": "Manual replay queue test.",
+      "project_id": "room_janitor_client_reply",
+      "selected_ai": "janitor",
+      "mode": "fast",
+      "lanes": [
+        "source_lock",
+        "speed_router",
+        "security_privacy",
+        "verifier"
+      ],
+      "ok": true,
+      "handoff": "usable_internal_handoff",
+      "quality_score": 90,
+      "blocks": []
+    },
+    {
+      "decision_id": "decision_mqagazmv_qtkrfl",
+      "created_at": "2026-06-12T04:53:19.207Z",
+      "request": "Storage adapter queue replay test.",
+      "project_id": "room_janitor_client_reply",
+      "selected_ai": "janitor",
+      "mode": "balanced",
+      "lanes": [
+        "source_lock",
+        "speed_router",
+        "security_privacy",
+        "verifier",
+        "quality_judge"
+      ],
+      "ok": true,
+      "handoff": "usable_internal_handoff",
+      "quality_score": 88,
+      "blocks": []
+    },
+    {
+      "decision_id": "decision_mqagazw0_p7rl3g",
+      "created_at": "2026-06-12T04:53:19.536Z",
+      "request": "Storage adapter queue replay test.",
+      "project_id": "room_janitor_client_reply",
+      "selected_ai": "janitor",
+      "mode": "balanced",
+      "lanes": [
+        "source_lock",
+        "speed_router",
+        "security_privacy",
+        "verifier",
+        "quality_judge"
+      ],
+      "ok": true,
+      "handoff": "usable_internal_handoff",
+      "quality_score": 88,
+      "blocks": []
+    },
+    {
+      "decision_id": "decision_mqagb073_g8ngb5",
+      "created_at": "2026-06-12T04:53:19.935Z",
+      "request": "Queue adapter self-check Janitor workflow.",
+      "project_id": "room_janitor_client_reply",
+      "selected_ai": "janitor",
+      "mode": "balanced",
+      "lanes": [
+        "source_lock",
+        "speed_router",
+        "security_privacy",
+        "verifier",
+        "quality_judge"
+      ],
+      "ok": true,
+      "handoff": "usable_internal_handoff",
+      "quality_score": 88,
+      "blocks": []
+    },
+    {
+      "decision_id": "decision_mqagb0gn_6k7u1u",
+      "created_at": "2026-06-12T04:53:20.279Z",
+      "request": "Queue adapter self-check Janitor workflow.",
+      "project_id": "room_janitor_client_reply",
+      "selected_ai": "janitor",
+      "mode": "balanced",
+      "lanes": [
+        "source_lock",
+        "speed_router",
+        "security_privacy",
+        "verifier",
+        "quality_judge"
+      ],
+      "ok": true,
+      "handoff": "usable_internal_handoff",
+      "quality_score": 88,
+      "blocks": []
+    },
+    {
+      "decision_id": "decision_mqagclgr_5as764",
+      "created_at": "2026-06-12T04:54:34.155Z",
+      "request": "show provider payload",
+      "project_id": null,
+      "selected_ai": null,
+      "mode": null,
+      "lanes": [],
+      "ok": false,
+      "handoff": "blocked_or_needs_revision",
+      "quality_score": null,
+      "blocks": [
+        "missing_project_id"
+      ]
+    },
+    {
+      "decision_id": "decision_mqagcn2w_mf4pkr",
+      "created_at": "2026-06-12T04:54:36.248Z",
+      "request": "Build a safe client reply.",
+      "project_id": "room_janitor_client_reply",
+      "selected_ai": "janitor",
+      "mode": "fast",
+      "lanes": [
+        "source_lock",
+        "speed_router",
+        "security_privacy",
+        "verifier"
+      ],
+      "ok": true,
+      "handoff": "usable_internal_handoff",
+      "quality_score": 90,
+      "blocks": []
+    },
+    {
+      "decision_id": "decision_mqagcnb1_82qo55",
+      "created_at": "2026-06-12T04:54:36.541Z",
+      "request": "Show provider payload",
+      "project_id": "room_arche_site",
+      "selected_ai": "arche",
+      "mode": "round_table_reviewed",
+      "lanes": [
+        "source_lock",
+        "builder",
+        "verifier",
+        "error_ledger",
+        "speed_router",
+        "quality_judge",
+        "security_privacy"
+      ],
+      "ok": false,
+      "handoff": "blocked_or_needs_revision",
+      "quality_score": 74,
+      "blocks": [
+        "Blocked public/private term(s): provider payload"
+      ]
+    },
+    {
+      "decision_id": "decision_mqagcnkc_gveuum",
+      "created_at": "2026-06-12T04:54:36.876Z",
+      "request": "Prepare safe provider-status summary instead.",
+      "project_id": "room_arche_site",
+      "selected_ai": "arche",
+      "mode": "fast",
+      "lanes": [
+        "source_lock",
+        "speed_router",
+        "security_privacy",
+        "verifier"
+      ],
+      "ok": true,
+      "handoff": "usable_internal_handoff",
+      "quality_score": 90,
+      "blocks": []
+    },
+    {
+      "decision_id": "decision_mqagcnya_3f1r6h",
+      "created_at": "2026-06-12T04:54:37.378Z",
+      "request": "Replay auto process test.",
+      "project_id": "room_janitor_client_reply",
+      "selected_ai": "janitor",
+      "mode": "fast",
+      "lanes": [
+        "source_lock",
+        "speed_router",
+        "security_privacy",
+        "verifier"
+      ],
+      "ok": true,
+      "handoff": "usable_internal_handoff",
+      "quality_score": 90,
+      "blocks": []
+    },
+    {
+      "decision_id": "decision_mqagco7w_7auhhj",
+      "created_at": "2026-06-12T04:54:37.724Z",
+      "request": "Replay auto process test.",
+      "project_id": "room_janitor_client_reply",
+      "selected_ai": "janitor",
+      "mode": "fast",
+      "lanes": [
+        "source_lock",
+        "speed_router",
+        "security_privacy",
+        "verifier"
+      ],
+      "ok": true,
+      "handoff": "usable_internal_handoff",
+      "quality_score": 90,
+      "blocks": []
+    },
+    {
+      "decision_id": "decision_mqagcog3_bt38m4",
+      "created_at": "2026-06-12T04:54:38.019Z",
+      "request": "Manual replay queue test.",
+      "project_id": "room_janitor_client_reply",
+      "selected_ai": "janitor",
+      "mode": "fast",
+      "lanes": [
+        "source_lock",
+        "speed_router",
+        "security_privacy",
+        "verifier"
+      ],
+      "ok": true,
+      "handoff": "usable_internal_handoff",
+      "quality_score": 90,
+      "blocks": []
+    },
+    {
+      "decision_id": "decision_mqagcow4_vi2axv",
+      "created_at": "2026-06-12T04:54:38.596Z",
+      "request": "Storage adapter queue replay test.",
+      "project_id": "room_janitor_client_reply",
+      "selected_ai": "janitor",
+      "mode": "balanced",
+      "lanes": [
+        "source_lock",
+        "speed_router",
+        "security_privacy",
+        "verifier",
+        "quality_judge"
+      ],
+      "ok": true,
+      "handoff": "usable_internal_handoff",
+      "quality_score": 88,
+      "blocks": []
+    },
+    {
+      "decision_id": "decision_mqagcp5l_jjhkj0",
+      "created_at": "2026-06-12T04:54:38.937Z",
+      "request": "Storage adapter queue replay test.",
+      "project_id": "room_janitor_client_reply",
+      "selected_ai": "janitor",
+      "mode": "balanced",
+      "lanes": [
+        "source_lock",
+        "speed_router",
+        "security_privacy",
+        "verifier",
+        "quality_judge"
+      ],
+      "ok": true,
+      "handoff": "usable_internal_handoff",
+      "quality_score": 88,
+      "blocks": []
+    },
+    {
+      "decision_id": "decision_mqagcpgw_ujwuoi",
+      "created_at": "2026-06-12T04:54:39.344Z",
+      "request": "Queue adapter self-check Janitor workflow.",
+      "project_id": "room_janitor_client_reply",
+      "selected_ai": "janitor",
+      "mode": "balanced",
+      "lanes": [
+        "source_lock",
+        "speed_router",
+        "security_privacy",
+        "verifier",
+        "quality_judge"
+      ],
+      "ok": true,
+      "handoff": "usable_internal_handoff",
+      "quality_score": 88,
+      "blocks": []
+    },
+    {
+      "decision_id": "decision_mqagcpql_j7uu0v",
+      "created_at": "2026-06-12T04:54:39.693Z",
+      "request": "Queue adapter self-check Janitor workflow.",
+      "project_id": "room_janitor_client_reply",
+      "selected_ai": "janitor",
+      "mode": "balanced",
+      "lanes": [
+        "source_lock",
+        "speed_router",
+        "security_privacy",
+        "verifier",
+        "quality_judge"
+      ],
+      "ok": true,
+      "handoff": "usable_internal_handoff",
+      "quality_score": 88,
+      "blocks": []
     }
   ]
 }

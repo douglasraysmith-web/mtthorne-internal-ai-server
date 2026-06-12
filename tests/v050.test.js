@@ -6,7 +6,7 @@ import { enqueueJob, processJob, replayJob, getJob, listDeadLetterJobs } from '.
 
 test('v0.5.0 health exposes durable queue and workflow layers', () => {
   const h = health();
-  assert.ok(['0.5.0','0.5.1','0.6.0','0.7.0','0.8.0','0.9.0','0.9.0','0.9.0','0.9.0','1.0.0','1.0.1','1.1.0'].includes(h.version));
+  assert.ok(['0.5.0','0.5.1','0.6.0','0.7.0','0.8.0','0.9.0','0.9.0','0.9.0','0.9.0','1.0.0','1.0.1','1.1.0','1.5.0'].includes(h.version));
   assert.ok(['durable_queue_lifecycle_v0_5_0','durable_queue_lifecycle_v0_5_1'].includes(h.queue_layer));
   assert.ok(['replayable_workflows_v0_5_0','replayable_workflows_v0_5_1'].includes(h.workflow_layer));
   assert.equal(h.trace_layer, 'trace_log_v0_5_0');

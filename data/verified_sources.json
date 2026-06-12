@@ -208,6 +208,28 @@
       "source_id": "arche_master_source_v1_3",
       "summary": "Canonical ArchE source pointer.",
       "validated": true
+    },
+    {
+      "memory_id": "mem_mqagaxi8_rmum0l",
+      "layer": "verified_sources",
+      "created_at": "2026-06-12T04:53:16.448Z",
+      "updated_at": "2026-06-12T04:53:16.448Z",
+      "ttl_seconds": null,
+      "project_id": "room_arche_site",
+      "source_id": "arche_master_source_v1_3",
+      "summary": "Canonical ArchE source pointer.",
+      "validated": true
+    },
+    {
+      "memory_id": "mem_mqagcmm6_c4c7e5",
+      "layer": "verified_sources",
+      "created_at": "2026-06-12T04:54:35.646Z",
+      "updated_at": "2026-06-12T04:54:35.646Z",
+      "ttl_seconds": null,
+      "project_id": "room_arche_site",
+      "source_id": "arche_master_source_v1_3",
+      "summary": "Canonical ArchE source pointer.",
+      "validated": true
     }
   ]
 }

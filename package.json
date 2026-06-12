@@ -1,9 +1,9 @@
 {
   "name": "mtthorne-internal-ai-server",
-  "version": "1.1.0",
+  "version": "1.5.0",
   "private": true,
   "type": "module",
-  "description": "Stable internal AI sidecar v1.0.1 Railway port-safe patch for 4 primary AI systems plus 7 round-table lanes, using existing GitHub/Railway/Netlify/R2/OpenAI/Anthropic services with provider/cost gates, owner-approval locks, deployment profiles, queue/storage/R2 adapters, release gates, traces, memory layers, and bridge prep.",
+  "description": "Shared four-AI internal sidecar with PostgreSQL JSONB persistence, local recovery copies, AVA operational governance, provider/cost gates, and ArchE bridge.",
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
@@ -11,12 +11,15 @@
     "test": "node --test --test-concurrency=1 tests/*.test.js",
     "health": "node src/cli.js health",
     "decision": "node src/cli.js decision",
-    "queue": "node src/cli.js queue"
+    "queue": "node src/cli.js queue",
+    "storage:migrate": "node scripts/migrate-json-to-postgres.mjs",
+    "storage:migrate:overwrite": "node scripts/migrate-json-to-postgres.mjs --overwrite"
   },
   "engines": {
     "node": ">=20"
   },
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.828.0"
+    "@aws-sdk/client-s3": "^3.828.0",
+    "pg": "^8.21.0"
   }
 }

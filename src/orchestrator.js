@@ -19,7 +19,7 @@ export function health() {
   return {
     ok: true,
     service: 'mtthorne-internal-ai-server',
-    version: '1.1.0',
+    version: '1.5.0',
     primary_ai_count: 4,
     round_table_lane_count: 7,
     total_operating_seats: 11,
@@ -34,7 +34,7 @@ export function health() {
     release_gate: 'release_gate_v0_4_0',
     queue_layer: 'durable_queue_lifecycle_v0_5_1',
     workflow_layer: 'replayable_workflows_v0_5_1',
-    storage_layer: 'storage_adapter_v0_6_0',
+    storage_layer: 'storage_adapter_v1_5_0',
     storage_driver: storageStatus().active_driver,
     queue_adapter_layer: 'queue_adapter_v0_7_0',
     queue_driver: queueAdapterStatus().active_driver,
@@ -48,7 +48,7 @@ export function health() {
     deployment_profile_layer: 'existing_services_profile_v1_0_0',
     stable_sidecar_layer: 'stable_internal_sidecar_v1_1_0',
     emergency_stop: costStatus().emergency_stop,
-    ava_gateway_layer: 'ava_gateway_v1_1_0',
+    ava_gateway_layer: 'ava_gateway_v1_4_0',
     arche_live_bridge_layer: 'arche_live_bridge_v1_1_0',
     r2_live_driver_layer: 'r2_live_driver_v1_1_0'
   };
