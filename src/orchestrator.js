@@ -19,7 +19,7 @@ export function health() {
   return {
     ok: true,
     service: 'mtthorne-internal-ai-server',
-    version: '1.7.0',
+    version: '1.7.1',
     primary_ai_count: 4,
     round_table_lane_count: 7,
     total_operating_seats: 11,
@@ -49,7 +49,7 @@ export function health() {
     deployment_profile_layer: 'existing_services_profile_v1_0_0',
     stable_sidecar_layer: 'stable_internal_sidecar_v1_1_0',
     emergency_stop: costStatus().emergency_stop,
-    ava_gateway_layer: 'ava_gateway_v1_4_0',
+    ava_gateway_layer: 'ava_gateway_v1_4_1',
     arche_live_bridge_layer: 'arche_live_bridge_v1_1_0',
     r2_live_driver_layer: 'r2_live_driver_v1_1_0'
   };
