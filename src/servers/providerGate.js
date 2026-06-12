@@ -36,7 +36,35 @@ function loadCostState() {
     writeJson(costFile(), reset);
     return reset;
   }
-  return { ...DEFAULT_COST_STATE, ...state, cost_gate_version: 'provider_cost_gate_v1_0_0' };
+  const merged = {
+    ...DEFAULT_COST_STATE,
+    ...state,
+    cost_gate_version: 'provider_cost_gate_v1_0_0'
+  };
+
+  if (process.env.AI_DAILY_LIMIT_USD !== undefined) {
+    merged.daily_limit_usd =
+      Number(process.env.AI_DAILY_LIMIT_USD || 0);
+  }
+
+  if (process.env.AI_LOW_RISK_AUTO_LIMIT_USD !== undefined) {
+    merged.low_risk_auto_limit_usd =
+      Number(process.env.AI_LOW_RISK_AUTO_LIMIT_USD || 0);
+  }
+
+  if (process.env.AI_PROVIDER_EMERGENCY_STOP !== undefined) {
+    merged.emergency_stop =
+      String(process.env.AI_PROVIDER_EMERGENCY_STOP).toLowerCase() !== 'false'
+        ? true
+        : false;
+  }
+
+  if (process.env.AI_OWNER_APPROVAL_REQUIRED !== undefined) {
+    merged.owner_approval_required =
+      String(process.env.AI_OWNER_APPROVAL_REQUIRED).toLowerCase() !== 'false';
+  }
+
+  return merged;
 }
 
 function saveCostState(state) {
@@ -163,8 +191,20 @@ export function approvalCheck(input = {}) {
   const suppliedToken = String(input.owner_approval_token || input.owner_token || '');
   const tokenOk = configuredToken ? suppliedToken === configuredToken : false;
   const phraseOk = input.owner_approved === true || input.owner_approval === true || input.owner_approval_phrase === 'I_APPROVE_PROVIDER_DISPATCH';
-  const lowRiskAutoAllowed = !publicFacing && ['low', 'fast', ''].includes(risk) && Number(estimate.estimated_cost_usd || 0) <= Number(cost.low_risk_auto_limit_usd || 0);
-  const required = cost.owner_approval_required || ['medium', 'high', 'release'].includes(risk) || publicFacing;
+  const lowRiskAutoAllowed =
+    ['low', 'fast', ''].includes(risk) &&
+    Number(cost.low_risk_auto_limit_usd || 0) > 0 &&
+    Number(estimate.estimated_cost_usd || 0) <=
+      Number(cost.low_risk_auto_limit_usd || 0);
+
+  const required =
+    !lowRiskAutoAllowed &&
+    (
+      cost.owner_approval_required ||
+      ['medium', 'high', 'release'].includes(risk) ||
+      publicFacing
+    );
+
   const approved = lowRiskAutoAllowed || tokenOk || phraseOk;
   const result = {
     ok: !required || approved,
@@ -185,7 +225,21 @@ export function approvalCheck(input = {}) {
 export async function providerDispatch(input = {}) {
   const estimate = providerEstimate(input);
   const cost = loadCostState();
-  const boundary = scanPublicBoundary({ ...input, provider_dispatch: true });
+  /*
+    Scan only visitor-controlled public content and explicit capability flags.
+
+    Do not scan AVA's internal system instructions, governance wording,
+    provider metadata, route envelopes, or safety policy text. Those internal
+    instructions intentionally mention protected terms and must not block
+    themselves.
+  */
+  const boundary = scanPublicBoundary({
+    request: String(input.request || input.prompt || input.text || ''),
+    visibility: input.visibility,
+    provider_dispatch: true,
+    public_room_creation: input.public_room_creation === true,
+    public_source_upload: input.public_source_upload === true
+  });
   const approval = approvalCheck({ ...input, estimate });
   const blocks = [];
   const warnings = [];
