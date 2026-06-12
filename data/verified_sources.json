@@ -252,6 +252,17 @@
       "source_id": "arche_master_source_v1_3",
       "summary": "Canonical ArchE source pointer.",
       "validated": true
+    },
+    {
+      "memory_id": "mem_mqb9jp7n_njbq1z",
+      "layer": "verified_sources",
+      "created_at": "2026-06-12T18:31:54.467Z",
+      "updated_at": "2026-06-12T18:31:54.467Z",
+      "ttl_seconds": null,
+      "project_id": "room_arche_site",
+      "source_id": "arche_master_source_v1_3",
+      "summary": "Canonical ArchE source pointer.",
+      "validated": true
     }
   ]
 }

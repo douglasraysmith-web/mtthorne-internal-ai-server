@@ -1,6 +1,6 @@
 {
-  "check_id": "queue_adapter_check_mqb70zeu_wggcrh",
-  "created_at": "2026-06-12T17:21:22.000Z",
+  "check_id": "queue_adapter_check_mqb9js8f_m53nyq",
+  "created_at": "2026-06-12T18:31:58.393Z",
   "driver": "json_file",
   "purpose": "Verify queue adapter enqueue/process/replay path without provider dispatch or public activation."
 }

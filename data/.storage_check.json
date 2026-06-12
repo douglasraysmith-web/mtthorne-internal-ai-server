@@ -1,6 +1,6 @@
 {
-  "check_id": "storage_check_mqb70yrz_fv79xb",
-  "created_at": "2026-06-12T17:21:21.167Z",
+  "check_id": "storage_check_mqb9jrke_aaicvy",
+  "created_at": "2026-06-12T18:31:57.518Z",
   "driver": "json_file",
   "data_dir": "C:\\Users\\dougl\\Downloads\\internal-ai-server\\data",
   "purpose": "Verify adapter read/write round trip without touching business records."

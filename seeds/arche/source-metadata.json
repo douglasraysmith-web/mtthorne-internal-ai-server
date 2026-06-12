@@ -1,0 +1,12 @@
+{
+  "source_id": "arche_master_source_v1_3",
+  "title": "ArchĒ Master Source v1.3",
+  "project_room": "room_arche_site",
+  "allowed_ai": ["arche"],
+  "status": "approved",
+  "authority": "canonical",
+  "source_type": "governing_source",
+  "version": "1.3",
+  "content_location": "postgres",
+  "validated": true
+}
