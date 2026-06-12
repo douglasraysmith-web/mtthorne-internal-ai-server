@@ -47,10 +47,13 @@ export function evaluateAvaAnswer({
   if (
     containsAny(lower, [
       'first determine',
+      'determine whether',
       'before replacing',
+      'before changing',
       'isolate',
       'distinguish',
       'exact model',
+      'exact manufacturer and model',
       'what changed'
     ])
   ) {
