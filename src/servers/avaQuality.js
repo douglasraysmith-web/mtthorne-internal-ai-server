@@ -1,4 +1,4 @@
-function clamp(value, min = 0, max = 100) {
+﻿function clamp(value, min = 0, max = 100) {
   return Math.max(min, Math.min(max, value));
 }
 
@@ -27,6 +27,46 @@ export function evaluateAvaAnswer({
     arche_review: archeReviewed ? 95 : 35
   };
 
+  const systemDesignQualityText = `${source} ${lower}`;
+
+  if (plan.intent === 'system_design') {
+    if (
+      containsAny(systemDesignQualityText, [
+        'home theater',
+        'theater',
+        'cinema',
+        'living room',
+        'room',
+        'tv',
+        'television',
+        'display',
+        'projector',
+        'soundbar',
+        'receiver',
+        'avr',
+        'game console',
+        'gaming',
+        'music',
+        'speaker',
+        'subwoofer',
+        'picture',
+        'sound',
+        'seating',
+        'lighting',
+        'control',
+        'appearance',
+        'serviceability',
+        'dedicated cinema',
+        'everyday television',
+        'family use',
+        'use case',
+        'layout'
+      ])
+    ) {
+      scores.av_specificity += 35;
+      scores.diagnostic_value += 35;
+    }
+  }
   if (
     containsAny(lower, [
       'signal path',
@@ -162,3 +202,4 @@ export function evaluateAvaAnswer({
     failures
   };
 }
+
