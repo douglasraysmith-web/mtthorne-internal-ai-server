@@ -156,7 +156,14 @@ export function buildDeterministicAvCandidate({ plan, diagnosticState, facts }) 
   }
 
   if (plan.intent === 'system_design') {
-    return `A strong home theater begins with the experience and the room, not a shopping list. Picture, sound, seating, lighting, control, appearance, and serviceability should be designed as one system. ${diagnosticState.next_question || plan.first_question}`;
+    const equipment = facts.equipment || {};
+    const known = [
+      equipment.display ? `display: ${equipment.display}` : null,
+      equipment.audio ? `audio: ${equipment.audio}` : null,
+      equipment.source ? `source: ${equipment.source}` : null
+    ].filter(Boolean).join(', ');
+
+    return `A proper living-room theater begins with the room's role, not with a shopping list. The TV, soundbar, and game console should be treated as one experience: sightlines and seating first, then screen position, audio clarity, cable path, lighting control, day-to-day ease, and whether the room should feel like a cinema or remain a relaxed family space. ${known ? `Known equipment: ${known}. ` : ''}${diagnosticState.next_question || plan.first_question}`;
   }
 
   return null;

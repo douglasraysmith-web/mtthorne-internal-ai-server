@@ -58,6 +58,9 @@ function buildSystem(plan, diagnosticState, session, knowledgeContext = []) {
     'You are not a generic chatbot, generic assistant, sales bot, publishing assistant, or passive intake form.',
     'Your presence must convey quiet confidence, technical mastery, warmth, restraint, and premium judgment.',
     'Your response must demonstrate useful AV understanding before requesting more information.',
+    'For system-design and planning intake, sound like a premier AV design concierge: composed, elegant, precise, and useful without becoming theatrical or vague.',
+    'For a homeowner planning prompt, lead with the experience and the room before equipment: room function, sightlines, seating geometry, display placement, audio integration, lighting/control, appearance, and serviceability.',
+    'For system-design prompts, avoid a generic numbered checklist when a short premium design frame plus one strong next question will serve better.',
     'You operate from an AV.AI technical plan supplied below.',
     `Classified intent: ${plan.intent}.`,
     `Relevant AV domains: ${plan.domains.join(', ')}.`,
@@ -121,6 +124,120 @@ async function requestArcheReview({
   });
 }
 
+
+function buildAvaKnowledgeQuery({ message = '', session = {}, plan = {}, diagnosticState = {} } = {}) {
+  const recent = (session.turns || []).slice(-2).map((turn) => turn.text || '').join(' ');
+  const base = [message, recent, plan.intent, ...(plan.domains || []), diagnosticState.stage, diagnosticState.branch].join(' ');
+
+  if (plan.intent === 'system_design') {
+    return [
+      base,
+      'home theater living room cinema design public homeowner mode AVA public experience',
+      'room dimensions seating geometry display audio soundbar game console lighting control aesthetics serviceability',
+      'dedicated cinema everyday television music gaming family use experience definition system design'
+    ].join(' ');
+  }
+
+  if (plan.intent === 'troubleshooting' && (plan.domains || []).includes('hdmi_signal_path')) {
+    return [
+      base,
+      'HDMI EDID HDCP HDR black screen direct path source receiver display bandwidth cable port mode firmware'
+    ].join(' ');
+  }
+
+  return base;
+}
+
+function rankKnowledgeForAva(results = [], { plan = {}, diagnosticState = {}, message = '' } = {}) {
+  const intent = plan.intent || '';
+  const domains = plan.domains || [];
+  const requestText = String(message || '').toLowerCase();
+
+  return [...results]
+    .map((item) => {
+      const title = String(item.title || '').toLowerCase();
+      const content = String(item.content || item.summary || '').toLowerCase();
+      const keywords = (item.keywords || []).join(' ').toLowerCase();
+      const haystack = `${title} ${content} ${keywords}`;
+      let boost = 0;
+
+      if (intent === 'system_design') {
+        if (item.knowledge_layer === 'ava_public_behavior') boost += 8;
+        if (title.includes('mode: public homeowner mode')) boost += 20;
+        if (title.includes('ava public experience spec')) boost += 18;
+        if (title.includes('public site sections required')) boost += 14;
+        if (title.includes('convergence lineage')) boost += 12;
+        if (title.includes('current official source anchors')) boost += 10;
+        if (title.includes('voice signature') || title.includes('personality')) boost += 6;
+
+        for (const term of [
+          'home theater',
+          'living room',
+          'cinema',
+          'room',
+          'seating',
+          'display',
+          'soundbar',
+          'audio',
+          'video',
+          'lighting',
+          'control',
+          'gaming',
+          'public homeowner'
+        ]) {
+          if (haystack.includes(term)) boost += 2;
+          if (requestText.includes(term) && haystack.includes(term)) boost += 2;
+        }
+
+        if (
+          title.includes('payment') ||
+          title.includes('account') ||
+          title.includes('railway') ||
+          title.includes('database') ||
+          title.includes('migration') ||
+          title.includes('route integration') ||
+          title.includes('netlify')
+        ) {
+          boost -= 25;
+        }
+      }
+
+      if (intent === 'troubleshooting' && domains.includes('hdmi_signal_path')) {
+        for (const term of ['hdmi', 'edid', 'hdcp', 'hdr', 'bt.2100', 'mpeg', 'smpte', 'bandwidth']) {
+          if (haystack.includes(term)) boost += 5;
+        }
+      }
+
+      return {
+        ...item,
+        score: Number(item.score || 0) + boost,
+        relevance_boost: boost
+      };
+    })
+    .filter((item) => {
+      if (intent === 'system_design') {
+        return item.score > 0 && !String(item.title || '').toLowerCase().includes('payment / account');
+      }
+      return item.score > 0;
+    })
+    .sort((a, b) => Number(b.score || 0) - Number(a.score || 0));
+}
+
+function candidatePriority(candidate, plan = {}) {
+  if (plan.intent === 'system_design') {
+    if (candidate.source === 'av_ai_deterministic') return 30;
+    if (candidate.source === 'provider_draft') return 20;
+    if (candidate.source === 'automatic_repair') return 15;
+    if (candidate.source === 'arche_revision') return 10;
+  }
+
+  if (candidate.source === 'provider_draft') return 20;
+  if (candidate.source === 'av_ai_deterministic') return 18;
+  if (candidate.source === 'automatic_repair') return 15;
+  if (candidate.source === 'arche_revision') return 10;
+  return 0;
+}
+
 export async function avaChat(input = {}, meta = {}) {
   if (!CONFIG.publicMode) {
     return {
@@ -159,10 +276,13 @@ export async function avaChat(input = {}, meta = {}) {
   const session = getAvaSession(sessionKey);
   const facts = extractAvFacts(message, session.facts);
   const plan = buildAvAiPlan(message, session);
-  const knowledgeQuery = [message, ...(session.turns || []).slice(-2).map((turn) => turn.text || '')].join(' ');
-  const knowledgeSearch = searchKnowledge({ query: knowledgeQuery, aiId: 'av_ai', projectId: 'room_av_ai', limit: 6 });
-  const knowledgeContext = (knowledgeSearch.results || []).filter((item) => item.knowledge_layer === 'av_ai_technical_authority').slice(0, 4);
   const diagnosticState = buildDiagnosticState(plan, facts);
+  const knowledgeQuery = buildAvaKnowledgeQuery({ message, session, plan, diagnosticState });
+  const knowledgeSearch = searchKnowledge({ query: knowledgeQuery, aiId: 'av_ai', projectId: 'room_av_ai', limit: 18 });
+  const knowledgeContext = rankKnowledgeForAva(
+    (knowledgeSearch.results || []).filter((item) => ['av_ai_technical_authority', 'ava_public_behavior'].includes(item.knowledge_layer)),
+    { plan, diagnosticState, message }
+  ).slice(0, 4);
 
   const decision = decide({
     request: message,
@@ -268,9 +388,11 @@ export async function avaChat(input = {}, meta = {}) {
     })
   }));
 
-  candidates.sort(
-    (a, b) => Number(b.quality.score || 0) - Number(a.quality.score || 0)
-  );
+  candidates.sort((a, b) => {
+    const scoreDiff = Number(b.quality.score || 0) - Number(a.quality.score || 0);
+    if (scoreDiff !== 0) return scoreDiff;
+    return candidatePriority(b, plan) - candidatePriority(a, plan);
+  });
 
   let selected = candidates[0];
 
@@ -292,6 +414,7 @@ export async function avaChat(input = {}, meta = {}) {
       'You are repairing a rejected AVA answer.',
       `The previous answer failed for: ${repairFailures}.`,
       'Produce one concise visitor-facing answer.',
+      'If this is system design or planning intake, answer as a premium AV design concierge: frame the room and experience, then ask one high-value planning question.',
       'Demonstrate specific AV reasoning before asking a question.',
       'For an ambiguous driver issue, explicitly distinguish software driver, firmware, control-system driver, loudspeaker driver, and signal-path failure where appropriate.',
       `End with this high-value question or a more precise equivalent: ${plan.first_question}`,
@@ -377,7 +500,7 @@ export async function avaChat(input = {}, meta = {}) {
       planner_version: plan.planner_version,
       intent: plan.intent,
       domains: plan.domains,
-      knowledge_hits: knowledgeContext.map((item) => ({ knowledge_id: item.knowledge_id, title: item.title, score: item.score }))
+      knowledge_hits: knowledgeContext.map((item) => ({ knowledge_id: item.knowledge_id, title: item.title, score: item.score, layer: item.knowledge_layer }))
     },
     session: {
       session_key: updatedSession.session_key,
